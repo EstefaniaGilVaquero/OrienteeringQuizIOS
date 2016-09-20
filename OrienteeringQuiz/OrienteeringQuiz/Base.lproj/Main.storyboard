@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="i8e-7J-Eug">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--ORIENTEERING QUIZ-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="OrienteeringQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f93-5t-z8H">
+                                <rect key="frame" x="40" y="111" width="242" height="47"/>
+                                <color key="backgroundColor" red="0.20862252680000001" green="0.50350371979999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <state key="normal" title="SIMBOLOS DE MAPA">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="wYJ-MI-OqU" kind="push" id="OC9-WN-CvH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CeC-gx-xP7">
+                                <rect key="frame" x="40" y="173" width="242" height="47"/>
+                                <color key="backgroundColor" red="0.20862252680000001" green="0.50350371979999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <state key="normal" title="SIMBOLOS DE DESCRIPCION">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8AI-Vb-7bh">
+                                <rect key="frame" x="40" y="237" width="242" height="47"/>
+                                <color key="backgroundColor" red="0.20862252680000001" green="0.50350371979999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <state key="normal" title="QUIZ MIXTO">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="ORIENTEERING QUIZ" id="LMF-TA-vC3">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="qsn-Fz-jra"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="42" y="365"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Opl-kj-Idd">
+            <objects>
+                <viewController id="wYJ-MI-OqU" customClass="SYBViewController" customModule="OrienteeringQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cob-ix-85r"/>
+                        <viewControllerLayoutGuide type="bottom" id="nCF-jI-a8h"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cmb-4d-mTE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="beH-0l-51V">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="448"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eLl-hf-M6J">
+                                    <size key="itemSize" width="70" height="70"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="ELR-Os-Rpr" customClass="SYBCollectionViewCell" customModule="OrienteeringQuiz" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="74" width="70" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aDO-vn-Odw">
+                                                    <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="aDO-vn-Odw" firstAttribute="leading" secondItem="ELR-Os-Rpr" secondAttribute="leading" id="4cE-w0-GYc"/>
+                                            <constraint firstAttribute="trailing" secondItem="aDO-vn-Odw" secondAttribute="trailing" id="IBi-9Y-a9U"/>
+                                            <constraint firstItem="aDO-vn-Odw" firstAttribute="top" secondItem="ELR-Os-Rpr" secondAttribute="top" id="JKs-lr-8nI"/>
+                                            <constraint firstAttribute="bottom" secondItem="aDO-vn-Odw" secondAttribute="bottom" id="n2a-Ww-2lT"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="myImageView" destination="aDO-vn-Odw" id="1xW-J4-NtG"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="wYJ-MI-OqU" id="I5W-dB-HSh"/>
+                                    <outlet property="delegate" destination="wYJ-MI-OqU" id="C0S-Ye-2B8"/>
+                                </connections>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" semanticContentAttribute="forceLeftToRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Un cambio precipitado en el nivel del suelo que puede claramente ser distinguido de sus alrededores." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMp-df-gYj">
+                                <rect key="frame" x="10" y="456" width="300" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="85" id="OGy-cL-T33"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="FMp-df-gYj" firstAttribute="leading" secondItem="cmb-4d-mTE" secondAttribute="leadingMargin" constant="-6" id="1UI-L9-4kH"/>
+                            <constraint firstItem="nCF-jI-a8h" firstAttribute="top" secondItem="FMp-df-gYj" secondAttribute="bottom" constant="27" id="NjH-B7-0WR"/>
+                            <constraint firstItem="beH-0l-51V" firstAttribute="leading" secondItem="cmb-4d-mTE" secondAttribute="leading" id="Zem-sc-btT"/>
+                            <constraint firstItem="beH-0l-51V" firstAttribute="centerX" secondItem="FMp-df-gYj" secondAttribute="centerX" id="b4K-pf-rvi"/>
+                            <constraint firstItem="beH-0l-51V" firstAttribute="top" secondItem="cmb-4d-mTE" secondAttribute="top" id="f3z-Uq-QdM"/>
+                            <constraint firstAttribute="trailing" secondItem="beH-0l-51V" secondAttribute="trailing" id="iBB-o2-dfl"/>
+                            <constraint firstItem="FMp-df-gYj" firstAttribute="top" secondItem="beH-0l-51V" secondAttribute="bottom" constant="8" symbolic="YES" id="r3c-y9-Gg2"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="DZ9-5p-pIj"/>
+                    <connections>
+                        <outlet property="collectionView" destination="beH-0l-51V" id="sTQ-9H-s8f"/>
+                        <outlet property="myDescriptionLBL" destination="FMp-df-gYj" id="i82-KP-IzX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b38-GB-jHl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="417" y="364"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Fak-Wz-F9n">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="i8e-7J-Eug" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ed6-82-Ikb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="3ig-HM-Wd2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ufc-vO-bW2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-365" y="365"/>
+        </scene>
+    </scenes>
+</document>
