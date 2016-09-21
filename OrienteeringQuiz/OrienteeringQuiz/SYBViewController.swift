@@ -11,7 +11,6 @@ import UIKit
 class SYBViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
-    
     @IBOutlet weak var myDescriptionLBL: UILabel!
     //Creo un diccionario con las imagenes y otro con las descripciones
 
@@ -27,28 +26,33 @@ class SYBViewController: UIViewController, UICollectionViewDataSource, UICollect
                                                  4 : "Espolón",
                                                  5 : "Muro de tierra."]
     
-    var randomArray = Set<Int>()
+    var randomArray : [Int] = []
+    var contadorImagenesPintadas = 0
     
     let numeroImagenes = 4
     let delay = 0.5 // time in seconds
     let prueba = ""
-
-                        
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       //Se carga una descripcion aleatoria
-        //El problea es que aqui aun no se que imagenes aleatorias se han cargado, por tanto no puedo seleccionar una descripcion
-        //de esas imagenes
+       //Creamos un array de numeros aleatorios
+        var random = 0
         
-        self.myDescriptionLBL.text = descriptionsDictionary[RandomInt(min: 1, max: descriptionsDictionary.count)]
-
+        for indice in 0..<numeroImagenes{
+            repeat {
+                random = RandomInt(min: 1, max: self.symbolsDictionary.count)
+            }while randomArray.contains(random)
+            randomArray.insert(random, atIndex: indice)
+            
+        }
         
         
-
-
+    //Elijo una de las imagenes aleatorias para pillar su descripcion
+        let respuesta = randomArray[RandomInt(min: 0, max: randomArray.count-1)]
+        //Asigno la descripccion al label
+        self.myDescriptionLBL.text = descriptionsDictionary[respuesta]
     }
 
     override func didReceiveMemoryWarning() {
@@ -65,24 +69,14 @@ class SYBViewController: UIViewController, UICollectionViewDataSource, UICollect
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! SYBCollectionViewCell
-        
-        //cell.myImageView?.image = self.symbolsArray[indexPath.row]
-        
-        //calculo un indice aleatorio
-        var random = 0
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! SYBCollectionViewCell
         
         
-        repeat {
-            random = RandomInt(min: 1, max: self.symbolsDictionary.count)
-        } while randomArray.contains(random)
+        //Pinto la imagen correspondiente
         
-        randomArray.insert(random)
-        
-        cell.myImageView.image = self.symbolsDictionary[random]
-        
- 
- 
+        cell.myImageView.image = self.symbolsDictionary[randomArray[contadorImagenesPintadas]]
+        //Aumento contador de imagenes pintadas
+        contadorImagenesPintadas = contadorImagenesPintadas + 1
         
         return cell
         
@@ -93,15 +87,5 @@ class SYBViewController: UIViewController, UICollectionViewDataSource, UICollect
 
         return Int(arc4random_uniform(UInt32((max - min) + 1))) + min
     }
-
- /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
