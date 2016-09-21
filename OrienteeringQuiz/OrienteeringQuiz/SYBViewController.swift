@@ -12,47 +12,48 @@ class SYBViewController: UIViewController, UICollectionViewDataSource, UICollect
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var myDescriptionLBL: UILabel!
-    //Creo un diccionario con las imagenes y otro con las descripciones
-
-    let symbolsDictionary: [Int: UIImage] = [1: UIImage(named: "simbolo1")!,
-                                             2 : UIImage(named: "simbolo2")!,
-                                             3 : UIImage(named: "simbolo3")!,
-                                             4 : UIImage(named: "simbolo4")!,
-                                             5 : UIImage(named: "simbolo5")!]
     
-    let descriptionsDictionary: [Int: String] = [1: "Cantera.",
-                                                 2 : "Surco erosión",
-                                                 3 : "Terraza.",
-                                                 4 : "Espolón",
-                                                 5 : "Muro de tierra."]
+    //MARK: VARIABLES LOCALES GLOBALES
+
+    var simbolosArray = []
+    var simbolosArraySeleccion = [[:]]
+    var simbolosDiccionario = [:]
+    var respuesta = 0
+
+    
     
     var randomArray : [Int] = []
-    var contadorImagenesPintadas = 0
+
     
     let numeroImagenes = 4
-    let delay = 0.5 // time in seconds
-    let prueba = ""
+
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       //Creamos un array de numeros aleatorios
+        //Recuperamos de SymbolosMapa.plist
+        let path = NSBundle.mainBundle().pathForResource("SymbolosMapa", ofType: "plist")
+        simbolosArray = NSArray(contentsOfFile: path!)!
+
+        //Creamos un array de numeros aleatorios
         var random = 0
         
         for indice in 0..<numeroImagenes{
             repeat {
-                random = RandomInt(min: 1, max: self.symbolsDictionary.count)
+                random = RandomInt(min: 0, max: simbolosArray.count-1)
             }while randomArray.contains(random)
             randomArray.insert(random, atIndex: indice)
             
         }
         
-        
-    //Elijo una de las imagenes aleatorias para pillar su descripcion
-        let respuesta = randomArray[RandomInt(min: 0, max: randomArray.count-1)]
+        //Elijo una de las imagenes aleatorias para pillar su descripcion
+        respuesta = randomArray[RandomInt(min: 0, max: randomArray.count-1)]
         //Asigno la descripccion al label
-        self.myDescriptionLBL.text = descriptionsDictionary[respuesta]
+        
+        simbolosDiccionario = simbolosArray.objectAtIndex(respuesta) as! NSDictionary
+        let descripcion = simbolosDiccionario["Descripcion"] as! String
+        myDescriptionLBL.text = descripcion
     }
 
     override func didReceiveMemoryWarning() {
@@ -74,11 +75,35 @@ class SYBViewController: UIViewController, UICollectionViewDataSource, UICollect
         
         //Pinto la imagen correspondiente
         
-        cell.myImageView.image = self.symbolsDictionary[randomArray[contadorImagenesPintadas]]
-        //Aumento contador de imagenes pintadas
-        contadorImagenesPintadas = contadorImagenesPintadas + 1
         
+        simbolosDiccionario = simbolosArray.objectAtIndex(randomArray[indexPath.row]) as! NSDictionary
+        let imagen = simbolosDiccionario["Imagen"] as! String
+        let imagenSimbolo = UIImage(named: imagen)
+        
+        cell.myImagenSimbolo.image = imagenSimbolo
+        
+
         return cell
+        
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+       
+        //Cuando seleccionen una imagen mostramos check OK/KO
+        var imageView : UIImageView
+        imageView  = UIImageView(frame:CGRectMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0, 100, 100));
+        
+        if (respuesta == randomArray[indexPath.row]){
+            imageView.image = UIImage(named:"checkOK.png")
+            
+        
+        }else{
+            imageView.image = UIImage(named:"checkKO.png")
+        }
+        
+        self.view.addSubview(imageView)
+        
+        
         
     }
     

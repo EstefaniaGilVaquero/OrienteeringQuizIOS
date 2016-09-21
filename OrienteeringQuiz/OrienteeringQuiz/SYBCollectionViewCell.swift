@@ -10,7 +10,8 @@ import UIKit
 
 class SYBCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var myImageView: UIImageView!
+    
+    @IBOutlet weak var myImagenSimbolo: UIImageView!
 
 
     

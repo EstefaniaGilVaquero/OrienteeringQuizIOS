@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Imagen</key>
+		<string>simbolo0.png</string>
+		<key>Descripcion</key>
+		<string>Cantera</string>
+	</dict>
+	<dict>
+		<key>Imagen</key>
+		<string>simbolo1.png</string>
+		<key>Descripcion</key>
+		<string>Surco / Erosión</string>
+	</dict>
+	<dict>
+		<key>Imagen</key>
+		<string>simbolo2.png</string>
+		<key>Descripcion</key>
+		<string>Terraza</string>
+	</dict>
+	<dict>
+		<key>Imagen</key>
+		<string>simbolo3.png</string>
+		<key>Descripcion</key>
+		<string>Espolón</string>
+	</dict>
+	<dict>
+		<key>Imagen</key>
+		<string>simbolo4.png</string>
+		<key>Descripcion</key>
+		<string>Muro de Tierra</string>
+	</dict>
+</array>
+</plist>
