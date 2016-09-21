@@ -9,7 +9,7 @@
         <!--ORIENTEERING QUIZ-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="OrienteeringQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SYBMenuViewController" customModule="OrienteeringQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -18,32 +18,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f93-5t-z8H">
-                                <rect key="frame" x="40" y="111" width="242" height="47"/>
-                                <color key="backgroundColor" red="0.20862252680000001" green="0.50350371979999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                <state key="normal" title="SIMBOLOS DE MAPA">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="simbolosMapa.png" translatesAutoresizingMaskIntoConstraints="NO" id="2Y2-tj-K8Z">
+                                <rect key="frame" x="160" y="64" width="160" height="130"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="simbolosMapa.png" translatesAutoresizingMaskIntoConstraints="NO" id="qj7-Rt-vUz">
+                                <rect key="frame" x="1" y="195" width="160" height="130"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="simbolosMapa.png" translatesAutoresizingMaskIntoConstraints="NO" id="13c-wi-oJv">
+                                <rect key="frame" x="160" y="195" width="160" height="130"/>
+                            </imageView>
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="simbolosMapa.png" translatesAutoresizingMaskIntoConstraints="NO" id="Kte-2t-7mZ">
+                                <rect key="frame" x="0.0" y="64" width="160" height="130"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zLD-67-s0C">
+                                <rect key="frame" x="160" y="64" width="160" height="130"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MNN-pI-Hu1">
+                                <rect key="frame" x="0.0" y="194" width="160" height="130"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vq5-XO-zEC">
+                                <rect key="frame" x="160" y="194" width="160" height="130"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qQX-UR-mvy">
+                                <rect key="frame" x="0.0" y="64" width="160" height="130"/>
+                                <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="wYJ-MI-OqU" kind="push" id="OC9-WN-CvH"/>
+                                    <segue destination="wYJ-MI-OqU" kind="push" id="xwj-Xg-VDJ"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CeC-gx-xP7">
-                                <rect key="frame" x="40" y="173" width="242" height="47"/>
-                                <color key="backgroundColor" red="0.20862252680000001" green="0.50350371979999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                <state key="normal" title="SIMBOLOS DE DESCRIPCION">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8AI-Vb-7bh">
-                                <rect key="frame" x="40" y="237" width="242" height="47"/>
-                                <color key="backgroundColor" red="0.20862252680000001" green="0.50350371979999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                <state key="normal" title="QUIZ MIXTO">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -51,6 +55,12 @@
                     <navigationItem key="navigationItem" title="ORIENTEERING QUIZ" id="LMF-TA-vC3">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="qsn-Fz-jra"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="button" destination="qQX-UR-mvy" id="fwv-dQ-HpH"/>
+                        <outlet property="button2" destination="zLD-67-s0C" id="RuI-4G-Idt"/>
+                        <outlet property="button3" destination="MNN-pI-Hu1" id="QaV-TK-Osh"/>
+                        <outlet property="button4" destination="Vq5-XO-zEC" id="Npu-BD-Uqo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -158,4 +168,7 @@
             <point key="canvasLocation" x="-365" y="365"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="simbolosMapa.png" width="444" height="291"/>
+    </resources>
 </document>

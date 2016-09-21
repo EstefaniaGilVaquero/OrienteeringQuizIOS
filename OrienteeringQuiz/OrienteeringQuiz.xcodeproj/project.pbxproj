@@ -17,6 +17,8 @@
 		D5B2F62C1D92E1A7008DF8A3 /* simbolo4.png in Resources */ = {isa = PBXBuildFile; fileRef = D5B2F6271D92E1A7008DF8A3 /* simbolo4.png */; };
 		D5B2F62E1D92EC60008DF8A3 /* checkOK.png in Resources */ = {isa = PBXBuildFile; fileRef = D5B2F62D1D92EC60008DF8A3 /* checkOK.png */; };
 		D5B2F6301D930BCD008DF8A3 /* checkKO.png in Resources */ = {isa = PBXBuildFile; fileRef = D5B2F62F1D930BCD008DF8A3 /* checkKO.png */; };
+		D5B2F6321D931512008DF8A3 /* simbolosMapa.png in Resources */ = {isa = PBXBuildFile; fileRef = D5B2F6311D931512008DF8A3 /* simbolosMapa.png */; };
+		D5B2F6341D93182D008DF8A3 /* SYBMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B2F6331D93182D008DF8A3 /* SYBMenuViewController.swift */; };
 		D5B37C1C1D68E431002009DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B37C1B1D68E431002009DB /* AppDelegate.swift */; };
 		D5B37C211D68E431002009DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5B37C1F1D68E431002009DB /* Main.storyboard */; };
 		D5B37C231D68E432002009DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5B37C221D68E432002009DB /* Assets.xcassets */; };
@@ -34,6 +36,8 @@
 		D5B2F6271D92E1A7008DF8A3 /* simbolo4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = simbolo4.png; sourceTree = "<group>"; };
 		D5B2F62D1D92EC60008DF8A3 /* checkOK.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkOK.png; sourceTree = "<group>"; };
 		D5B2F62F1D930BCD008DF8A3 /* checkKO.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkKO.png; sourceTree = "<group>"; };
+		D5B2F6311D931512008DF8A3 /* simbolosMapa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = simbolosMapa.png; sourceTree = "<group>"; };
+		D5B2F6331D93182D008DF8A3 /* SYBMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SYBMenuViewController.swift; path = ../SYBMenuViewController.swift; sourceTree = "<group>"; };
 		D5B37C181D68E431002009DB /* OrienteeringQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrienteeringQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5B37C1B1D68E431002009DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D5B37C201D68E431002009DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -56,6 +60,7 @@
 		D5B2F6211D92E17D008DF8A3 /* IMAGENES */ = {
 			isa = PBXGroup;
 			children = (
+				D5B2F6311D931512008DF8A3 /* simbolosMapa.png */,
 				D5B2F62F1D930BCD008DF8A3 /* checkKO.png */,
 				D5B2F62D1D92EC60008DF8A3 /* checkOK.png */,
 				D5B2F6221D92E187008DF8A3 /* SIMBOLOS_MAPA */,
@@ -98,6 +103,7 @@
 				D5B37C1B1D68E431002009DB /* AppDelegate.swift */,
 				D55677471D69CA1E00A35C0E /* SYBCollectionViewCell.swift */,
 				D556774B1D69D9D800A35C0E /* SYBViewController.swift */,
+				D5B2F6331D93182D008DF8A3 /* SYBMenuViewController.swift */,
 				D5B37C1F1D68E431002009DB /* Main.storyboard */,
 				D5B37C221D68E432002009DB /* Assets.xcassets */,
 				D5B37C241D68E432002009DB /* LaunchScreen.storyboard */,
@@ -168,6 +174,7 @@
 			files = (
 				D5B2F62B1D92E1A7008DF8A3 /* simbolo3.png in Resources */,
 				D5B37C261D68E432002009DB /* LaunchScreen.storyboard in Resources */,
+				D5B2F6321D931512008DF8A3 /* simbolosMapa.png in Resources */,
 				D5B37C231D68E432002009DB /* Assets.xcassets in Resources */,
 				D5B2F6291D92E1A7008DF8A3 /* simbolo1.png in Resources */,
 				D5B2F62E1D92EC60008DF8A3 /* checkOK.png in Resources */,
@@ -187,6 +194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5B2F6341D93182D008DF8A3 /* SYBMenuViewController.swift in Sources */,
 				D55677481D69CA1E00A35C0E /* SYBCollectionViewCell.swift in Sources */,
 				D556774C1D69D9D800A35C0E /* SYBViewController.swift in Sources */,
 				D5B37C1C1D68E431002009DB /* AppDelegate.swift in Sources */,

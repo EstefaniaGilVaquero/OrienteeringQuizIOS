@@ -103,6 +103,17 @@ class SYBViewController: UIViewController, UICollectionViewDataSource, UICollect
         
         self.view.addSubview(imageView)
         
+        //escondemos el check despues de un rato
+        let seconds = 1.0
+        let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+        let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        
+        dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+            
+            imageView.hidden = true
+            
+        })
+        
         
         
     }
