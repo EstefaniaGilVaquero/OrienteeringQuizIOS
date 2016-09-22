@@ -96,6 +96,9 @@ class SYBViewController: UIViewController, UICollectionViewDataSource, UICollect
         if (respuesta == randomArray[indexPath.row]){
             imageView.image = UIImage(named:"checkOK.png")
             
+            
+            
+            
         
         }else{
             imageView.image = UIImage(named:"checkKO.png")
