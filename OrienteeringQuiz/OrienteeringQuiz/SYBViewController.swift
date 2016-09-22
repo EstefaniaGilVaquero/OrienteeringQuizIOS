@@ -16,9 +16,12 @@ class SYBViewController: UIViewController, UICollectionViewDataSource, UICollect
     //MARK: VARIABLES LOCALES GLOBALES
 
     var simbolosArray = []
-    var simbolosArraySeleccion = [[:]]
+   // var simbolosArraySeleccion = [[:]]
     var simbolosDiccionario = [:]
     var respuesta = 0
+    
+    
+
 
     
     
@@ -37,23 +40,12 @@ class SYBViewController: UIViewController, UICollectionViewDataSource, UICollect
         simbolosArray = NSArray(contentsOfFile: path!)!
 
         //Creamos un array de numeros aleatorios
-        var random = 0
+        generarAleatorios()
         
-        for indice in 0..<numeroImagenes{
-            repeat {
-                random = RandomInt(min: 0, max: simbolosArray.count-1)
-            }while randomArray.contains(random)
-            randomArray.insert(random, atIndex: indice)
-            
-        }
+        //Genero una descripcion para mostrar
+        generarDescripcion()
         
-        //Elijo una de las imagenes aleatorias para pillar su descripcion
-        respuesta = randomArray[RandomInt(min: 0, max: randomArray.count-1)]
-        //Asigno la descripccion al label
         
-        simbolosDiccionario = simbolosArray.objectAtIndex(respuesta) as! NSDictionary
-        let descripcion = simbolosDiccionario["Descripcion"] as! String
-        myDescriptionLBL.text = descripcion
     }
 
     override func didReceiveMemoryWarning() {
@@ -97,7 +89,13 @@ class SYBViewController: UIViewController, UICollectionViewDataSource, UICollect
             imageView.image = UIImage(named:"checkOK.png")
             
             
+            //Creamos un array de numeros aleatorios
+            generarAleatorios()
             
+            //Genero una descripcion para mostrar
+            generarDescripcion()
+            
+          // self.collectionView?.reloadData()
             
         
         }else{
@@ -106,11 +104,12 @@ class SYBViewController: UIViewController, UICollectionViewDataSource, UICollect
         
         self.view.addSubview(imageView)
         
-        //escondemos el check despues de un rato
+        //delay
         let seconds = 1.0
         let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
         let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
         
+        //escondemos el check despues de un rato
         dispatch_after(dispatchTime, dispatch_get_main_queue(), {
             
             imageView.hidden = true
@@ -126,5 +125,31 @@ class SYBViewController: UIViewController, UICollectionViewDataSource, UICollect
 
         return Int(arc4random_uniform(UInt32((max - min) + 1))) + min
     }
+    
+    func generarAleatorios(){
+        //Creamos un array de numeros aleatorios
+        var random = 0
+        randomArray.removeAll()
+        
+        for indice in 0..<numeroImagenes{
+            repeat {
+                random = RandomInt(min: 0, max: simbolosArray.count-1)
+            }while randomArray.contains(random)
+            randomArray.insert(random, atIndex: indice)
+            
+        }
+
+    }
+    
+    func generarDescripcion(){
+        respuesta = randomArray[RandomInt(min: 0, max: randomArray.count-1)]
+        //Asigno la descripccion al label
+        
+        simbolosDiccionario = simbolosArray.objectAtIndex(respuesta) as! NSDictionary
+        let descripcion = simbolosDiccionario["Descripcion"] as! String
+        myDescriptionLBL.text = descripcion
+    }
+    
+   
 
 }
