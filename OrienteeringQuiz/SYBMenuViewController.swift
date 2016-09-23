@@ -36,6 +36,7 @@ class SYBMenuViewController: UIViewController {
         
         buttonRegistro.backgroundColor = menuColo1
         buttonSymbolosMapa.backgroundColor = menuColo4
+        buttonSymbolosMapa.imageView?.image = UIImage(named: "simbolosMapa.png")
         buttonSymbolosDescripcion.backgroundColor = menuColo3
         buttonRanking.backgroundColor = menuColo2
         buttonListado.backgroundColor = menuColo5

@@ -28,7 +28,7 @@ class SYBViewController: UIViewController, UICollectionViewDataSource, UICollect
     var randomArray : [Int] = []
 
     
-    let numeroImagenes = 4
+    var numeroImagenes = 4
 
     
     
@@ -88,6 +88,8 @@ class SYBViewController: UIViewController, UICollectionViewDataSource, UICollect
         if (respuesta == randomArray[indexPath.row]){
             imageView.image = UIImage(named:"checkOK.png")
             
+            //numeroImagenes = numeroImagenes + 1
+            
             
             //Creamos un array de numeros aleatorios
             generarAleatorios()
@@ -95,7 +97,7 @@ class SYBViewController: UIViewController, UICollectionViewDataSource, UICollect
             //Genero una descripcion para mostrar
             generarDescripcion()
             
-          // self.collectionView?.reloadData()
+            self.collectionView?.reloadData()
             
         
         }else{
