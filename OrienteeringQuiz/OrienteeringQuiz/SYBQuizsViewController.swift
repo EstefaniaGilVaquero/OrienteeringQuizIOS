@@ -1,5 +1,5 @@
 //
-//  SYBViewController.swift
+//  SYBQuizsViewController.swift
 //  OrienteeringQuiz
 //
 //  Created by Estefanía Gil Vaquero on 21/8/16.
@@ -8,10 +8,14 @@
 
 import UIKit
 
-class SYBViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var myDescriptionLBL: UILabel!
+    
+    
+    
+    
     
     //MARK: VARIABLES LOCALES GLOBALES
 
@@ -19,24 +23,28 @@ class SYBViewController: UIViewController, UICollectionViewDataSource, UICollect
    // var simbolosArraySeleccion = [[:]]
     var simbolosDiccionario = [:]
     var respuesta = 0
-    
-    
-
-
-    
-    
     var randomArray : [Int] = []
-
-    
-    let numeroImagenes = 4
+    var numeroImagenes = 0
+    var tituloNavigationController = ""
+    var nombrePlist = ""
 
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Maquetacion
+        //Estilo background
+        let menuColo1 = UIColor(red: 0.965, green: 0.467, blue: 0.161, alpha: 1)
+
+        view.backgroundColor = menuColo1
+        collectionView.backgroundColor = menuColo1
+        
+        //Ponemos titulo al VC
+        self.title = tituloNavigationController
+        
         //Recuperamos de SymbolosMapa.plist
-        let path = NSBundle.mainBundle().pathForResource("SymbolosMapa", ofType: "plist")
+        let path = NSBundle.mainBundle().pathForResource(nombrePlist, ofType: "plist")
         simbolosArray = NSArray(contentsOfFile: path!)!
 
         //Creamos un array de numeros aleatorios
@@ -95,7 +103,7 @@ class SYBViewController: UIViewController, UICollectionViewDataSource, UICollect
             //Genero una descripcion para mostrar
             generarDescripcion()
             
-          // self.collectionView?.reloadData()
+            self.collectionView?.reloadData()
             
         
         }else{

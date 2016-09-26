@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="i8e-7J-Eug">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="i8e-7J-Eug">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--ORIENTEERING QUIZ-->
+        <!--Orienteering Quiz-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="SYBMenuViewController" customModule="OrienteeringQuiz" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,45 +18,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="qQX-UR-mvy">
-                                <rect key="frame" x="0.0" y="139" width="160" height="75"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="SYMBOLOS MAPA">
+                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="nGy-4d-tJF">
+                                <rect key="frame" x="0.0" y="64" width="160" height="100"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="APRENDE LOS SIMBOLOS">
+                                    <color key="titleColor" red="0.9653268532" green="1" blue="0.97240034200000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="qQX-UR-mvy">
+                                <rect key="frame" x="160" y="64" width="160" height="100"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <state key="normal" title="QUIZ SYMBOLOS MAPA">
                                     <color key="titleColor" red="0.9653268532" green="1" blue="0.97240034200000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.40000000000000002" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="wYJ-MI-OqU" kind="push" id="xwj-Xg-VDJ"/>
+                                    <segue destination="wYJ-MI-OqU" kind="push" identifier="simbolosMapa" id="xwj-Xg-VDJ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="adm-EI-GbH">
-                                <rect key="frame" x="160" y="214" width="160" height="75"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="LISTADO">
+                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="3xA-fV-BVn">
+                                <rect key="frame" x="0.0" y="163" width="160" height="100"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <state key="normal" title="QUIZ SYMBOLOS DESCRIPCION">
+                                    <color key="titleColor" red="0.9653268532" green="1" blue="0.97240034200000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.40000000000000002" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="wYJ-MI-OqU" kind="push" identifier="simbolosDescripcion" id="pHY-Hp-XxM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="adm-EI-GbH">
+                                <rect key="frame" x="160" y="163" width="160" height="100"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="QUIZ MIXTO">
                                     <color key="titleColor" red="0.9653268532" green="1" blue="0.97240034200000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.40000000000000002" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="lhj-DA-8h6">
-                                <rect key="frame" x="0.0" y="214" width="160" height="75"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="aprendeSimbolos.png" translatesAutoresizingMaskIntoConstraints="NO" id="xFB-LQ-y5m">
+                                <rect key="frame" x="60" y="83" width="40" height="40"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="simbolosMapa2.png" translatesAutoresizingMaskIntoConstraints="NO" id="B7r-n5-Msl">
+                                <rect key="frame" x="223" y="88" width="35" height="35"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="simbolosDesc.png" translatesAutoresizingMaskIntoConstraints="NO" id="cWd-yI-WBF">
+                                <rect key="frame" x="60" y="185" width="40" height="40"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="lhj-DA-8h6">
+                                <rect key="frame" x="0.0" y="263" width="320" height="100"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                 <state key="normal" title="RANKING">
-                                    <color key="titleColor" red="0.9653268532" green="1" blue="0.97240034200000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.40000000000000002" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YWU-kb-sYK">
-                                <rect key="frame" x="0.0" y="64" width="320" height="75"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="REGISTRO">
-                                    <color key="titleColor" red="0.9653268532" green="1" blue="0.97240034200000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.40000000000000002" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="3xA-fV-BVn">
-                                <rect key="frame" x="160" y="139" width="160" height="75"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="SYMBOLOS DESCRIPCION">
                                     <color key="titleColor" red="0.9653268532" green="1" blue="0.97240034200000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.40000000000000002" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -64,13 +82,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="ORIENTEERING QUIZ" id="LMF-TA-vC3">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="qsn-Fz-jra"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Orienteering Quiz" id="LMF-TA-vC3"/>
                     <connections>
-                        <outlet property="buttonListado" destination="adm-EI-GbH" id="lHa-nq-42x"/>
+                        <outlet property="buttonAprendeSimbolos" destination="nGy-4d-tJF" id="ZyL-zg-th9"/>
+                        <outlet property="buttonQuizMixto" destination="adm-EI-GbH" id="Pwf-HJ-KiF"/>
                         <outlet property="buttonRanking" destination="lhj-DA-8h6" id="m7A-4i-agM"/>
-                        <outlet property="buttonRegistro" destination="YWU-kb-sYK" id="nYp-0R-zCa"/>
                         <outlet property="buttonSymbolosDescripcion" destination="3xA-fV-BVn" id="puo-Pl-NJn"/>
                         <outlet property="buttonSymbolosMapa" destination="qQX-UR-mvy" id="xUH-G0-qdd"/>
                     </connections>
@@ -79,10 +95,10 @@
             </objects>
             <point key="canvasLocation" x="42" y="365"/>
         </scene>
-        <!--View Controller-->
+        <!--Quizs View Controller-->
         <scene sceneID="Opl-kj-Idd">
             <objects>
-                <viewController id="wYJ-MI-OqU" customClass="SYBViewController" customModule="OrienteeringQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="wYJ-MI-OqU" customClass="SYBQuizsViewController" customModule="OrienteeringQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cob-ix-85r"/>
                         <viewControllerLayoutGuide type="bottom" id="nCF-jI-a8h"/>
@@ -181,4 +197,12 @@
             <point key="canvasLocation" x="-365" y="365"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="aprendeSimbolos.png" width="345" height="398"/>
+        <image name="simbolosDesc.png" width="312" height="353"/>
+        <image name="simbolosMapa2.png" width="40" height="40"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="xwj-Xg-VDJ"/>
+    </inferredMetricsTieBreakers>
 </document>
