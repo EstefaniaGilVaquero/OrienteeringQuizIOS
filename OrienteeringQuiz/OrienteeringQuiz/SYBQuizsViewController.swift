@@ -24,15 +24,11 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
     var simbolosDiccionario = [:]
     var respuesta = 0
     var randomArray : [Int] = []
-<<<<<<< HEAD:OrienteeringQuiz/OrienteeringQuiz/SYBQuizsViewController.swift
     var numeroImagenes = 0
     var tituloNavigationController = ""
     var nombrePlist = ""
-=======
 
-    
-    var numeroImagenes = 4
->>>>>>> b5277886ef2b92e25b55d1556a0ba21a4b8d4a22:OrienteeringQuiz/OrienteeringQuiz/SYBViewController.swift
+
 
     
     
@@ -76,7 +72,7 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! SYBCollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cellReusable", forIndexPath: indexPath) as! SYBCollectionViewCell
         
         
         //Pinto la imagen correspondiente
@@ -97,21 +93,37 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
        
         //Cuando seleccionen una imagen mostramos check OK/KO
         var imageView : UIImageView
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cellReusable", forIndexPath: indexPath) as! SYBCollectionViewCell
+
+        
         imageView  = UIImageView(frame:CGRectMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0, 100, 100));
         
+        //delay
+        let seconds = 1.0
+        let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+        let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        
         if (respuesta == randomArray[indexPath.row]){
+            
             imageView.image = UIImage(named:"checkOK.png")
+            cell.myImagenTickOK_KO.image = UIImage(named:"checkOK.png")
+            cell.myImagenTickOK_KO.hidden = false
+            cell.myImagenSimbolo.hidden = true
             
             //numeroImagenes = numeroImagenes + 1
+            dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+                
+                //Creamos un array de numeros aleatorios
+                self.generarAleatorios()
+                
+                //Genero una descripcion para mostrar
+                self.generarDescripcion()
+                
+                self.collectionView?.reloadData()
+                
+            })
             
             
-            //Creamos un array de numeros aleatorios
-            generarAleatorios()
-            
-            //Genero una descripcion para mostrar
-            generarDescripcion()
-            
-            self.collectionView?.reloadData()
             
         
         }else{
@@ -121,9 +133,9 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
         self.view.addSubview(imageView)
         
         //delay
-        let seconds = 1.0
-        let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
-        let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+//        let seconds = 1.0
+//        let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+//        let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
         
         //escondemos el check despues de un rato
         dispatch_after(dispatchTime, dispatch_get_main_queue(), {
