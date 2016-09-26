@@ -53,17 +53,12 @@ class SYBMenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-<<<<<<< HEAD
+
 
         //Estilo botones
         
         buttonAprendeSimbolos.backgroundColor = menuColo1
         buttonSymbolosMapa.backgroundColor = menuColo2
-=======
-        buttonRegistro.backgroundColor = menuColo1
-        buttonSymbolosMapa.backgroundColor = menuColo4
-        buttonSymbolosMapa.imageView?.image = UIImage(named: "simbolosMapa.png")
->>>>>>> b5277886ef2b92e25b55d1556a0ba21a4b8d4a22
         buttonSymbolosDescripcion.backgroundColor = menuColo3
         buttonQuizMixto.backgroundColor = menuColo4
         buttonRanking.backgroundColor = menuColo5
