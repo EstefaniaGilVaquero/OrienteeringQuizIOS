@@ -45,7 +45,7 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
         //Ponemos titulo al VC
         self.title = tituloNavigationController
         
-        //Recuperamos de SymbolosMapa.plist
+        //Recuperamos de .plist
         let path = NSBundle.mainBundle().pathForResource(nombrePlist, ofType: "plist")
         simbolosArray = NSArray(contentsOfFile: path!)!
 
