@@ -22,9 +22,9 @@
 		D5B37C211D68E431002009DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5B37C1F1D68E431002009DB /* Main.storyboard */; };
 		D5B37C231D68E432002009DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5B37C221D68E432002009DB /* Assets.xcassets */; };
 		D5B37C261D68E432002009DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5B37C241D68E432002009DB /* LaunchScreen.storyboard */; };
-		D5F03F761D968670003044A6 /* aprendeSimbolos.png in Resources */ = {isa = PBXBuildFile; fileRef = D5F03F751D968670003044A6 /* aprendeSimbolos.png */; };
 		D5F4A4D91D96967A004E540D /* simbolosMapa2.png in Resources */ = {isa = PBXBuildFile; fileRef = D5F4A4D81D96967A004E540D /* simbolosMapa2.png */; };
 		D5F4A4DB1D969818004E540D /* simbolosDesc.png in Resources */ = {isa = PBXBuildFile; fileRef = D5F4A4DA1D969818004E540D /* simbolosDesc.png */; };
+		D5F4A4DD1D999B34004E540D /* aprendeSimbolos.png in Resources */ = {isa = PBXBuildFile; fileRef = D5F4A4DC1D999B34004E540D /* aprendeSimbolos.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,9 +45,9 @@
 		D5B37C221D68E432002009DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D5B37C251D68E432002009DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D5B37C271D68E432002009DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D5F03F751D968670003044A6 /* aprendeSimbolos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aprendeSimbolos.png; sourceTree = "<group>"; };
 		D5F4A4D81D96967A004E540D /* simbolosMapa2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = simbolosMapa2.png; sourceTree = "<group>"; };
 		D5F4A4DA1D969818004E540D /* simbolosDesc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = simbolosDesc.png; sourceTree = "<group>"; };
+		D5F4A4DC1D999B34004E540D /* aprendeSimbolos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aprendeSimbolos.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,9 +64,9 @@
 		D5B2F6211D92E17D008DF8A3 /* IMAGENES */ = {
 			isa = PBXGroup;
 			children = (
+				D5F4A4DC1D999B34004E540D /* aprendeSimbolos.png */,
 				D5F4A4DA1D969818004E540D /* simbolosDesc.png */,
 				D5F4A4D81D96967A004E540D /* simbolosMapa2.png */,
-				D5F03F751D968670003044A6 /* aprendeSimbolos.png */,
 				D5B2F62F1D930BCD008DF8A3 /* checkKO.png */,
 				D5B2F62D1D92EC60008DF8A3 /* checkOK.png */,
 				D5B2F6221D92E187008DF8A3 /* SIMBOLOS_MAPA */,
@@ -180,7 +180,6 @@
 			files = (
 				D5B2F62B1D92E1A7008DF8A3 /* simbolo3.png in Resources */,
 				D5B37C261D68E432002009DB /* LaunchScreen.storyboard in Resources */,
-				D5F03F761D968670003044A6 /* aprendeSimbolos.png in Resources */,
 				D5B37C231D68E432002009DB /* Assets.xcassets in Resources */,
 				D5F4A4DB1D969818004E540D /* simbolosDesc.png in Resources */,
 				D5B2F6291D92E1A7008DF8A3 /* simbolo1.png in Resources */,
@@ -192,6 +191,7 @@
 				D5B2F62A1D92E1A7008DF8A3 /* simbolo2.png in Resources */,
 				D5B2F6301D930BCD008DF8A3 /* checkKO.png in Resources */,
 				D5B2F62C1D92E1A7008DF8A3 /* simbolo4.png in Resources */,
+				D5F4A4DD1D999B34004E540D /* aprendeSimbolos.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

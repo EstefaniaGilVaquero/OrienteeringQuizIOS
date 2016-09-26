@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Orienteering Quiz-->
@@ -18,69 +17,135 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="nGy-4d-tJF">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="simbolosMapa2.png" translatesAutoresizingMaskIntoConstraints="NO" id="B7r-n5-Msl">
+                                <rect key="frame" x="223" y="88" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="80k-rA-wF9"/>
+                                    <constraint firstAttribute="height" constant="35" id="Hkk-MJ-dpY"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="simbolosDesc.png" translatesAutoresizingMaskIntoConstraints="NO" id="cWd-yI-WBF">
+                                <rect key="frame" x="60" y="185" width="40" height="40"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aprendeSimbolos.png" translatesAutoresizingMaskIntoConstraints="NO" id="xFB-LQ-y5m">
+                                <rect key="frame" x="60" y="83" width="40" height="40"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nGy-4d-tJF">
                                 <rect key="frame" x="0.0" y="64" width="160" height="100"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="APRENDE LOS SIMBOLOS">
-                                    <color key="titleColor" red="0.9653268532" green="1" blue="0.97240034200000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Isl-Ze-Izf"/>
+                                </constraints>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="APRENDE LOS SIMBOLOS">
+                                            <attributes>
+                                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="13" name="HelveticaNeue"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="qQX-UR-mvy">
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qQX-UR-mvy">
                                 <rect key="frame" x="160" y="64" width="160" height="100"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                <state key="normal" title="QUIZ SYMBOLOS MAPA">
-                                    <color key="titleColor" red="0.9653268532" green="1" blue="0.97240034200000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.40000000000000002" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="QUIZ SIMBOLOS MAPA">
+                                            <attributes>
+                                                <color key="NSColor" red="0.9653268532" green="1" blue="0.97240034200000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="13" name="HelveticaNeue"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="1" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </state>
                                 <connections>
                                     <segue destination="wYJ-MI-OqU" kind="push" identifier="simbolosMapa" id="xwj-Xg-VDJ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="3xA-fV-BVn">
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3xA-fV-BVn">
                                 <rect key="frame" x="0.0" y="163" width="160" height="100"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                <state key="normal" title="QUIZ SYMBOLOS DESCRIPCION">
-                                    <color key="titleColor" red="0.9653268532" green="1" blue="0.97240034200000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.40000000000000002" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="QUIZ SIMBOLOS DESCRIPCION">
+                                            <attributes>
+                                                <color key="NSColor" red="0.9653268532" green="1" blue="0.97240034200000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="13" name="HelveticaNeue"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </state>
                                 <connections>
                                     <segue destination="wYJ-MI-OqU" kind="push" identifier="simbolosDescripcion" id="pHY-Hp-XxM"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="adm-EI-GbH">
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="adm-EI-GbH">
                                 <rect key="frame" x="160" y="163" width="160" height="100"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="QUIZ MIXTO">
                                     <color key="titleColor" red="0.9653268532" green="1" blue="0.97240034200000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.40000000000000002" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="aprendeSimbolos.png" translatesAutoresizingMaskIntoConstraints="NO" id="xFB-LQ-y5m">
-                                <rect key="frame" x="60" y="83" width="40" height="40"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="simbolosMapa2.png" translatesAutoresizingMaskIntoConstraints="NO" id="B7r-n5-Msl">
-                                <rect key="frame" x="223" y="88" width="35" height="35"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="simbolosDesc.png" translatesAutoresizingMaskIntoConstraints="NO" id="cWd-yI-WBF">
-                                <rect key="frame" x="60" y="185" width="40" height="40"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="lhj-DA-8h6">
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lhj-DA-8h6">
                                 <rect key="frame" x="0.0" y="263" width="320" height="100"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                <state key="normal" title="RANKING">
-                                    <color key="titleColor" red="0.9653268532" green="1" blue="0.97240034200000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.40000000000000002" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="3Cf-oP-hrD"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="RANKING">
+                                            <attributes>
+                                                <color key="NSColor" red="0.9653268532" green="1" blue="0.97240034200000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="12" name="HelveticaNeue-Bold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nGy-4d-tJF" firstAttribute="leading" secondItem="3xA-fV-BVn" secondAttribute="leading" id="1xH-DO-mPB"/>
+                            <constraint firstItem="qQX-UR-mvy" firstAttribute="leading" secondItem="nGy-4d-tJF" secondAttribute="trailing" id="22g-Vc-3vd"/>
+                            <constraint firstItem="lhj-DA-8h6" firstAttribute="top" secondItem="cWd-yI-WBF" secondAttribute="bottom" constant="38" id="595-ed-iGi"/>
+                            <constraint firstItem="qQX-UR-mvy" firstAttribute="leading" secondItem="xFB-LQ-y5m" secondAttribute="trailing" constant="60" id="5ya-yc-Swf"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lhj-DA-8h6" secondAttribute="bottom" constant="205" id="6U9-ak-qAs"/>
+                            <constraint firstItem="lhj-DA-8h6" firstAttribute="top" secondItem="qQX-UR-mvy" secondAttribute="bottom" constant="99" id="7gV-JU-fPL"/>
+                            <constraint firstItem="3xA-fV-BVn" firstAttribute="top" secondItem="xFB-LQ-y5m" secondAttribute="bottom" constant="40" id="AAV-FI-AQr"/>
+                            <constraint firstAttribute="trailing" secondItem="qQX-UR-mvy" secondAttribute="trailing" id="D4f-th-NhI"/>
+                            <constraint firstItem="nGy-4d-tJF" firstAttribute="trailing" secondItem="3xA-fV-BVn" secondAttribute="trailing" id="DGy-h1-fwA"/>
+                            <constraint firstItem="nGy-4d-tJF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="EYw-ho-y3q"/>
+                            <constraint firstItem="qQX-UR-mvy" firstAttribute="leading" secondItem="adm-EI-GbH" secondAttribute="leading" id="HRr-t5-bwi"/>
+                            <constraint firstItem="nGy-4d-tJF" firstAttribute="centerX" secondItem="xFB-LQ-y5m" secondAttribute="centerX" id="JTl-AN-v7c"/>
+                            <constraint firstItem="B7r-n5-Msl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="24" id="OPv-5s-9vC"/>
+                            <constraint firstItem="xFB-LQ-y5m" firstAttribute="bottom" secondItem="B7r-n5-Msl" secondAttribute="bottom" id="RdD-xN-ALO"/>
+                            <constraint firstItem="nGy-4d-tJF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="TI5-Em-ENa"/>
+                            <constraint firstItem="nGy-4d-tJF" firstAttribute="top" secondItem="qQX-UR-mvy" secondAttribute="top" id="VMc-iL-CYF"/>
+                            <constraint firstItem="B7r-n5-Msl" firstAttribute="leading" secondItem="nGy-4d-tJF" secondAttribute="trailing" constant="63" id="caq-Vk-wJU"/>
+                            <constraint firstItem="nGy-4d-tJF" firstAttribute="baseline" secondItem="qQX-UR-mvy" secondAttribute="baseline" id="daU-Ws-Zgm"/>
+                            <constraint firstItem="3xA-fV-BVn" firstAttribute="leading" secondItem="lhj-DA-8h6" secondAttribute="leading" id="iIl-PQ-h0R"/>
+                            <constraint firstItem="lhj-DA-8h6" firstAttribute="top" secondItem="adm-EI-GbH" secondAttribute="bottom" id="kB8-he-BYQ"/>
+                            <constraint firstItem="3xA-fV-BVn" firstAttribute="top" secondItem="adm-EI-GbH" secondAttribute="top" id="mT9-Jr-Fsr"/>
+                            <constraint firstItem="qQX-UR-mvy" firstAttribute="trailing" secondItem="adm-EI-GbH" secondAttribute="trailing" id="mrq-a0-Oky"/>
+                            <constraint firstItem="adm-EI-GbH" firstAttribute="trailing" secondItem="lhj-DA-8h6" secondAttribute="trailing" id="r85-ih-sA6"/>
+                            <constraint firstItem="xFB-LQ-y5m" firstAttribute="leading" secondItem="cWd-yI-WBF" secondAttribute="leading" id="rkN-uJ-UO8"/>
+                            <constraint firstItem="xFB-LQ-y5m" firstAttribute="trailing" secondItem="cWd-yI-WBF" secondAttribute="trailing" id="sC8-qt-LES"/>
+                            <constraint firstItem="3xA-fV-BVn" firstAttribute="baseline" secondItem="adm-EI-GbH" secondAttribute="baseline" id="shq-UL-MLV"/>
+                            <constraint firstItem="cWd-yI-WBF" firstAttribute="top" secondItem="nGy-4d-tJF" secondAttribute="bottom" constant="21" id="tAw-NG-TsO"/>
+                            <constraint firstItem="xFB-LQ-y5m" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="19" id="vTO-zM-CCL"/>
+                            <constraint firstItem="qQX-UR-mvy" firstAttribute="centerX" secondItem="B7r-n5-Msl" secondAttribute="centerX" id="zTi-oj-ZID"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Orienteering Quiz" id="LMF-TA-vC3"/>
                     <connections>
@@ -108,8 +173,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="beH-0l-51V">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="448"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="483"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eLl-hf-M6J">
                                     <size key="itemSize" width="70" height="70"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -117,13 +182,16 @@
                                     <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="ELR-Os-Rpr" customClass="SYBCollectionViewCell" customModule="OrienteeringQuiz" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellReusable" id="ELR-Os-Rpr" customClass="SYBCollectionViewCell" customModule="OrienteeringQuiz" customModuleProvider="target">
                                         <rect key="frame" x="10" y="74" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m85-eh-nhe" userLabel="imagenTickOK_KO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aDO-vn-Odw" userLabel="imagenSimbolo">
                                                     <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                                 </imageView>
@@ -131,13 +199,14 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="aDO-vn-Odw" firstAttribute="leading" secondItem="ELR-Os-Rpr" secondAttribute="leading" id="4cE-w0-GYc"/>
-                                            <constraint firstAttribute="trailing" secondItem="aDO-vn-Odw" secondAttribute="trailing" id="IBi-9Y-a9U"/>
-                                            <constraint firstItem="aDO-vn-Odw" firstAttribute="top" secondItem="ELR-Os-Rpr" secondAttribute="top" id="JKs-lr-8nI"/>
-                                            <constraint firstAttribute="bottom" secondItem="aDO-vn-Odw" secondAttribute="bottom" id="n2a-Ww-2lT"/>
+                                            <constraint firstAttribute="trailing" secondItem="aDO-vn-Odw" secondAttribute="trailing" id="3Sl-iC-LGg"/>
+                                            <constraint firstAttribute="bottom" secondItem="aDO-vn-Odw" secondAttribute="bottom" id="CPY-lb-c50"/>
+                                            <constraint firstItem="aDO-vn-Odw" firstAttribute="leading" secondItem="ELR-Os-Rpr" secondAttribute="leading" id="ENo-ND-Gtl"/>
+                                            <constraint firstItem="aDO-vn-Odw" firstAttribute="top" secondItem="ELR-Os-Rpr" secondAttribute="top" id="rpg-G8-hDb"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="myImagenSimbolo" destination="aDO-vn-Odw" id="m5g-yp-0JE"/>
+                                            <outlet property="myImagenTickOK_KO" destination="m85-eh-nhe" id="ul6-Xh-7bS"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -147,9 +216,10 @@
                                 </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" semanticContentAttribute="forceLeftToRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMp-df-gYj">
-                                <rect key="frame" x="10" y="456" width="300" height="85"/>
+                                <rect key="frame" x="0.0" y="483" width="320" height="85"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="85" id="OGy-cL-T33"/>
+                                    <constraint firstAttribute="height" constant="85" id="2PN-ap-6fG"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -159,13 +229,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="FMp-df-gYj" firstAttribute="leading" secondItem="cmb-4d-mTE" secondAttribute="leadingMargin" constant="-6" id="1UI-L9-4kH"/>
-                            <constraint firstItem="nCF-jI-a8h" firstAttribute="top" secondItem="FMp-df-gYj" secondAttribute="bottom" constant="27" id="NjH-B7-0WR"/>
-                            <constraint firstItem="beH-0l-51V" firstAttribute="leading" secondItem="cmb-4d-mTE" secondAttribute="leading" id="Zem-sc-btT"/>
-                            <constraint firstItem="beH-0l-51V" firstAttribute="centerX" secondItem="FMp-df-gYj" secondAttribute="centerX" id="b4K-pf-rvi"/>
-                            <constraint firstItem="beH-0l-51V" firstAttribute="top" secondItem="cmb-4d-mTE" secondAttribute="top" id="f3z-Uq-QdM"/>
-                            <constraint firstAttribute="trailing" secondItem="beH-0l-51V" secondAttribute="trailing" id="iBB-o2-dfl"/>
-                            <constraint firstItem="FMp-df-gYj" firstAttribute="top" secondItem="beH-0l-51V" secondAttribute="bottom" constant="8" symbolic="YES" id="r3c-y9-Gg2"/>
+                            <constraint firstAttribute="trailing" secondItem="beH-0l-51V" secondAttribute="trailing" id="3ng-rj-a1n"/>
+                            <constraint firstItem="beH-0l-51V" firstAttribute="trailing" secondItem="FMp-df-gYj" secondAttribute="trailing" id="NeU-41-hmd"/>
+                            <constraint firstItem="FMp-df-gYj" firstAttribute="bottom" secondItem="nCF-jI-a8h" secondAttribute="top" id="TTj-sS-6sw"/>
+                            <constraint firstItem="FMp-df-gYj" firstAttribute="top" secondItem="beH-0l-51V" secondAttribute="bottom" id="fUb-eY-d2Q"/>
+                            <constraint firstItem="beH-0l-51V" firstAttribute="top" secondItem="cmb-4d-mTE" secondAttribute="top" id="m1p-rA-EBf"/>
+                            <constraint firstItem="beH-0l-51V" firstAttribute="leading" secondItem="FMp-df-gYj" secondAttribute="leading" id="pXL-7c-OCl"/>
+                            <constraint firstItem="beH-0l-51V" firstAttribute="leading" secondItem="cmb-4d-mTE" secondAttribute="leading" id="sRA-6g-3sC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="DZ9-5p-pIj"/>
