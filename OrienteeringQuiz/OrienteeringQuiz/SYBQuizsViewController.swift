@@ -24,9 +24,15 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
     var simbolosDiccionario = [:]
     var respuesta = 0
     var randomArray : [Int] = []
+<<<<<<< HEAD:OrienteeringQuiz/OrienteeringQuiz/SYBQuizsViewController.swift
     var numeroImagenes = 0
     var tituloNavigationController = ""
     var nombrePlist = ""
+=======
+
+    
+    var numeroImagenes = 4
+>>>>>>> b5277886ef2b92e25b55d1556a0ba21a4b8d4a22:OrienteeringQuiz/OrienteeringQuiz/SYBViewController.swift
 
     
     
@@ -95,6 +101,8 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
         
         if (respuesta == randomArray[indexPath.row]){
             imageView.image = UIImage(named:"checkOK.png")
+            
+            //numeroImagenes = numeroImagenes + 1
             
             
             //Creamos un array de numeros aleatorios
