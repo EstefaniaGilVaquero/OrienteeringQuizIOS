@@ -1,19 +1,18 @@
 //
-//  SYBAprendeSimbolosTableViewCell.swift
+//  AprendeSimbolosTableViewCell.swift
 //  OrienteeringQuiz
 //
-//  Created by Estefanía Gil Vaquero on 26/9/16.
+//  Created by CICE on 28/9/16.
 //  Copyright © 2016 Symbel. All rights reserved.
 //
 
 import UIKit
 
-class SYBAprendeSimbolosTableViewCell: UITableViewCell {
+class AprendeSimbolosTableViewCell: UITableViewCell {
 
-
-    @IBOutlet weak var myDescripcionAprende: UILabel!
-    @IBOutlet weak var myImagenSimboloAprende: UIImageView!
-    
+    @IBOutlet weak var myDescripcionLargaAprendeSimbolos: UILabel!
+    @IBOutlet weak var myDescripcionAprendeSimbolos: UILabel!
+    @IBOutlet weak var myImagenAprendeSimbolos: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -24,5 +23,5 @@ class SYBAprendeSimbolosTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
 }

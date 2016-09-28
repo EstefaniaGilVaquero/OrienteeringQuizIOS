@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0906A68F1D9BDADD0039F55D /* AprendeSimbolosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0906A68D1D9BDADD0039F55D /* AprendeSimbolosTableViewCell.swift */; };
+		0906A6901D9BDADD0039F55D /* AprendeSimbolosTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0906A68E1D9BDADD0039F55D /* AprendeSimbolosTableViewCell.xib */; };
+		0906A6921D9BE09A0039F55D /* AprendeSimbolosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0906A6911D9BE09A0039F55D /* AprendeSimbolosViewController.swift */; };
 		D55677481D69CA1E00A35C0E /* SYBCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55677471D69CA1E00A35C0E /* SYBCollectionViewCell.swift */; };
 		D556774C1D69D9D800A35C0E /* SYBQuizsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D556774B1D69D9D800A35C0E /* SYBQuizsViewController.swift */; };
 		D5B2F6201D92E069008DF8A3 /* SimbolosDescripcion.plist in Resources */ = {isa = PBXBuildFile; fileRef = D5B2F61F1D92E069008DF8A3 /* SimbolosDescripcion.plist */; };
@@ -25,11 +28,12 @@
 		D5F4A4D91D96967A004E540D /* simbolosMapa2.png in Resources */ = {isa = PBXBuildFile; fileRef = D5F4A4D81D96967A004E540D /* simbolosMapa2.png */; };
 		D5F4A4DB1D969818004E540D /* simbolosDesc.png in Resources */ = {isa = PBXBuildFile; fileRef = D5F4A4DA1D969818004E540D /* simbolosDesc.png */; };
 		D5F4A4DD1D999B34004E540D /* aprendeSimbolos.png in Resources */ = {isa = PBXBuildFile; fileRef = D5F4A4DC1D999B34004E540D /* aprendeSimbolos.png */; };
-		D5F4A4DF1D99B483004E540D /* SYBAprendeSimbolosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F4A4DE1D99B483004E540D /* SYBAprendeSimbolosTableViewController.swift */; };
-		D5F4A4E11D99B4A7004E540D /* SYBAprendeSimbolosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F4A4E01D99B4A7004E540D /* SYBAprendeSimbolosTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0906A68D1D9BDADD0039F55D /* AprendeSimbolosTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AprendeSimbolosTableViewCell.swift; path = ../AprendeSimbolosTableViewCell.swift; sourceTree = "<group>"; };
+		0906A68E1D9BDADD0039F55D /* AprendeSimbolosTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AprendeSimbolosTableViewCell.xib; path = ../AprendeSimbolosTableViewCell.xib; sourceTree = "<group>"; };
+		0906A6911D9BE09A0039F55D /* AprendeSimbolosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AprendeSimbolosViewController.swift; path = ../AprendeSimbolosViewController.swift; sourceTree = "<group>"; };
 		D55677471D69CA1E00A35C0E /* SYBCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYBCollectionViewCell.swift; sourceTree = "<group>"; };
 		D556774B1D69D9D800A35C0E /* SYBQuizsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYBQuizsViewController.swift; sourceTree = "<group>"; };
 		D5B2F61F1D92E069008DF8A3 /* SimbolosDescripcion.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SimbolosDescripcion.plist; sourceTree = "<group>"; };
@@ -50,8 +54,6 @@
 		D5F4A4D81D96967A004E540D /* simbolosMapa2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = simbolosMapa2.png; sourceTree = "<group>"; };
 		D5F4A4DA1D969818004E540D /* simbolosDesc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = simbolosDesc.png; sourceTree = "<group>"; };
 		D5F4A4DC1D999B34004E540D /* aprendeSimbolos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aprendeSimbolos.png; sourceTree = "<group>"; };
-		D5F4A4DE1D99B483004E540D /* SYBAprendeSimbolosTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYBAprendeSimbolosTableViewController.swift; sourceTree = "<group>"; };
-		D5F4A4E01D99B4A7004E540D /* SYBAprendeSimbolosTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYBAprendeSimbolosTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,8 +116,9 @@
 				D55677471D69CA1E00A35C0E /* SYBCollectionViewCell.swift */,
 				D556774B1D69D9D800A35C0E /* SYBQuizsViewController.swift */,
 				D5B2F6331D93182D008DF8A3 /* SYBMenuViewController.swift */,
-				D5F4A4DE1D99B483004E540D /* SYBAprendeSimbolosTableViewController.swift */,
-				D5F4A4E01D99B4A7004E540D /* SYBAprendeSimbolosTableViewCell.swift */,
+				0906A68D1D9BDADD0039F55D /* AprendeSimbolosTableViewCell.swift */,
+				0906A68E1D9BDADD0039F55D /* AprendeSimbolosTableViewCell.xib */,
+				0906A6911D9BE09A0039F55D /* AprendeSimbolosViewController.swift */,
 				D5B37C1F1D68E431002009DB /* Main.storyboard */,
 				D5B37C221D68E432002009DB /* Assets.xcassets */,
 				D5B37C241D68E432002009DB /* LaunchScreen.storyboard */,
@@ -185,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5B2F62B1D92E1A7008DF8A3 /* simbolo3.png in Resources */,
+				0906A6901D9BDADD0039F55D /* AprendeSimbolosTableViewCell.xib in Resources */,
 				D5B37C261D68E432002009DB /* LaunchScreen.storyboard in Resources */,
 				D5B37C231D68E432002009DB /* Assets.xcassets in Resources */,
 				D5F4A4DB1D969818004E540D /* simbolosDesc.png in Resources */,
@@ -210,10 +214,10 @@
 			files = (
 				D5B2F6341D93182D008DF8A3 /* SYBMenuViewController.swift in Sources */,
 				D55677481D69CA1E00A35C0E /* SYBCollectionViewCell.swift in Sources */,
-				D5F4A4E11D99B4A7004E540D /* SYBAprendeSimbolosTableViewCell.swift in Sources */,
-				D5F4A4DF1D99B483004E540D /* SYBAprendeSimbolosTableViewController.swift in Sources */,
+				0906A6921D9BE09A0039F55D /* AprendeSimbolosViewController.swift in Sources */,
 				D556774C1D69D9D800A35C0E /* SYBQuizsViewController.swift in Sources */,
 				D5B37C1C1D68E431002009DB /* AppDelegate.swift in Sources */,
+				0906A68F1D9BDADD0039F55D /* AprendeSimbolosTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
