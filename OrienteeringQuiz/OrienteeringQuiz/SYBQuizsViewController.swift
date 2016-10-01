@@ -12,10 +12,7 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var myDescriptionLBL: UILabel!
-    
-    
-    
-    
+    @IBOutlet weak var myView: UIView!
     
     //MARK: VARIABLES LOCALES GLOBALES
 
@@ -29,9 +26,6 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
     var nombrePlist = ""
 
 
-
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,6 +35,11 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
 
         view.backgroundColor = menuColo1
         collectionView.backgroundColor = menuColo1
+        myView.backgroundColor = menuColo1
+        myView.layer.masksToBounds = true
+        myView.layer.cornerRadius = 10
+        myDescriptionLBL.layer.masksToBounds = true
+        myDescriptionLBL.layer.cornerRadius = 10
         
         //Ponemos titulo al VC
         self.title = tituloNavigationController
@@ -93,7 +92,6 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
        
         //Cuando seleccionen una imagen mostramos check OK/KO
         var imageView : UIImageView
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cellReusable", forIndexPath: indexPath) as! SYBCollectionViewCell
 
         
         imageView  = UIImageView(frame:CGRectMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0, 100, 100));
@@ -106,9 +104,7 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
         if (respuesta == randomArray[indexPath.row]){
             
             imageView.image = UIImage(named:"checkOK.png")
-            cell.myImagenTickOK_KO.image = UIImage(named:"checkOK.png")
-            cell.myImagenTickOK_KO.hidden = false
-            cell.myImagenSimbolo.hidden = true
+
             
             //numeroImagenes = numeroImagenes + 1
             dispatch_after(dispatchTime, dispatch_get_main_queue(), {
@@ -131,11 +127,6 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
         }
         
         self.view.addSubview(imageView)
-        
-        //delay
-//        let seconds = 1.0
-//        let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
-//        let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
         
         //escondemos el check despues de un rato
         dispatch_after(dispatchTime, dispatch_get_main_queue(), {
