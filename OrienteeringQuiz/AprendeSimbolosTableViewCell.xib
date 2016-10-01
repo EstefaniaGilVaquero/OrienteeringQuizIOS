@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,7 +15,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="288" height="194"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6xw-XQ-31s">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6xw-XQ-31s">
                         <rect key="frame" x="0.0" y="0.0" width="288" height="195"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O4d-nz-a5C">
@@ -40,6 +41,12 @@
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="6xw-XQ-31s" secondAttribute="trailing" constant="-8" id="2Mu-o3-WFf"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="6xw-XQ-31s" secondAttribute="bottom" constant="-9" id="Dcd-g6-7zE"/>
+                    <constraint firstItem="6xw-XQ-31s" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="FrU-60-ufR"/>
+                    <constraint firstItem="6xw-XQ-31s" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="vyZ-QT-S1P"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="myDescripcionAprendeSimbolos" destination="w6i-Mn-hAI" id="2HT-7p-7wD"/>
