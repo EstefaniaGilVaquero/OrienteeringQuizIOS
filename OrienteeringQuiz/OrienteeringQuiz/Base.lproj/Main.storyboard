@@ -185,8 +185,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="beH-0l-51V">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="466"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="beH-0l-51V">
+                                <rect key="frame" x="16" y="0.0" width="288" height="526"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eLl-hf-M6J">
                                     <size key="itemSize" width="70" height="70"/>
@@ -242,10 +242,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="Wp5-0h-pRE" secondAttribute="trailing" constant="-20" id="21H-Mk-5fa"/>
-                            <constraint firstItem="beH-0l-51V" firstAttribute="leading" secondItem="cmb-4d-mTE" secondAttribute="leadingMargin" constant="-20" id="69Z-Sa-glB"/>
+                            <constraint firstItem="beH-0l-51V" firstAttribute="leading" secondItem="cmb-4d-mTE" secondAttribute="leadingMargin" id="69Z-Sa-glB"/>
                             <constraint firstItem="Wp5-0h-pRE" firstAttribute="top" secondItem="beH-0l-51V" secondAttribute="bottom" id="DEZ-Z7-GGf"/>
                             <constraint firstItem="SE1-Pd-dCW" firstAttribute="top" secondItem="Wp5-0h-pRE" secondAttribute="bottom" id="LCl-jG-6lo"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="beH-0l-51V" secondAttribute="trailing" constant="-20" id="ePn-8k-R7R"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="beH-0l-51V" secondAttribute="trailing" id="ePn-8k-R7R"/>
                             <constraint firstItem="beH-0l-51V" firstAttribute="top" secondItem="cmb-4d-mTE" secondAttribute="topMargin" id="tSQ-nO-fhp"/>
                             <constraint firstItem="Wp5-0h-pRE" firstAttribute="leading" secondItem="cmb-4d-mTE" secondAttribute="leadingMargin" constant="-20" id="uSQ-fV-fNo"/>
                         </constraints>
