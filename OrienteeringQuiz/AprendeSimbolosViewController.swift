@@ -20,10 +20,15 @@ class AprendeSimbolosViewController: UIViewController, UITableViewDataSource, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.registerNib(UINib(nibName: "AprendeSimbolosTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
-        
         //Maquetacion
         //Estilo background
+        let menuColo1 = UIColor(red: 0.965, green: 0.467, blue: 0.161, alpha: 1)
+        tableView.backgroundColor = menuColo1
+        view.backgroundColor = menuColo1
+        
+        tableView.registerNib(UINib(nibName: "AprendeSimbolosTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
+        
+ 
         
         
         //Ponemos titulo al VC
@@ -83,17 +88,6 @@ class AprendeSimbolosViewController: UIViewController, UITableViewDataSource, UI
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-//        switch selectedIndexPath {
-//        case nil:
-//            selectedIndexPath = indexPath
-//        default:
-//            if selectedIndexPath! == indexPath{
-//                selectedIndexPath = nil
-//            }else{
-//                selectedIndexPath = indexPath
-//            }
-//        }
         
         switch selectedIndexPath {
         case indexPath?:
