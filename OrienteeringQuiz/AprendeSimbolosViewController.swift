@@ -24,9 +24,12 @@ class AprendeSimbolosViewController: UIViewController, UITableViewDataSource, UI
         //Estilo background
         let menuColo1 = UIColor(red: 0.965, green: 0.467, blue: 0.161, alpha: 1)
         tableView.backgroundColor = menuColo1
-        
         tableView.separatorColor = menuColo1
         view.backgroundColor = menuColo1
+        
+        
+        
+        
         
         tableView.registerNib(UINib(nibName: "AprendeSimbolosTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
         
