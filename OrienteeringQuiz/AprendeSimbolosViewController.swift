@@ -82,7 +82,7 @@ class AprendeSimbolosViewController: UIViewController, UITableViewDataSource, UI
         let index = indexPath
         
         if selectedIndexPath != nil && index == selectedIndexPath{
-            return 185
+            return 195
         }else{
             return 65
         }
