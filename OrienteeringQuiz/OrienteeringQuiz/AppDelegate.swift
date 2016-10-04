@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,12 +15,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
+    //Configuracion de parse
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        
-        //TODO: - Aqui customizo el texto de la NavigationBar
-        configuracionNavigationBar()
-        
+        // Initialize Parse.
+        let configuration = ParseClientConfiguration {
+            $0.applicationId = "FMjiPZdtHctkhHbLvE4h8Har1HOxStI5sm6CWcRP"
+            $0.clientKey = "pK9BrhuXQhYUFEzcThpwPVd1Vje43LlVWiFN7XoC"
+            $0.server = "https://parseapi.back4app.com"
+        }
+        Parse.initializeWithConfiguration(configuration)
         return true
     }
 
