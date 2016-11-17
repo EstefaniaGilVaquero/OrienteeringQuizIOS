@@ -85,17 +85,17 @@ class SYBMenuViewController: UIViewController {
     
     // MARK: - Navigation
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //Identificar el segue por el que estamos pasando
         if segue.identifier == "simbolosMapa" {
             //Crear el objeto que representa el VC que recibe una vista DESTINO
-            if let destinationVC = segue.destinationViewController as? SYBQuizsViewController {
+            if let destinationVC = segue.destination as? SYBQuizsViewController {
                 destinationVC.tituloNavigationController = "Quiz Simbolos Mapa"
                 destinationVC.numeroImagenes = 5
             }
         }else if segue.identifier == "simbolosDescripcion" {
             //Crear el objeto que representa el VC que recibe una vista DESTINO
-            if let destinationVC = segue.destinationViewController as? SYBQuizsViewController {
+            if let destinationVC = segue.destination as? SYBQuizsViewController {
                 destinationVC.tituloNavigationController = "Quiz Simbolos Descripcion"
                 destinationVC.numeroImagenes = 5
                 destinationVC.nombrePlist = "SimbolosDescripcion"

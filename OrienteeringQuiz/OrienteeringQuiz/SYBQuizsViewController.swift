@@ -16,9 +16,9 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
     
     //MARK: VARIABLES LOCALES GLOBALES
 
-    var simbolosArray = []
+    var simbolosArray : NSArray = []
    // var simbolosArraySeleccion = [[:]]
-    var simbolosDiccionario = [:]
+    var simbolosDiccionario : NSDictionary = [:]
     var respuesta = 0
     var randomArray : [Int] = []
     var numeroImagenes = 0
@@ -45,7 +45,7 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
         self.title = tituloNavigationController
         
         //Recuperamos de .plist
-        let path = NSBundle.mainBundle().pathForResource(nombrePlist, ofType: "plist")
+        let path = Bundle.main.path(forResource: nombrePlist, ofType: "plist")
         simbolosArray = NSArray(contentsOfFile: path!)!
 
         //Creamos un array de numeros aleatorios
@@ -62,7 +62,7 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
         // Dispose of any resources that can be recreated.
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //return self.symbolsArray.count
         return numeroImagenes
     }
@@ -71,13 +71,13 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cellReusable", forIndexPath: indexPath) as! SYBCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellReusable", for: indexPath as IndexPath) as! SYBCollectionViewCell
         
         
         //Pinto la imagen correspondiente
         
         
-        simbolosDiccionario = simbolosArray.objectAtIndex(randomArray[indexPath.row]) as! NSDictionary
+        simbolosDiccionario = simbolosArray.object(at: randomArray[indexPath.row]) as! NSDictionary
         let imagen = simbolosDiccionario["Imagen"] as! String
         let imagenSimbolo = UIImage(named: imagen)
         
@@ -99,7 +99,10 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
         //delay
         let seconds = 1.0
         let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+        //let dispatchTime = dispatch_time(dispatch_time(DispatchTime.now()), Int64(delay))
         let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+
+
         
         if (respuesta == randomArray[indexPath.row]){
             
@@ -139,7 +142,9 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
         
     }
     
-    func RandomInt(min min: Int, max: Int) -> Int {
+
+
+    func RandomInt(min: Int, max: Int) -> Int {
         if max < min { return min }
 
         return Int(arc4random_uniform(UInt32((max - min) + 1))) + min
@@ -154,7 +159,7 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
             repeat {
                 random = RandomInt(min: 0, max: simbolosArray.count-1)
             }while randomArray.contains(random)
-            randomArray.insert(random, atIndex: indice)
+            randomArray.insert(random, at: indice)
             
         }
 
@@ -164,7 +169,7 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
         respuesta = randomArray[RandomInt(min: 0, max: randomArray.count-1)]
         //Asigno la descripccion al label
         
-        simbolosDiccionario = simbolosArray.objectAtIndex(respuesta) as! NSDictionary
+        simbolosDiccionario = simbolosArray.object(at: respuesta) as! NSDictionary
         let descripcion = simbolosDiccionario["Descripcion"] as! String
         myDescriptionLBL.text = descripcion
     }

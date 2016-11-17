@@ -32,7 +32,7 @@ class SYBRegistroNuevoUsuarioViewController: UIViewController {
     
     //MARK: - IBACTION
     
-    @IBAction func registrarse(sender: AnyObject) {
+    @IBAction func registrarse(_ sender: AnyObject) {
         var errorInicial = ""
         
         if myUserNameTF.text == ""
@@ -49,15 +49,15 @@ class SYBRegistroNuevoUsuarioViewController: UIViewController {
             user.email = myEmailTF.text
             user["club"] = myClubTF.text
             
-            myActivityIndicator.hidden = false
+            myActivityIndicator.isHidden = false
             myActivityIndicator.startAnimating()
             
-            UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+            UIApplication.shared.beginIgnoringInteractionEvents()
             
-            user.signUpInBackgroundWithBlock({ (success, singUpError) in
-                self.myActivityIndicator.hidden = true
+            user.signUpInBackground(block: { (success, singUpError) in
+                self.myActivityIndicator.isHidden = true
                 self.myActivityIndicator.stopAnimating()
-                UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                UIApplication.shared.endIgnoringInteractionEvents()
                 
                 let errorDataSingUp = singUpError
                 var errorDataPost = ""
@@ -71,7 +71,7 @@ class SYBRegistroNuevoUsuarioViewController: UIViewController {
                 //                    }
                 
                 if errorDataSingUp != nil{
-                    if let errorString = errorDataSingUp!.userInfo["error"] as? NSString{
+                    if let errorString = errorDataSingUp.userInfo["error"] as? NSString{
                         self.showAlertVCFinal("ATENCION", mensageData: errorString as String)
                     }else{
                         self.showAlertVCFinal("ATENCION", mensageData: "Existe un error en el registro")
@@ -91,15 +91,15 @@ class SYBRegistroNuevoUsuarioViewController: UIViewController {
 
     }
     
-    @IBAction func myOcultarVCACTION(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func myOcultarVCACTION(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
     }
     
     //MARK: - ALERTVC
-    func showAlertVCFinal(tituloData : String, mensageData : String){
-        let alertVC = UIAlertController(title: tituloData, message: mensageData, preferredStyle: .Alert)
-        alertVC.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
-        presentViewController(alertVC, animated: true, completion: nil)
+    func showAlertVCFinal(_ tituloData : String, mensageData : String){
+        let alertVC = UIAlertController(title: tituloData, message: mensageData, preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        present(alertVC, animated: true, completion: nil)
     }
     
     //MARK: - SUBIR FOTO A PARSE CON EL REGISTRO
@@ -109,8 +109,8 @@ class SYBRegistroNuevoUsuarioViewController: UIViewController {
         let imageData = UIImageJPEGRepresentation(self.myImagenRegistro.image!, 0.4)
         let imageFile = PFFile(name: "imagePerfilUsuario.jpg", data: imageData!)
         postImage["imageFile"] = imageFile
-        postImage["username"] = PFUser.currentUser()?.username
-        postImage.saveInBackgroundWithBlock { (success, error) in
+        postImage["username"] = PFUser.current()?.username
+        postImage.saveInBackground { (success, error) in
             if success{
                 self.showAlertVCFinal("ATENCION", mensageData: "Datos salvados satisfactoriamente")
             }else{
@@ -126,7 +126,7 @@ class SYBRegistroNuevoUsuarioViewController: UIViewController {
         self.myEmailTF.text = ""
         self.myClubTF.text = ""
         
-        self.performSegueWithIdentifier("saltarTabBarController", sender: self)
+        self.performSegue(withIdentifier: "saltarTabBarController", sender: self)
         
     }
 
@@ -165,7 +165,7 @@ class SYBRegistroNuevoUsuarioViewController: UIViewController {
 extension SYBRegistroNuevoUsuarioViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     func pickerPhoto(){
-        if UIImagePickerController.isSourceTypeAvailable(.Camera){
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
             showPhotoMenu()
         }else{
             choosePhotoFromLibrary()
@@ -174,48 +174,48 @@ extension SYBRegistroNuevoUsuarioViewController : UIImagePickerControllerDelegat
     
     func showPhotoMenu(){
         
-        let alertVC = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
-        let cancelAction = UIAlertAction(title: "Cancelar", style: .Cancel, handler: nil)
-        let takePhotoAction = UIAlertAction(title: "Tomar Foto", style: .Default) { Void  in
+        let alertVC = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        let takePhotoAction = UIAlertAction(title: "Tomar Foto", style: .default) { Void  in
             self.takePhotowithCamera()
         }
-        let chooseFromLibraryAction = UIAlertAction(title: "Escoge de la Librería", style: .Default) { Void  in
+        let chooseFromLibraryAction = UIAlertAction(title: "Escoge de la Librería", style: .default) { Void  in
             self.choosePhotoFromLibrary()
         }
         alertVC.addAction(cancelAction)
         alertVC.addAction(takePhotoAction)
         alertVC.addAction(chooseFromLibraryAction)
         
-        presentViewController(alertVC, animated: true, completion: nil)
+        present(alertVC, animated: true, completion: nil)
         
     }
     
     func takePhotowithCamera(){
         
         let imagePicker = UIImagePickerController()
-        imagePicker.sourceType = .Camera
+        imagePicker.sourceType = .camera
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
-        presentViewController(imagePicker, animated: true, completion: nil)
+        present(imagePicker, animated: true, completion: nil)
         
     }
     
     func choosePhotoFromLibrary(){
         
         let imagePicker = UIImagePickerController()
-        imagePicker.sourceType = .PhotoLibrary
+        imagePicker.sourceType = .photoLibrary
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
-        presentViewController(imagePicker, animated: true, completion: nil)
+        present(imagePicker, animated: true, completion: nil)
         
     }
     
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         
         fotoSeleccionada = true
         myImagenRegistro.image = image
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
 }

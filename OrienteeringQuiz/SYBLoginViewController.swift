@@ -20,7 +20,7 @@ class SYBLoginViewController: UIViewController {
     
     //MARK: - IBACTION
 
-    @IBAction func acceder(sender: AnyObject) {
+    @IBAction func acceder(_ sender: AnyObject) {
     }
     
     
