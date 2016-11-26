@@ -14,7 +14,6 @@
 		09FAC0AD1DA3A0A600477344 /* SYBRegistroNuevoUsuarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FAC0AC1DA3A0A600477344 /* SYBRegistroNuevoUsuarioViewController.swift */; };
 		09FAC0B01DA3BC3700477344 /* profileDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 09FAC0AF1DA3BC3700477344 /* profileDefault.png */; };
 		09FAC0B21DA3BE8100477344 /* iconoMapa.png in Resources */ = {isa = PBXBuildFile; fileRef = 09FAC0B11DA3BE8100477344 /* iconoMapa.png */; };
-		09FAC0B41DA3C16C00477344 /* fondo.png in Resources */ = {isa = PBXBuildFile; fileRef = 09FAC0B31DA3C16C00477344 /* fondo.png */; };
 		09FAC0B91DA3CA9800477344 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09FAC0B51DA3CA9800477344 /* Bolts.framework */; };
 		09FAC0BA1DA3CA9800477344 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09FAC0B61DA3CA9800477344 /* Parse.framework */; };
 		09FAC0BB1DA3CA9800477344 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09FAC0B71DA3CA9800477344 /* ParseFacebookUtils.framework */; };
@@ -52,7 +51,6 @@
 		09FAC0AC1DA3A0A600477344 /* SYBRegistroNuevoUsuarioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SYBRegistroNuevoUsuarioViewController.swift; path = ../SYBRegistroNuevoUsuarioViewController.swift; sourceTree = "<group>"; };
 		09FAC0AF1DA3BC3700477344 /* profileDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profileDefault.png; sourceTree = "<group>"; };
 		09FAC0B11DA3BE8100477344 /* iconoMapa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconoMapa.png; sourceTree = "<group>"; };
-		09FAC0B31DA3C16C00477344 /* fondo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fondo.png; sourceTree = "<group>"; };
 		09FAC0B51DA3CA9800477344 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		09FAC0B61DA3CA9800477344 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		09FAC0B71DA3CA9800477344 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
@@ -155,7 +153,6 @@
 		D5B2F6211D92E17D008DF8A3 /* IMAGENES */ = {
 			isa = PBXGroup;
 			children = (
-				09FAC0B31DA3C16C00477344 /* fondo.png */,
 				09FAC0B11DA3BE8100477344 /* iconoMapa.png */,
 				09FAC0AF1DA3BC3700477344 /* profileDefault.png */,
 				D5B2F62F1D930BCD008DF8A3 /* checkKO.png */,
@@ -200,11 +197,8 @@
 			children = (
 				09FAC0C71DA3CB4700477344 /* FRAMEWORK */,
 				D5B37C1B1D68E431002009DB /* AppDelegate.swift */,
-				09FAC0AE1DA3A0B300477344 /* LOGIN_REGISTRO_VC */,
+				D5C187AE1DEA11AD00EBFC9F /* VIEW_CONTROLLERS */,
 				D5B2F6211D92E17D008DF8A3 /* IMAGENES */,
-				09FAC0A81DA3A00400477344 /* QUIZ_VC */,
-				09FAC0A91DA3A02200477344 /* APRENDE_VC */,
-				D5B2F6331D93182D008DF8A3 /* SYBMenuViewController.swift */,
 				D5B37C1F1D68E431002009DB /* Main.storyboard */,
 				D5B37C221D68E432002009DB /* Assets.xcassets */,
 				D5B37C241D68E432002009DB /* LaunchScreen.storyboard */,
@@ -212,6 +206,17 @@
 				D5B2F61F1D92E069008DF8A3 /* SimbolosDescripcion.plist */,
 			);
 			path = OrienteeringQuiz;
+			sourceTree = "<group>";
+		};
+		D5C187AE1DEA11AD00EBFC9F /* VIEW_CONTROLLERS */ = {
+			isa = PBXGroup;
+			children = (
+				09FAC0AE1DA3A0B300477344 /* LOGIN_REGISTRO_VC */,
+				09FAC0A81DA3A00400477344 /* QUIZ_VC */,
+				09FAC0A91DA3A02200477344 /* APRENDE_VC */,
+				D5B2F6331D93182D008DF8A3 /* SYBMenuViewController.swift */,
+			);
+			name = VIEW_CONTROLLERS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,7 +288,6 @@
 				D5B2F62E1D92EC60008DF8A3 /* checkOK.png in Resources */,
 				D5B37C211D68E431002009DB /* Main.storyboard in Resources */,
 				D5B2F6201D92E069008DF8A3 /* SimbolosDescripcion.plist in Resources */,
-				09FAC0B41DA3C16C00477344 /* fondo.png in Resources */,
 				D5B2F6281D92E1A7008DF8A3 /* simbolo0.png in Resources */,
 				09FAC0B21DA3BE8100477344 /* iconoMapa.png in Resources */,
 				D5B2F62A1D92E1A7008DF8A3 /* simbolo2.png in Resources */,

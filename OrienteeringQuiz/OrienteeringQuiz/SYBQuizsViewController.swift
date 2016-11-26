@@ -9,7 +9,7 @@
 import UIKit
 
 class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-    @available(iOS 6.0, *)
+  //  @available(iOS 6.0, *)
 
 
 
@@ -72,7 +72,7 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
     
 
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellReusable", for: indexPath as IndexPath) as! SYBCollectionViewCell
         
@@ -91,19 +91,20 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
         
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
        
         //Cuando seleccionen una imagen mostramos check OK/KO
         var imageView : UIImageView
 
         
-        imageView  = UIImageView(frame:CGRectMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0, 100, 100));
+        imageView  = UIImageView(frame:CGRect(x: self.view.frame.size.width / 2.0, y: self.view.frame.size.height / 2.0, width: 100, height: 100));
         
-        //delay
-        let seconds = 1.0
-        let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
-        //let dispatchTime = dispatch_time(dispatch_time(DispatchTime.now()), Int64(delay))
-        let dispatchTime = DispatchTime.now(dispatch_time_t(DispatchTime.now()), Int64(delay))
+        
+//        //delay
+//        let seconds = 1.0
+//        let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+//        //let dispatchTime = dispatch_time(dispatch_time(DispatchTime.now()), Int64(delay))
+//        let dispatchTime = DispatchTime.now(dispatch_time_t(DispatchTime.now()), Int64(delay))
 
 
         
@@ -112,9 +113,8 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
             imageView.image = UIImage(named:"checkOK.png")
 
             
-            //numeroImagenes = numeroImagenes + 1
-            dispatch_after(dispatchTime, DispatchQueue.main, {
-                
+            delayWithSeconds(1) {
+            
                 //Creamos un array de numeros aleatorios
                 self.generarAleatorios()
                 
@@ -123,7 +123,7 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
                 
                 self.collectionView?.reloadData()
                 
-            })
+            }
             
             
             
@@ -135,13 +135,9 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
         self.view.addSubview(imageView)
         
         //escondemos el check despues de un rato
-        dispatch_after(dispatchTime, DispatchQueue.main, {
-            
+        delayWithSeconds(1) {
             imageView.isHidden = true
-            
-        })
-        
-        
+        }
         
     }
     
@@ -177,6 +173,10 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
         myDescriptionLBL.text = descripcion
     }
     
-   
-
+    func delayWithSeconds(_ seconds: Double, completion: @escaping () -> ()) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+            completion()
+        }
+    }
 }
+

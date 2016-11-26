@@ -23,6 +23,8 @@ class SYBRegistroNuevoUsuarioViewController: UIViewController {
     @IBOutlet weak var myEmailTF: UITextField!
     @IBOutlet weak var myClubTF: UITextField!
     
+ 
+    
     
     
     
@@ -31,6 +33,15 @@ class SYBRegistroNuevoUsuarioViewController: UIViewController {
     @IBOutlet weak var myRegistrarseBTN: UIButton!
     
     //MARK: - IBACTION
+    
+    @IBAction func cerrarVC(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+        
+    }
+    
+    @IBAction func editarFoto(_ sender: Any) {
+        pickerPhoto()
+    }
     
     @IBAction func registrarse(_ sender: AnyObject) {
         var errorInicial = ""
@@ -60,22 +71,29 @@ class SYBRegistroNuevoUsuarioViewController: UIViewController {
                 UIApplication.shared.endIgnoringInteractionEvents()
                 
                 let errorDataSingUp = singUpError
-                var errorDataPost = ""
-                
-                if !self.fotoSeleccionada{
-                    errorDataPost = "Por favor selecciona una imagen para registrarte"
-                }
-                
-                //                    if errorDataPost != ""{
-                //                        self.showAlertVCFinal("ATENCION", mensageData: "Existe un error en el registro")
-                //                    }
+//                var errorDataPost = ""
+
+//                if !self.fotoSeleccionada{
+//                    errorDataPost = "Por favor selecciona una imagen para registrarte"
+//                }
+//                
+//                if errorDataPost != ""{
+//                    self.showAlertVCFinal("ATENCION", "Existe un error en el registro")
+//                }
                 
                 if errorDataSingUp != nil{
-                    if let errorString = errorDataSingUp.userInfo["error"] as? NSString{
-                        self.showAlertVCFinal("ATENCION", mensageData: errorString as String)
+//                    if let errorString = errorDataSingUp.userInfo["error"] as? NSString{
+//                        self.showAlertVCFinal("ATENCION", mensageData: errorString as String)
+//                    }else{
+//                        self.showAlertVCFinal("ATENCION", mensageData: "Existe un error en el registro")
+//                    }
+                    if let errorString = (errorDataSingUp as! NSError).userInfo["error"] as? String {
+                        NSLog(errorString);
+                        self.showAlertVCFinal("ATENCION", errorString as String)
                     }else{
-                        self.showAlertVCFinal("ATENCION", mensageData: "Existe un error en el registro")
+                        self.showAlertVCFinal("ATENCION", "Existe un error en el login")
                     }
+                    
                 }else{
                     //Metodo de salvar imagen
                     self.singUpConFoto()
@@ -86,7 +104,7 @@ class SYBRegistroNuevoUsuarioViewController: UIViewController {
         }
         
         if errorInicial != ""{
-            showAlertVCFinal("ATENCION", mensageData: errorInicial)
+            showAlertVCFinal("ATENCION", errorInicial)
         }
 
     }
@@ -96,7 +114,7 @@ class SYBRegistroNuevoUsuarioViewController: UIViewController {
     }
     
     //MARK: - ALERTVC
-    func showAlertVCFinal(_ tituloData : String, mensageData : String){
+    func showAlertVCFinal(_ tituloData : String, _ mensageData : String){
         let alertVC = UIAlertController(title: tituloData, message: mensageData, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         present(alertVC, animated: true, completion: nil)
@@ -112,21 +130,22 @@ class SYBRegistroNuevoUsuarioViewController: UIViewController {
         postImage["username"] = PFUser.current()?.username
         postImage.saveInBackground { (success, error) in
             if success{
-                self.showAlertVCFinal("ATENCION", mensageData: "Datos salvados satisfactoriamente")
+                self.showAlertVCFinal("ATENCION", "Datos salvados satisfactoriamente")
             }else{
-                self.showAlertVCFinal("ATENCION", mensageData: "Error en el registro")
+                self.showAlertVCFinal("ATENCION", "Error en el registro")
             }
             self.fotoSeleccionada = false
             self.myImagenRegistro.image = UIImage(named: "placeholder")
         }
         
-        print("Usuario registrado con exito")
+        NSLog("Usuario registrado con exito");
+        //print("Usuario registrado con exito")
         self.myUserNameTF.text = ""
         self.myPasswordTF.text = ""
         self.myEmailTF.text = ""
         self.myClubTF.text = ""
         
-        self.performSegue(withIdentifier: "saltarTabBarController", sender: self)
+        self.performSegue(withIdentifier: "saltarTabBarControllerFromReg", sender: self)
         
     }
 
@@ -140,6 +159,7 @@ class SYBRegistroNuevoUsuarioViewController: UIViewController {
         myEditTF.tintColor = menuColo1
         myActivityIndicator.color = menuColo1
         myRegistrarseBTN.backgroundColor = menuColo1
+        myActivityIndicator.isHidden = true
         
     }
 
@@ -149,15 +169,7 @@ class SYBRegistroNuevoUsuarioViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
