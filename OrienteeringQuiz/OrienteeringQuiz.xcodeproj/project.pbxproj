@@ -135,15 +135,21 @@
 			name = LOGIN_REGISTRO_VC;
 			sourceTree = "<group>";
 		};
-		09FAC0C71DA3CB4700477344 /* PARSE_FRAMEWORK */ = {
+		09FAC0C71DA3CB4700477344 /* FRAMEWORK */ = {
 			isa = PBXGroup;
 			children = (
+				09FAC0C11DA3CAE400477344 /* SystemConfiguration.framework */,
+				09FAC0C31DA3CAED00477344 /* QuartzCore.framework */,
+				09FAC0C51DA3CAF600477344 /* StoreKit.framework */,
+				09FAC0C81DA3CE1B00477344 /* CFNetwork.framework */,
+				09FAC0CA1DA3CE2200477344 /* AudioToolbox.framework */,
+				09FAC0CC1DA3CE4F00477344 /* CoreLocation.framework */,
 				09FAC0B51DA3CA9800477344 /* Bolts.framework */,
 				09FAC0B61DA3CA9800477344 /* Parse.framework */,
 				09FAC0B71DA3CA9800477344 /* ParseFacebookUtils.framework */,
 				09FAC0B81DA3CA9800477344 /* ParseFacebookUtilsV4.framework */,
 			);
-			name = PARSE_FRAMEWORK;
+			name = FRAMEWORK;
 			sourceTree = "<group>";
 		};
 		D5B2F6211D92E17D008DF8A3 /* IMAGENES */ = {
@@ -174,12 +180,6 @@
 		D5B37C0F1D68E431002009DB = {
 			isa = PBXGroup;
 			children = (
-				09FAC0CC1DA3CE4F00477344 /* CoreLocation.framework */,
-				09FAC0CA1DA3CE2200477344 /* AudioToolbox.framework */,
-				09FAC0C81DA3CE1B00477344 /* CFNetwork.framework */,
-				09FAC0C51DA3CAF600477344 /* StoreKit.framework */,
-				09FAC0C31DA3CAED00477344 /* QuartzCore.framework */,
-				09FAC0C11DA3CAE400477344 /* SystemConfiguration.framework */,
 				09FAC0BF1DA3CAD300477344 /* libsqlite3.tbd */,
 				09FAC0BD1DA3CAC500477344 /* libz.tbd */,
 				D5B37C1A1D68E431002009DB /* OrienteeringQuiz */,
@@ -198,7 +198,7 @@
 		D5B37C1A1D68E431002009DB /* OrienteeringQuiz */ = {
 			isa = PBXGroup;
 			children = (
-				09FAC0C71DA3CB4700477344 /* PARSE_FRAMEWORK */,
+				09FAC0C71DA3CB4700477344 /* FRAMEWORK */,
 				D5B37C1B1D68E431002009DB /* AppDelegate.swift */,
 				09FAC0AE1DA3A0B300477344 /* LOGIN_REGISTRO_VC */,
 				D5B2F6211D92E17D008DF8A3 /* IMAGENES */,

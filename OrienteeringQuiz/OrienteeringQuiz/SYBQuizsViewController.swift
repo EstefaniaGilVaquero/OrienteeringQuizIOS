@@ -9,6 +9,9 @@
 import UIKit
 
 class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    @available(iOS 6.0, *)
+
+
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var myDescriptionLBL: UILabel!
@@ -69,7 +72,7 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
     
 
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellReusable", for: indexPath as IndexPath) as! SYBCollectionViewCell
         
@@ -100,7 +103,7 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
         let seconds = 1.0
         let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
         //let dispatchTime = dispatch_time(dispatch_time(DispatchTime.now()), Int64(delay))
-        let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        let dispatchTime = DispatchTime.now(dispatch_time_t(DispatchTime.now()), Int64(delay))
 
 
         
@@ -110,7 +113,7 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
 
             
             //numeroImagenes = numeroImagenes + 1
-            dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+            dispatch_after(dispatchTime, DispatchQueue.main, {
                 
                 //Creamos un array de numeros aleatorios
                 self.generarAleatorios()
@@ -132,9 +135,9 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
         self.view.addSubview(imageView)
         
         //escondemos el check despues de un rato
-        dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+        dispatch_after(dispatchTime, DispatchQueue.main, {
             
-            imageView.hidden = true
+            imageView.isHidden = true
             
         })
         

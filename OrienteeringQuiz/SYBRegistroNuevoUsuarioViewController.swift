@@ -40,7 +40,7 @@ class SYBRegistroNuevoUsuarioViewController: UIViewController {
             || myEmailTF.text == ""
             || myClubTF.text == ""
             || myImagenRegistro.image == nil{
-            errorInicial = "Estimado usuario por favor rellene todos los campos"
+            errorInicial = "Debes rellenar todos los campos"
         }else{
             //La instancia para interactuar con parse
             let user = PFUser()
