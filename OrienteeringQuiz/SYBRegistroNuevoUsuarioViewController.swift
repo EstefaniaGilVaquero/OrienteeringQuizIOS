@@ -123,16 +123,16 @@ class SYBRegistroNuevoUsuarioViewController: UIViewController {
     //MARK: - SUBIR FOTO A PARSE CON EL REGISTRO
     func singUpConFoto(){
         //instancia de la imagen a subir
-        let postImage = PFObject(className: "ImageProfile")
+        let postImage = PFObject(className: "ImagenPerfil")
         let imageData = UIImageJPEGRepresentation(self.myImagenRegistro.image!, 0.4)
         let imageFile = PFFile(name: "imagePerfilUsuario.jpg", data: imageData!)
-        postImage["imageFile"] = imageFile
-        postImage["username"] = PFUser.current()?.username
+        postImage["ficheroImagen"] = imageFile
+        postImage["nombreUsuario"] = PFUser.current()?.username
         postImage.saveInBackground { (success, error) in
             if success{
-                self.showAlertVCFinal("ATENCION", "Datos salvados satisfactoriamente")
+                self.showAlertVCFinal("Genial", "Se ha guardado tu foto")
             }else{
-                self.showAlertVCFinal("ATENCION", "Error en el registro")
+                self.showAlertVCFinal("Uooppppsss", "Parece que tu foto no se ha podido guardar")
             }
             self.fotoSeleccionada = false
             self.myImagenRegistro.image = UIImage(named: "placeholder")
@@ -188,10 +188,10 @@ extension SYBRegistroNuevoUsuarioViewController : UIImagePickerControllerDelegat
         
         let alertVC = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
-        let takePhotoAction = UIAlertAction(title: "Tomar Foto", style: .default) { Void  in
+        let takePhotoAction = UIAlertAction(title: "Camara", style: .default) { Void  in
             self.takePhotowithCamera()
         }
-        let chooseFromLibraryAction = UIAlertAction(title: "Escoge de la Librería", style: .default) { Void  in
+        let chooseFromLibraryAction = UIAlertAction(title: "Galería", style: .default) { Void  in
             self.choosePhotoFromLibrary()
         }
         alertVC.addAction(cancelAction)
