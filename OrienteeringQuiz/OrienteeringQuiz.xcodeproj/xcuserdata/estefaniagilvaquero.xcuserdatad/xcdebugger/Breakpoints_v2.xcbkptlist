@@ -115,5 +115,165 @@
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OrienteeringQuiz/SYBQuizsViewController.swift"
+            timestampString = "506092922.467596"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SYBMenuViewController.swift"
+            timestampString = "506164408.702582"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
+            landmarkName = "obtenerSimbolos()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SYBMenuViewController.swift"
+            timestampString = "506164428.134018"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
+            landmarkName = "obtenerSimbolos()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OrienteeringQuiz.SYBMenuViewController.(obtenerSimbolos () -&gt; ()).(closure #1)"
+                  moduleName = "OrienteeringQuiz"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/estefaniagilvaquero/Documents/MasterIOS2016/OrienteeringQuizIOS/OrienteeringQuiz/SYBMenuViewController.swift"
+                  timestampString = "506165598.524483"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "125"
+                  endingLineNumber = "125"
+                  offsetFromSymbolStart = "695">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OrienteeringQuiz.SYBMenuViewController.(obtenerSimbolos () -&gt; ()).(closure #1)"
+                  moduleName = "OrienteeringQuiz"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/estefaniagilvaquero/Documents/MasterIOS2016/OrienteeringQuizIOS/OrienteeringQuiz/SYBMenuViewController.swift"
+                  timestampString = "506165598.528424"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "125"
+                  endingLineNumber = "125"
+                  offsetFromSymbolStart = "756">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SYBMenuViewController.swift"
+            timestampString = "506164430.133188"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
+            landmarkName = "obtenerSimbolos()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SYBMenuViewController.swift"
+            timestampString = "506164431.4777"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
+            landmarkName = "obtenerSimbolos()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OrienteeringQuiz.SYBMenuViewController.(obtenerSimbolos () -&gt; ()).(closure #1).(closure #1)"
+                  moduleName = "OrienteeringQuiz"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/estefaniagilvaquero/Documents/MasterIOS2016/OrienteeringQuizIOS/OrienteeringQuiz/SYBMenuViewController.swift"
+                  timestampString = "506165598.541905"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "138"
+                  endingLineNumber = "138"
+                  offsetFromSymbolStart = "306">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OrienteeringQuiz.SYBMenuViewController.(obtenerSimbolos () -&gt; ()).(closure #1).(closure #1)"
+                  moduleName = "OrienteeringQuiz"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/estefaniagilvaquero/Documents/MasterIOS2016/OrienteeringQuizIOS/OrienteeringQuiz/SYBMenuViewController.swift"
+                  timestampString = "506165598.544729"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "138"
+                  endingLineNumber = "138"
+                  offsetFromSymbolStart = "3396">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SYBMenuViewController.swift"
+            timestampString = "506165318.570159"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "obtenerSimbolos()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

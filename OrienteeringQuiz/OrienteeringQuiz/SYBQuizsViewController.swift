@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
   //  @available(iOS 6.0, *)
 
@@ -18,10 +19,23 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
     @IBOutlet weak var myView: UIView!
     
     //MARK: VARIABLES LOCALES GLOBALES
+   // var simbolosObjeto = PFObject(className:"Simbolos")
+    var simbolosArrayGuay = [simbolosModelo]()
+    
+//    var foundation = [baseMakeUp]()
+//    
+//    Creates an empty array of baseMakeUp called foundation. You can't use subscripting to add elements to an array, you can only use it to change existing elements. Since your array is empty you add elements with append.
+//    
+//    foundation.append(baseMakeUp(Brand: "Brand", Color: "Color"))
+    
+    
+    
+    
+    //--------
 
-    var simbolosArray : NSArray = []
-   // var simbolosArraySeleccion = [[:]]
-    var simbolosDiccionario : NSDictionary = [:]
+    //var simbolosArray : NSArray = []
+    
+    //var simbolosDiccionario : NSDictionary = [:]
     var respuesta = 0
     var randomArray : [Int] = []
     var numeroImagenes = 0
@@ -48,8 +62,11 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
         self.title = tituloNavigationController
         
         //Recuperamos de .plist
-        let path = Bundle.main.path(forResource: nombrePlist, ofType: "plist")
-        simbolosArray = NSArray(contentsOfFile: path!)!
+//        let path = Bundle.main.path(forResource: nombrePlist, ofType: "plist")
+//        simbolosArray = NSArray(contentsOfFile: path!)!
+        
+        //Obtengo listado de simbolos de Parse, segun el tipo de simbolo(mapa,desc)
+        //obtenerSimbolos(tipo: "mapa")
 
         //Creamos un array de numeros aleatorios
         generarAleatorios()
@@ -80,9 +97,10 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
         //Pinto la imagen correspondiente
         
         
-        simbolosDiccionario = simbolosArray.object(at: randomArray[indexPath.row]) as! NSDictionary
-        let imagen = simbolosDiccionario["Imagen"] as! String
-        let imagenSimbolo = UIImage(named: imagen)
+        //simbolosDiccionario = simbolosArray.object(at: randomArray[indexPath.row]) as! NSDictionary
+        //simbolosDiccionario = simbolosArrayGuay[randomArray[indexPath.row]] as! NSDictionary
+        let imagenSimbolo = simbolosArrayGuay[randomArray[indexPath.row]].imagen
+        //let imagenSimbolo = UIImage(named: imagen)
         
         cell.myImagenSimbolo.image = imagenSimbolo
         
@@ -124,9 +142,6 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
                 self.collectionView?.reloadData()
                 
             }
-            
-            
-            
         
         }else{
             imageView.image = UIImage(named:"checkKO.png")
@@ -156,7 +171,7 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
         
         for indice in 0..<numeroImagenes{
             repeat {
-                random = RandomInt(min: 0, max: simbolosArray.count-1)
+                random = RandomInt(min: 0, max: simbolosArrayGuay.count-1)
             }while randomArray.contains(random)
             randomArray.insert(random, at: indice)
             
@@ -168,9 +183,9 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
         respuesta = randomArray[RandomInt(min: 0, max: randomArray.count-1)]
         //Asigno la descripccion al label
         
-        simbolosDiccionario = simbolosArray.object(at: respuesta) as! NSDictionary
-        let descripcion = simbolosDiccionario["Descripcion"] as! String
-        myDescriptionLBL.text = descripcion
+//        simbolosDiccionario = simbolosArray.object(at: respuesta) as! NSDictionary
+//        let descripcion = simbolosDiccionario["Descripcion"] as! String
+        myDescriptionLBL.text = simbolosArrayGuay[respuesta].descripcionCorta
     }
     
     func delayWithSeconds(_ seconds: Double, completion: @escaping () -> ()) {
@@ -178,5 +193,7 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
             completion()
         }
     }
+    
+    
 }
 

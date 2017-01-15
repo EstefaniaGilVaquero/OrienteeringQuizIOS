@@ -23,7 +23,7 @@ class AprendeSimbolosViewController: UIViewController, UITableViewDataSource, UI
         //Maquetacion
         //Estilo background
         let menuColo1 = UIColor(red: 0.965, green: 0.467, blue: 0.161, alpha: 1)
-        tableView.backgroundColor = menuColo1
+        tableView.backgroundColor = menuColo1        
         tableView.separatorColor = menuColo1
         view.backgroundColor = menuColo1
         
@@ -71,6 +71,11 @@ class AprendeSimbolosViewController: UIViewController, UITableViewDataSource, UI
         cell.myDescripcionAprendeSimbolos.text = descripcion
         cell.myDescripcionLargaAprendeSimbolos.text = descripcionLarga
         
+
+       // let labelSize = rectForText(text: "your text here", font: UIFont.systemFont(ofSize: 17.0), maxSize: CGSize(width: 10, height: 999))
+        cell.myDescripcionLargaAprendeSimbolos.sizeToFit()
+        
+        
         
         
         return cell
@@ -78,6 +83,7 @@ class AprendeSimbolosViewController: UIViewController, UITableViewDataSource, UI
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+      //  let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! AprendeSimbolosTableViewCell
         
         let index = indexPath
         
@@ -102,7 +108,16 @@ class AprendeSimbolosViewController: UIViewController, UITableViewDataSource, UI
         
         
     }
-
+    
+    func rectForText(text: String, font: UIFont, maxSize: CGSize) -> CGSize {
+        let attrString = NSAttributedString.init(string: text, attributes: [NSFontAttributeName:font])
+        let rect = attrString.boundingRect(with: maxSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, context: nil)
+        let size = CGSize(width: rect.size.width, height: rect.size.height)
+        
+        return size
+    }
+    
+    
 }
 
 

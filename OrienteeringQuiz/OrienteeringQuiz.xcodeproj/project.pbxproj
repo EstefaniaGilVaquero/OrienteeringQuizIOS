@@ -26,6 +26,7 @@
 		09FAC0C91DA3CE1B00477344 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09FAC0C81DA3CE1B00477344 /* CFNetwork.framework */; };
 		09FAC0CB1DA3CE2200477344 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09FAC0CA1DA3CE2200477344 /* AudioToolbox.framework */; };
 		09FAC0CD1DA3CE4F00477344 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09FAC0CC1DA3CE4F00477344 /* CoreLocation.framework */; };
+		D50137001E2A471300A3F8D6 /* simbolosModelo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50136FF1E2A471300A3F8D6 /* simbolosModelo.swift */; };
 		D55677481D69CA1E00A35C0E /* SYBCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55677471D69CA1E00A35C0E /* SYBCollectionViewCell.swift */; };
 		D556774C1D69D9D800A35C0E /* SYBQuizsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D556774B1D69D9D800A35C0E /* SYBQuizsViewController.swift */; };
 		D5B2F6201D92E069008DF8A3 /* SimbolosDescripcion.plist in Resources */ = {isa = PBXBuildFile; fileRef = D5B2F61F1D92E069008DF8A3 /* SimbolosDescripcion.plist */; };
@@ -63,6 +64,7 @@
 		09FAC0C81DA3CE1B00477344 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		09FAC0CA1DA3CE2200477344 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		09FAC0CC1DA3CE4F00477344 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		D50136FF1E2A471300A3F8D6 /* simbolosModelo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = simbolosModelo.swift; sourceTree = "<group>"; };
 		D55677471D69CA1E00A35C0E /* SYBCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYBCollectionViewCell.swift; sourceTree = "<group>"; };
 		D556774B1D69D9D800A35C0E /* SYBQuizsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYBQuizsViewController.swift; sourceTree = "<group>"; };
 		D5B2F61F1D92E069008DF8A3 /* SimbolosDescripcion.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SimbolosDescripcion.plist; sourceTree = "<group>"; };
@@ -150,6 +152,14 @@
 			name = FRAMEWORK;
 			sourceTree = "<group>";
 		};
+		D50136FC1E2944C500A3F8D6 /* MODELOS */ = {
+			isa = PBXGroup;
+			children = (
+				D50136FF1E2A471300A3F8D6 /* simbolosModelo.swift */,
+			);
+			name = MODELOS;
+			sourceTree = "<group>";
+		};
 		D5B2F6211D92E17D008DF8A3 /* IMAGENES */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +205,7 @@
 		D5B37C1A1D68E431002009DB /* OrienteeringQuiz */ = {
 			isa = PBXGroup;
 			children = (
+				D50136FC1E2944C500A3F8D6 /* MODELOS */,
 				09FAC0C71DA3CB4700477344 /* FRAMEWORK */,
 				D5B37C1B1D68E431002009DB /* AppDelegate.swift */,
 				D5C187AE1DEA11AD00EBFC9F /* VIEW_CONTROLLERS */,
@@ -307,6 +318,7 @@
 				D5B2F6341D93182D008DF8A3 /* SYBMenuViewController.swift in Sources */,
 				D55677481D69CA1E00A35C0E /* SYBCollectionViewCell.swift in Sources */,
 				0906A6921D9BE09A0039F55D /* AprendeSimbolosViewController.swift in Sources */,
+				D50137001E2A471300A3F8D6 /* simbolosModelo.swift in Sources */,
 				D556774C1D69D9D800A35C0E /* SYBQuizsViewController.swift in Sources */,
 				D5B37C1C1D68E431002009DB /* AppDelegate.swift in Sources */,
 				0906A68F1D9BDADD0039F55D /* AprendeSimbolosTableViewCell.swift in Sources */,

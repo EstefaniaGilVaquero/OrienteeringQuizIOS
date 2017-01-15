@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import Parse
 
 class SYBMenuViewController: UIViewController {
+    
+    
+    var simbolosArrayGuay = [simbolosModelo]()
+    
     
 //    *** Primary color:
 //    
@@ -53,7 +58,8 @@ class SYBMenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        //Recupero todos los simbolos de Parse
+        obtenerSimbolos()
 
         //Estilo botones
         
@@ -87,23 +93,61 @@ class SYBMenuViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //Identificar el segue por el que estamos pasando
-        if segue.identifier == "simbolosMapa" {
-            //Crear el objeto que representa el VC que recibe una vista DESTINO
-            if let destinationVC = segue.destination as? SYBQuizsViewController {
-                destinationVC.tituloNavigationController = "Quiz Simbolos Mapa"
-                destinationVC.numeroImagenes = 5
-            }
-        }else if segue.identifier == "simbolosDescripcion" {
-            //Crear el objeto que representa el VC que recibe una vista DESTINO
-            if let destinationVC = segue.destination as? SYBQuizsViewController {
+        if let destinationVC = segue.destination as? SYBQuizsViewController {
+            if segue.identifier == "simbolosMapa" {
+                //Crear el objeto que representa el VC que recibe una vista DESTINO
+//                if let destinationVC = segue.destination as? SYBQuizsViewController {
+                    destinationVC.tituloNavigationController = "Quiz Simbolos Mapa"
+                    destinationVC.numeroImagenes = 5
+//                }
+            }else if segue.identifier == "simbolosDescripcion" {
+                //Crear el objeto que representa el VC que recibe una vista DESTINO
+//                if let destinationVC = segue.destination as? SYBQuizsViewController {
                 destinationVC.tituloNavigationController = "Quiz Simbolos Descripcion"
                 destinationVC.numeroImagenes = 5
                 destinationVC.nombrePlist = "SimbolosDescripcion"
             }
-        }
+            destinationVC.simbolosArrayGuay = simbolosArrayGuay
+        }        
     }
     
-    
-    
-
+    func obtenerSimbolos(){
+        
+        let querySimbolos = PFQuery(className:"Simbolos")
+        //querySimbolos.whereKey("tipo", equalTo:tipo)
+        querySimbolos.findObjectsInBackground {
+            (objects: [PFObject]?, error: Error?) -> Void in
+            
+            if error == nil {
+                // The find succeeded.
+                print("Successfully retrieved \(objects!.count) scores.")
+                // Do something with the found objects
+                if let objects = objects {
+                    for object in objects {
+                        print(object.objectId!)
+                        
+                        //Obtenemos el simbolo .png
+                        let imagenSimbolo = object["imagen"] as! PFFile
+                        imagenSimbolo.getDataInBackground(block: {
+                            (data: Data?, error: Error?) in
+                            
+                            if error == nil {
+                                if let imageData = data {
+                                    let imagenFinal = UIImage(data:imageData)
+                                    
+                                    let simbolo = simbolosModelo(pTipo: (object["tipo"] as! String?)!, pIdImagen: (object["idImagen"] as! Int?)!, pImagen: (imagenFinal)!, pDescripcionCorta: object["descripcionCorta"] as! String, pDescripcionLarga: object["descripcionLarga"] as! String)
+                                    
+                                    self.simbolosArrayGuay.append(simbolo)
+                                }
+                            }
+                        })
+                    }
+                }
+            } else {
+                // Log details of the failure
+                print("Error: \(error!) \(error!._userInfo)")
+            }
+        }
+        
+    }
 }
