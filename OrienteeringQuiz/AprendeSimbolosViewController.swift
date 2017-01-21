@@ -13,7 +13,8 @@ class AprendeSimbolosViewController: UIViewController, UITableViewDataSource, UI
     @IBOutlet weak var tableView: UITableView!
     var selectedIndexPath : IndexPath? = nil
     
-    var simbolosArray : NSArray = []
+    var simbolosArrayGuay = [simbolosModelo]()
+    //var simbolosArray : NSArray = []
     var simbolosDiccionario : NSDictionary = [:]
     var tituloNavigationController = ""
     
@@ -25,11 +26,7 @@ class AprendeSimbolosViewController: UIViewController, UITableViewDataSource, UI
         let menuColo1 = UIColor(red: 0.965, green: 0.467, blue: 0.161, alpha: 1)
         tableView.backgroundColor = menuColo1        
         tableView.separatorColor = menuColo1
-        view.backgroundColor = menuColo1
-        
-        
-        
-        
+        view.backgroundColor = menuColo1       
         
         tableView.register(UINib(nibName: "AprendeSimbolosTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
         
@@ -37,8 +34,8 @@ class AprendeSimbolosViewController: UIViewController, UITableViewDataSource, UI
         self.title = tituloNavigationController
         
         //Recuperamos de .plist
-        let path = Bundle.main.path(forResource: "SimbolosDescripcion", ofType: "plist")
-        simbolosArray = NSArray(contentsOfFile: path!)! as NSArray
+//        let path = Bundle.main.path(forResource: "SimbolosDescripcion", ofType: "plist")
+//        simbolosArray = NSArray(contentsOfFile: path!)! as NSArray
     }
     
     override func didReceiveMemoryWarning() {
@@ -47,11 +44,9 @@ class AprendeSimbolosViewController: UIViewController, UITableViewDataSource, UI
     }
     
     // MARK: - Table view data source
-    
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return simbolosArray.count
+        return simbolosArrayGuay.count
     }
     
     
@@ -61,22 +56,26 @@ class AprendeSimbolosViewController: UIViewController, UITableViewDataSource, UI
         
         //Pinto la imagen correspondiente
         print(indexPath)
-        simbolosDiccionario = (simbolosArray.object(at: indexPath.row) as! NSDictionary)
-        let imagen = simbolosDiccionario["Imagen"] as! String
-        let imagenData = UIImage(named: imagen)
-        let descripcion = simbolosDiccionario["Descripcion"] as! String
-        let descripcionLarga = simbolosDiccionario["DescripcionLarga"] as! String
         
-        cell.myImagenAprendeSimbolos.image = imagenData
-        cell.myDescripcionAprendeSimbolos.text = descripcion
-        cell.myDescripcionLargaAprendeSimbolos.text = descripcionLarga
+        let card = simbolosArrayGuay[indexPath.row]
+        
+        
+        if let imagenSimbolo = card.imagen {
+            imagenSimbolo.getDataInBackground(block: {
+                (data: Data?, error: Error?) in
+                if error == nil {
+                    let image = UIImage(data:data!)
+                    cell.myImagenAprendeSimbolos.image = image
+                }
+            })
+        }
+
+        cell.myDescripcionAprendeSimbolos.text = card.descripcionCorta
+        cell.myDescripcionLargaAprendeSimbolos.text = card.descripcionLarga
         
 
        // let labelSize = rectForText(text: "your text here", font: UIFont.systemFont(ofSize: 17.0), maxSize: CGSize(width: 10, height: 999))
         cell.myDescripcionLargaAprendeSimbolos.sizeToFit()
-        
-        
-        
         
         return cell
         

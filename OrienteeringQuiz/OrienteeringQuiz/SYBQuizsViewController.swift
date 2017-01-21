@@ -61,13 +61,6 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
         //Ponemos titulo al VC
         self.title = tituloNavigationController
         
-        //Recuperamos de .plist
-//        let path = Bundle.main.path(forResource: nombrePlist, ofType: "plist")
-//        simbolosArray = NSArray(contentsOfFile: path!)!
-        
-        //Obtengo listado de simbolos de Parse, segun el tipo de simbolo(mapa,desc)
-        //obtenerSimbolos(tipo: "mapa")
-
         //Creamos un array de numeros aleatorios
         generarAleatorios()
         
@@ -97,14 +90,16 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
         //Pinto la imagen correspondiente
         
         
-        //simbolosDiccionario = simbolosArray.object(at: randomArray[indexPath.row]) as! NSDictionary
-        //simbolosDiccionario = simbolosArrayGuay[randomArray[indexPath.row]] as! NSDictionary
-        let imagenSimbolo = simbolosArrayGuay[randomArray[indexPath.row]].imagen
-        //let imagenSimbolo = UIImage(named: imagen)
+        if let imagenSimbolo = simbolosArrayGuay[randomArray[indexPath.row]].imagen {
+            imagenSimbolo.getDataInBackground(block: {
+                (data: Data?, error: Error?) in
+                if error == nil {
+                    let image = UIImage(data:data!)
+                    cell.myImagenSimbolo.image = image
+                }
+            })
+        }
         
-        cell.myImagenSimbolo.image = imagenSimbolo
-        
-
         return cell
         
     }

@@ -11,8 +11,30 @@ import Parse
 
 class SYBMenuViewController: UIViewController {
     
+
+    //LOGOUT
+//    @IBAction func logOut(_ sender: Any) {
+//        PFUser.logOutInBackground { (error) in
+//            if error != nil{
+//                print("Error al hacer logout")
+//            }else{
+//                print("Logout Completado")
+//            }
+//        }
+//    }    
     
-    var simbolosArrayGuay = [simbolosModelo]()
+    @IBAction func pulsarQuizMixto(_ sender: Any) {
+        if PFUser.current() != nil{
+            self.performSegue(withIdentifier: "mixToGame", sender: self)
+        }
+//        }else{
+//            self.performSegue(withIdentifier: "mixToLogin", sender: self)
+//        }
+    }
+    
+    var simbolosArrayMapa = [simbolosModelo]()
+    var simbolosArrayDescripcion = [simbolosModelo]()
+    var simbolosArrayMix = [simbolosModelo]()
     
     
 //    *** Primary color:
@@ -45,8 +67,7 @@ class SYBMenuViewController: UIViewController {
     let menuColo10 = UIColor(red: 0.694, green: 0.533, blue: 0.004, alpha: 1)
     
     
-    
-
+    @IBOutlet weak var btnMenuButtom: UIBarButtonItem!
     @IBOutlet weak var buttonAprendeSimbolos: UIButton!
     @IBOutlet weak var buttonQuizMixto: UIButton!
     @IBOutlet weak var buttonSymbolosMapa: UIButton!
@@ -58,10 +79,20 @@ class SYBMenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        if revealViewController() != nil {
+//            //            revealViewController().rearViewRevealWidth = 62
+//            btnMenuButtom.target = revealViewController()
+//            btnMenuButtom.action = #selector(SWRevealViewController.revealToggle(_:))
+//            
+//            //            revealViewController().rightViewRevealWidth = 150
+//            //            extraButton.target = revealViewController()
+//            //            extraButton.action = "rightRevealToggle:"
+//        }
+
+        
+        
         //Recupero todos los simbolos de Parse
         obtenerSimbolos()
-
-        //Estilo botones
         
         buttonAprendeSimbolos.backgroundColor = menuColo1
         buttonSymbolosMapa.backgroundColor = menuColo2
@@ -95,59 +126,73 @@ class SYBMenuViewController: UIViewController {
         //Identificar el segue por el que estamos pasando
         if let destinationVC = segue.destination as? SYBQuizsViewController {
             if segue.identifier == "simbolosMapa" {
-                //Crear el objeto que representa el VC que recibe una vista DESTINO
-//                if let destinationVC = segue.destination as? SYBQuizsViewController {
-                    destinationVC.tituloNavigationController = "Quiz Simbolos Mapa"
-                    destinationVC.numeroImagenes = 5
-//                }
+                destinationVC.tituloNavigationController = "Quiz Simbolos Mapa"
+                destinationVC.numeroImagenes = simbolosArrayMapa.count
+                destinationVC.simbolosArrayGuay = simbolosArrayMapa
             }else if segue.identifier == "simbolosDescripcion" {
-                //Crear el objeto que representa el VC que recibe una vista DESTINO
-//                if let destinationVC = segue.destination as? SYBQuizsViewController {
                 destinationVC.tituloNavigationController = "Quiz Simbolos Descripcion"
-                destinationVC.numeroImagenes = 5
-                destinationVC.nombrePlist = "SimbolosDescripcion"
+                destinationVC.numeroImagenes = simbolosArrayDescripcion.count
+                destinationVC.simbolosArrayGuay = simbolosArrayDescripcion
+            }                
+        }else if let destinationVC = segue.destination as? AprendeSimbolosViewController {
+            if segue.identifier == "simbolosAprende" {
+                destinationVC.tituloNavigationController = "Aprende los Simbolos"
             }
-            destinationVC.simbolosArrayGuay = simbolosArrayGuay
-        }        
+            destinationVC.simbolosArrayGuay = simbolosArrayMix
+        }else if let destinationVC = segue.destination as? SYQuizsMixViewController {
+            if segue.identifier == "mixToGame" {
+                destinationVC.tituloNavigationController = "Quiz Mix"
+                destinationVC.numeroImagenes = simbolosArrayMix.count
+                //destinationVC.simbolosArrayGuay = simbolosArrayGuay
+            }
+        }//else if let destinationVC = segue.destination as? SYBLoginViewController {
+           // if segue.identifier == "mixToLogin" {
+                //destinationVC.tituloNavigationController = "Quiz Mix"
+                //destinationVC.numeroImagenes = 5
+                //destinationVC.simbolosArrayGuay = simbolosArrayGuay
+            //}
+       // }
+    
     }
     
     func obtenerSimbolos(){
         
+        //Miro el idioma del sistema, si es diferente de español, lo pongo en ingles
+        var idioma = Locale.current.languageCode
+        if (idioma != "es"){
+            idioma = "en"
+        }
+        //create a new dispatch group
         let querySimbolos = PFQuery(className:"Simbolos")
-        //querySimbolos.whereKey("tipo", equalTo:tipo)
+        querySimbolos.whereKey("idioma", equalTo:idioma)
         querySimbolos.findObjectsInBackground {
             (objects: [PFObject]?, error: Error?) -> Void in
             
             if error == nil {
                 // The find succeeded.
-                print("Successfully retrieved \(objects!.count) scores.")
+                print("Se han leido \(objects!.count) simbolos en idioma \(idioma)")
                 // Do something with the found objects
                 if let objects = objects {
                     for object in objects {
                         print(object.objectId!)
                         
-                        //Obtenemos el simbolo .png
-                        let imagenSimbolo = object["imagen"] as! PFFile
-                        imagenSimbolo.getDataInBackground(block: {
-                            (data: Data?, error: Error?) in
-                            
-                            if error == nil {
-                                if let imageData = data {
-                                    let imagenFinal = UIImage(data:imageData)
-                                    
-                                    let simbolo = simbolosModelo(pTipo: (object["tipo"] as! String?)!, pIdImagen: (object["idImagen"] as! Int?)!, pImagen: (imagenFinal)!, pDescripcionCorta: object["descripcionCorta"] as! String, pDescripcionLarga: object["descripcionLarga"] as! String)
-                                    
-                                    self.simbolosArrayGuay.append(simbolo)
-                                }
-                            }
-                        })
-                    }
+                        //Obtenemos el simbolo .png               
+                        let simbolo = simbolosModelo(pTipo: (object["tipo"] as! String?)!, pIdImagen: (object["idImagen"] as! Int?)!, pImagen: (object["imagen"] as! PFFile?)!, pDescripcionCorta: object["descripcionCorta"] as! String, pDescripcionLarga: object["descripcionLarga"] as! String)
+                        
+                        if(simbolo.tipo == "mapa"){
+                            self.simbolosArrayMapa.append(simbolo)
+                        }else if(simbolo.tipo == "descripcion"){
+                            self.simbolosArrayDescripcion.append(simbolo)
+                        }
+                        self.simbolosArrayMix.append(simbolo)
+                   }
                 }
             } else {
                 // Log details of the failure
                 print("Error: \(error!) \(error!._userInfo)")
             }
         }
-        
     }
+    
+    
 }

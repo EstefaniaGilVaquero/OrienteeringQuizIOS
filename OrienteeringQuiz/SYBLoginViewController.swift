@@ -72,20 +72,13 @@ class SYBLoginViewController: UIViewController {
 //        }
 //    }
     
-    //TODO: - LOGOUT
-    @IBAction func heHechoLogout(segue: UIStoryboardSegue){
-        PFUser.logOutInBackground { (error) in
-            if error != nil{
-                print("Error al hacer logout")
-            }else{
-                print("Logout Completado")
-            }
-        }
-    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
         myActivityIndicator.isHidden = true
         let menuColo1 = UIColor(red: 0.965, green: 0.467, blue: 0.161, alpha: 1)
         myAccederBTN.backgroundColor = menuColo1
