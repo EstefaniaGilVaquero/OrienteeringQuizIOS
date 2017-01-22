@@ -23,14 +23,7 @@ class SYBMenuViewController: UIViewController {
 //        }
 //    }    
     
-    @IBAction func pulsarQuizMixto(_ sender: Any) {
-        if PFUser.current() != nil{
-            self.performSegue(withIdentifier: "mixToGame", sender: self)
-        }
-//        }else{
-//            self.performSegue(withIdentifier: "mixToLogin", sender: self)
-//        }
-    }
+  
     
     var simbolosArrayMapa = [simbolosModelo]()
     var simbolosArrayDescripcion = [simbolosModelo]()
@@ -133,26 +126,17 @@ class SYBMenuViewController: UIViewController {
                 destinationVC.tituloNavigationController = "Quiz Simbolos Descripcion"
                 destinationVC.numeroImagenes = simbolosArrayDescripcion.count
                 destinationVC.simbolosArrayGuay = simbolosArrayDescripcion
-            }                
+            }else if segue.identifier == "simbolosMix" {
+                destinationVC.tituloNavigationController = "Quiz Mix"
+                destinationVC.numeroImagenes = 2
+                destinationVC.simbolosArrayGuay = simbolosArrayMix
+            }
         }else if let destinationVC = segue.destination as? AprendeSimbolosViewController {
             if segue.identifier == "simbolosAprende" {
                 destinationVC.tituloNavigationController = "Aprende los Simbolos"
             }
             destinationVC.simbolosArrayGuay = simbolosArrayMix
-        }else if let destinationVC = segue.destination as? SYQuizsMixViewController {
-            if segue.identifier == "mixToGame" {
-                destinationVC.tituloNavigationController = "Quiz Mix"
-                destinationVC.numeroImagenes = simbolosArrayMix.count
-                //destinationVC.simbolosArrayGuay = simbolosArrayGuay
-            }
-        }//else if let destinationVC = segue.destination as? SYBLoginViewController {
-           // if segue.identifier == "mixToLogin" {
-                //destinationVC.tituloNavigationController = "Quiz Mix"
-                //destinationVC.numeroImagenes = 5
-                //destinationVC.simbolosArrayGuay = simbolosArrayGuay
-            //}
-       // }
-    
+        }
     }
     
     func obtenerSimbolos(){

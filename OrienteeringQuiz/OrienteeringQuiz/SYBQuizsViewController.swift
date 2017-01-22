@@ -41,7 +41,14 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
     var numeroImagenes = 0
     var tituloNavigationController = ""
     var nombrePlist = ""
-
+    
+    //variables para quizMix
+    var contadorRondas = 0
+    var contadorAciertos = 0
+    var aciertosPorRonda = 2
+    var contadorPuntos = 1
+    var numeroImagenesInicial = 0
+    var isQuizMix = false;
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +67,14 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
         
         //Ponemos titulo al VC
         self.title = tituloNavigationController
+        
+        //Si es quizMix seteamos variable a true
+        if (tituloNavigationController == "Quiz Mix"){
+            isQuizMix = true
+            
+            //Guardo numeroImagenesInicial
+            numeroImagenesInicial = numeroImagenes
+        }
         
         //Creamos un array de numeros aleatorios
         generarAleatorios()
@@ -124,22 +139,56 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
         if (respuesta == randomArray[indexPath.row]){
             
             imageView.image = UIImage(named:"checkOK.png")
+            
+            //Si es quizMix
+            if (isQuizMix){
+                contadorAciertos = contadorAciertos + 1
+                contadorPuntos = contadorPuntos + contadorRondas
+                
+                if(contadorAciertos == aciertosPorRonda){
+                    contadorAciertos = 0
+                    contadorRondas = contadorRondas + 1
+                    numeroImagenes = numeroImagenes + 1
+                }
+                
+                
+            }
+            
+            print("Aciertos: \(contadorAciertos)")
+            print("Rondas: \(contadorRondas)")
+            print("Puntos: \(contadorPuntos)")
 
             
             delayWithSeconds(1) {
             
-                //Creamos un array de numeros aleatorios
-                self.generarAleatorios()
-                
-                //Genero una descripcion para mostrar
-                self.generarDescripcion()
-                
-                self.collectionView?.reloadData()
-                
+                self.recargarColeccion()
             }
         
         }else{
-            imageView.image = UIImage(named:"checkKO.png")
+            //Falla la respuesta
+            //Si es quizMix alert volver a jugar
+            if (isQuizMix){
+                
+
+                
+                let refreshAlert = UIAlertController(title: "¡Fallaste!", message: "Tu puntuacion es x, maxima puntuacion x", preferredStyle: UIAlertControllerStyle.alert)
+                
+                refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+                    self.recargarColeccion()
+                }))
+                
+                present(refreshAlert, animated: true, completion: nil)
+                
+                //Reseteo contadores de aciertos rondas
+                contadorRondas = 0
+                contadorAciertos = 0
+                numeroImagenes = numeroImagenesInicial
+                
+                
+                
+            }else{
+                imageView.image = UIImage(named:"checkKO.png")
+            }
         }
         
         self.view.addSubview(imageView)
@@ -164,6 +213,12 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
         var random = 0
         randomArray.removeAll()
         
+        //Si el numero de imagenes a cargar es mayor que los simbolos que tenemos
+        if(numeroImagenes > simbolosArrayGuay.count){
+            numeroImagenes = simbolosArrayGuay.count
+        }
+        
+        
         for indice in 0..<numeroImagenes{
             repeat {
                 random = RandomInt(min: 0, max: simbolosArrayGuay.count-1)
@@ -187,6 +242,18 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
             completion()
         }
+    }
+
+    
+    func recargarColeccion() {
+        //Creamos un array de numeros aleatorios
+        self.generarAleatorios()
+        
+        //Genero una descripcion para mostrar
+        self.generarDescripcion()
+        
+        self.collectionView?.reloadData()
+        
     }
     
     
