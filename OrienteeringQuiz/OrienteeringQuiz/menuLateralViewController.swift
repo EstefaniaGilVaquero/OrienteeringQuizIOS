@@ -56,7 +56,7 @@ class menuLateralViewController: UIViewController,UITableViewDelegate,UITableVie
         {
             print("Home Tapped")
             let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let newViewcontroller = mainstoryboard.instantiateViewController(withIdentifier: "ViewController") as! SYBQuizsViewController
+            let newViewcontroller = mainstoryboard.instantiateViewController(withIdentifier: "QuizsViewController") as! SYBQuizsViewController
             let newFrontController = UINavigationController.init(rootViewController: newViewcontroller)
             
             revealviewcontroller.pushFrontViewController(newFrontController, animated: true)
@@ -67,7 +67,7 @@ class menuLateralViewController: UIViewController,UITableViewDelegate,UITableVie
             print("message Tapped")
            
             let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let newViewcontroller = mainstoryboard.instantiateViewController(withIdentifier: "MessageViewController") as! SYBQuizsViewController
+            let newViewcontroller = mainstoryboard.instantiateViewController(withIdentifier: "QuizsViewController") as! SYBQuizsViewController
             let newFrontController = UINavigationController.init(rootViewController: newViewcontroller)
             
             revealviewcontroller.pushFrontViewController(newFrontController, animated: true)
