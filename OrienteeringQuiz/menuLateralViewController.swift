@@ -8,7 +8,7 @@
 
 import UIKit
 
-class menuLateralViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class menuViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     @IBOutlet weak var tblTableView: UITableView!
     @IBOutlet weak var imgProfile: UIImageView!
@@ -56,7 +56,7 @@ class menuLateralViewController: UIViewController,UITableViewDelegate,UITableVie
         {
             print("Home Tapped")
             let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let newViewcontroller = mainstoryboard.instantiateViewController(withIdentifier: "ViewController") as! SYBQuizsViewController
+            let newViewcontroller = mainstoryboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
             let newFrontController = UINavigationController.init(rootViewController: newViewcontroller)
             
             revealviewcontroller.pushFrontViewController(newFrontController, animated: true)
@@ -67,7 +67,7 @@ class menuLateralViewController: UIViewController,UITableViewDelegate,UITableVie
             print("message Tapped")
            
             let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let newViewcontroller = mainstoryboard.instantiateViewController(withIdentifier: "MessageViewController") as! SYBQuizsViewController
+            let newViewcontroller = mainstoryboard.instantiateViewController(withIdentifier: "MessageViewController") as! MessageViewController
             let newFrontController = UINavigationController.init(rootViewController: newViewcontroller)
             
             revealviewcontroller.pushFrontViewController(newFrontController, animated: true)

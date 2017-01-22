@@ -79,15 +79,15 @@ class SYBMenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        if revealViewController() != nil {
-//            //            revealViewController().rearViewRevealWidth = 62
-//            btnMenuButtom.target = revealViewController()
-//            btnMenuButtom.action = #selector(SWRevealViewController.revealToggle(_:))
-//            
-//            //            revealViewController().rightViewRevealWidth = 150
-//            //            extraButton.target = revealViewController()
-//            //            extraButton.action = "rightRevealToggle:"
-//        }
+        if revealViewController() != nil {
+            //            revealViewController().rearViewRevealWidth = 62
+            btnMenuButtom.target = revealViewController()
+            btnMenuButtom.action = "revealToggle:"
+            
+            //            revealViewController().rightViewRevealWidth = 150
+            //            extraButton.target = revealViewController()
+            //            extraButton.action = "rightRevealToggle:"
+        }
 
         
         

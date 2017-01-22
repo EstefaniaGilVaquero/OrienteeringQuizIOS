@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SideMenuViewController: UIViewController {
+class SideMenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBOutlet weak var tblTableView: UITableView!
     @IBOutlet weak var imgProfile: UIImageView!

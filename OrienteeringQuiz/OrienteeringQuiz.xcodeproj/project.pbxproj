@@ -28,6 +28,7 @@
 		09FAC0CD1DA3CE4F00477344 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09FAC0CC1DA3CE4F00477344 /* CoreLocation.framework */; };
 		6F9D96B75D85412C7ED32B64 /* Pods_OrienteeringQuiz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777E669F9C09F68568D1A29C /* Pods_OrienteeringQuiz.framework */; };
 		D50137001E2A471300A3F8D6 /* simbolosModelo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50136FF1E2A471300A3F8D6 /* simbolosModelo.swift */; };
+		D545A5501E342F2900371078 /* menuLateralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D545A54F1E342F2900371078 /* menuLateralViewController.swift */; };
 		D55677481D69CA1E00A35C0E /* SYBCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55677471D69CA1E00A35C0E /* SYBCollectionViewCell.swift */; };
 		D556774C1D69D9D800A35C0E /* SYBQuizsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D556774B1D69D9D800A35C0E /* SYBQuizsViewController.swift */; };
 		D55AAB391E2E9DF900683978 /* SYQuizsMixViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55AAB381E2E9DF900683978 /* SYQuizsMixViewController.swift */; };
@@ -39,7 +40,6 @@
 		D5B37C231D68E432002009DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5B37C221D68E432002009DB /* Assets.xcassets */; };
 		D5B37C261D68E432002009DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5B37C241D68E432002009DB /* LaunchScreen.storyboard */; };
 		D5BC206A1E33D6CA00F4203C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5BC206C1E33D6CA00F4203C /* Localizable.strings */; };
-		D5BC20711E3401AA00F4203C /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BC20701E3401AA00F4203C /* SideMenuViewController.swift */; };
 		D5BC20731E34035E00F4203C /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BC20721E34035E00F4203C /* MenuCell.swift */; };
 		D5BC20771E3403B800F4203C /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BC20761E3403B800F4203C /* SWRevealViewController.m */; };
 		D5BC20791E34097900F4203C /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = D5BC20781E34097900F4203C /* Podfile */; };
@@ -69,6 +69,7 @@
 		777E669F9C09F68568D1A29C /* Pods_OrienteeringQuiz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OrienteeringQuiz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCB4C95CFBA217FCF0D5558D /* Pods-OrienteeringQuiz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrienteeringQuiz.release.xcconfig"; path = "Pods/Target Support Files/Pods-OrienteeringQuiz/Pods-OrienteeringQuiz.release.xcconfig"; sourceTree = "<group>"; };
 		D50136FF1E2A471300A3F8D6 /* simbolosModelo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = simbolosModelo.swift; sourceTree = "<group>"; };
+		D545A54F1E342F2900371078 /* menuLateralViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menuLateralViewController.swift; sourceTree = "<group>"; };
 		D55677471D69CA1E00A35C0E /* SYBCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYBCollectionViewCell.swift; sourceTree = "<group>"; };
 		D556774B1D69D9D800A35C0E /* SYBQuizsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYBQuizsViewController.swift; sourceTree = "<group>"; };
 		D55AAB381E2E9DF900683978 /* SYQuizsMixViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYQuizsMixViewController.swift; sourceTree = "<group>"; };
@@ -82,7 +83,6 @@
 		D5B37C251D68E432002009DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D5B37C271D68E432002009DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5BC206B1E33D6CA00F4203C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		D5BC20701E3401AA00F4203C /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		D5BC20721E34035E00F4203C /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		D5BC20741E3403B700F4203C /* OrienteeringQuiz-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OrienteeringQuiz-Bridging-Header.h"; sourceTree = "<group>"; };
 		D5BC20751E3403B800F4203C /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -237,10 +237,10 @@
 		D5BC206F1E34015700F4203C /* SIDEMENU_VC */ = {
 			isa = PBXGroup;
 			children = (
+				D545A54F1E342F2900371078 /* menuLateralViewController.swift */,
 				D5BC20751E3403B800F4203C /* SWRevealViewController.h */,
 				D5BC20761E3403B800F4203C /* SWRevealViewController.m */,
 				D5BC20721E34035E00F4203C /* MenuCell.swift */,
-				D5BC20701E3401AA00F4203C /* SideMenuViewController.swift */,
 				D5BC20741E3403B700F4203C /* OrienteeringQuiz-Bridging-Header.h */,
 			);
 			name = SIDEMENU_VC;
@@ -390,12 +390,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5BC20771E3403B800F4203C /* SWRevealViewController.m in Sources */,
+				D545A5501E342F2900371078 /* menuLateralViewController.swift in Sources */,
 				09FAC0AB1DA3A05A00477344 /* SYBLoginViewController.swift in Sources */,
 				D5B2F6341D93182D008DF8A3 /* SYBMenuViewController.swift in Sources */,
 				D5BC20731E34035E00F4203C /* MenuCell.swift in Sources */,
 				D55677481D69CA1E00A35C0E /* SYBCollectionViewCell.swift in Sources */,
 				0906A6921D9BE09A0039F55D /* AprendeSimbolosViewController.swift in Sources */,
-				D5BC20711E3401AA00F4203C /* SideMenuViewController.swift in Sources */,
 				D55AAB391E2E9DF900683978 /* SYQuizsMixViewController.swift in Sources */,
 				D50137001E2A471300A3F8D6 /* simbolosModelo.swift in Sources */,
 				D556774C1D69D9D800A35C0E /* SYBQuizsViewController.swift in Sources */,

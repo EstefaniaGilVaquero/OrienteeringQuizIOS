@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="QY7-tb-L3y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="846-2q-43e">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,7 +13,7 @@
         <!--Reveal View Controller-->
         <scene sceneID="rrx-wB-eWL">
             <objects>
-                <viewController id="QY7-tb-L3y" customClass="SWRevealViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SWRevealViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QY7-tb-L3y" customClass="SWRevealViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="h8S-v7-bSQ"/>
                         <viewControllerLayoutGuide type="bottom" id="NqL-Aq-cWU"/>
@@ -25,17 +25,17 @@
                     </view>
                     <connections>
                         <segue destination="ypT-Uu-FBa" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="UDV-U2-M1x"/>
-                        <segue destination="mMq-RG-XnL" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="T9z-rc-ot5"/>
+                        <segue destination="mMq-RG-XnL" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="6Pr-Jb-kCs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FgY-5D-Snf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-930" y="364"/>
         </scene>
-        <!--Side Menu View Controller-->
+        <!--Menu Lateral View Controller-->
         <scene sceneID="gis-XQ-ctF">
             <objects>
-                <viewController id="ypT-Uu-FBa" customClass="SideMenuViewController" customModule="OrienteeringQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MenuLateralTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ypT-Uu-FBa" customClass="menuLateralViewController" customModule="OrienteeringQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6mI-gS-2JP"/>
                         <viewControllerLayoutGuide type="bottom" id="ysX-h1-Xhi"/>
@@ -52,7 +52,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZNV-xD-fHN" id="WMi-cs-ogQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ST9-sR-l1R">
@@ -81,13 +81,17 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="imgIcon" destination="rdP-ar-sEj" id="woA-3W-ilw"/>
-                                            <outlet property="lblMenuname" destination="ST9-sR-l1R" id="Azv-dv-VLS"/>
+                                            <outlet property="imgIcon" destination="rdP-ar-sEj" id="rbu-cT-0Zx"/>
+                                            <outlet property="lblMenuname" destination="ST9-sR-l1R" id="Vd7-L0-V3i"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="ypT-Uu-FBa" id="l5P-8T-kXR"/>
+                                    <outlet property="delegate" destination="ypT-Uu-FBa" id="bzr-yj-0PG"/>
+                                </connections>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="PGG-tJ-Oj7">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="profileDefault.png" translatesAutoresizingMaskIntoConstraints="NO" id="PGG-tJ-Oj7">
                                 <rect key="frame" x="16" y="28" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="wGV-el-8IW"/>
@@ -239,14 +243,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="KZp-tu-KWS">
-                        <barButtonItem key="leftBarButtonItem" image="menu" id="lEB-Wq-7my">
-                            <connections>
-                                <action selector="logOut:" destination="BYZ-38-t0r" id="kIE-Iv-zZd"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="lEB-Wq-7my"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="btnMenu" destination="KZp-tu-KWS" id="3iG-mG-urL"/>
                         <outlet property="btnMenuButtom" destination="lEB-Wq-7my" id="7P6-tq-tZH"/>
                         <outlet property="buttonAprendeSimbolos" destination="nGy-4d-tJF" id="ZyL-zg-th9"/>
                         <outlet property="buttonQuizMixto" destination="adm-EI-GbH" id="Pwf-HJ-KiF"/>
@@ -578,6 +577,7 @@
                         <outlet property="myActivityIndicator" destination="OB6-4F-EcR" id="WBv-Iy-p5d"/>
                         <outlet property="myPasswordTF" destination="Zc6-Ft-FW5" id="viL-Hf-QG5"/>
                         <outlet property="myUsernameTF" destination="gAr-h4-QSu" id="JPa-I8-vhV"/>
+                        <segue destination="QY7-tb-L3y" kind="modal" identifier="saltarTabBarControllerFromLogin" id="LJh-VP-9lx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TMF-IK-z31" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -766,6 +766,7 @@
                         <outlet property="myPasswordTF" destination="BRc-Fb-pOV" id="XwW-ZN-SWv"/>
                         <outlet property="myRegistrarseBTN" destination="68c-RK-J1l" id="oRs-G8-Cbv"/>
                         <outlet property="myUserNameTF" destination="9kx-wk-W9B" id="WZt-Jt-79X"/>
+                        <segue destination="QY7-tb-L3y" kind="modal" identifier="saltarTabBarControllerFromReg" id="Ibu-08-jyy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q9Z-xI-NRl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -796,7 +797,6 @@
         <image name="cerrasX" width="140" height="140"/>
         <image name="iconoMapa.png" width="341" height="354"/>
         <image name="menu" width="32" height="32"/>
-        <image name="profile" width="225" height="225"/>
         <image name="profileDefault.png" width="297" height="335"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -805,6 +805,7 @@
         <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="Ibu-08-jyy"/>
         <segue reference="qZf-PU-pfP"/>
     </inferredMetricsTieBreakers>
 </document>
