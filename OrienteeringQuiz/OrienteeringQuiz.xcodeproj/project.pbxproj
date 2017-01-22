@@ -31,7 +31,6 @@
 		D545A5501E342F2900371078 /* menuLateralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D545A54F1E342F2900371078 /* menuLateralViewController.swift */; };
 		D55677481D69CA1E00A35C0E /* SYBCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55677471D69CA1E00A35C0E /* SYBCollectionViewCell.swift */; };
 		D556774C1D69D9D800A35C0E /* SYBQuizsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D556774B1D69D9D800A35C0E /* SYBQuizsViewController.swift */; };
-		D55AAB391E2E9DF900683978 /* SYQuizsMixViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55AAB381E2E9DF900683978 /* SYQuizsMixViewController.swift */; };
 		D5B2F62E1D92EC60008DF8A3 /* checkOK.png in Resources */ = {isa = PBXBuildFile; fileRef = D5B2F62D1D92EC60008DF8A3 /* checkOK.png */; };
 		D5B2F6301D930BCD008DF8A3 /* checkKO.png in Resources */ = {isa = PBXBuildFile; fileRef = D5B2F62F1D930BCD008DF8A3 /* checkKO.png */; };
 		D5B2F6341D93182D008DF8A3 /* SYBMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B2F6331D93182D008DF8A3 /* SYBMenuViewController.swift */; };
@@ -72,7 +71,6 @@
 		D545A54F1E342F2900371078 /* menuLateralViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menuLateralViewController.swift; sourceTree = "<group>"; };
 		D55677471D69CA1E00A35C0E /* SYBCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYBCollectionViewCell.swift; sourceTree = "<group>"; };
 		D556774B1D69D9D800A35C0E /* SYBQuizsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYBQuizsViewController.swift; sourceTree = "<group>"; };
-		D55AAB381E2E9DF900683978 /* SYQuizsMixViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYQuizsMixViewController.swift; sourceTree = "<group>"; };
 		D5B2F62D1D92EC60008DF8A3 /* checkOK.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkOK.png; sourceTree = "<group>"; };
 		D5B2F62F1D930BCD008DF8A3 /* checkKO.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkKO.png; sourceTree = "<group>"; };
 		D5B2F6331D93182D008DF8A3 /* SYBMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SYBMenuViewController.swift; path = ../SYBMenuViewController.swift; sourceTree = "<group>"; };
@@ -119,7 +117,6 @@
 			children = (
 				D55677471D69CA1E00A35C0E /* SYBCollectionViewCell.swift */,
 				D556774B1D69D9D800A35C0E /* SYBQuizsViewController.swift */,
-				D55AAB381E2E9DF900683978 /* SYQuizsMixViewController.swift */,
 			);
 			name = QUIZ_VC;
 			sourceTree = "<group>";
@@ -396,7 +393,6 @@
 				D5BC20731E34035E00F4203C /* MenuCell.swift in Sources */,
 				D55677481D69CA1E00A35C0E /* SYBCollectionViewCell.swift in Sources */,
 				0906A6921D9BE09A0039F55D /* AprendeSimbolosViewController.swift in Sources */,
-				D55AAB391E2E9DF900683978 /* SYQuizsMixViewController.swift in Sources */,
 				D50137001E2A471300A3F8D6 /* simbolosModelo.swift in Sources */,
 				D556774C1D69D9D800A35C0E /* SYBQuizsViewController.swift in Sources */,
 				D5B37C1C1D68E431002009DB /* AppDelegate.swift in Sources */,
