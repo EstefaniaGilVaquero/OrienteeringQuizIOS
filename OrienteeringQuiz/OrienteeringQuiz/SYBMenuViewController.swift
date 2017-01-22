@@ -12,16 +12,7 @@ import Parse
 class SYBMenuViewController: UIViewController {
     
 
-    //LOGOUT
-//    @IBAction func logOut(_ sender: Any) {
-//        PFUser.logOutInBackground { (error) in
-//            if error != nil{
-//                print("Error al hacer logout")
-//            }else{
-//                print("Logout Completado")
-//            }
-//        }
-//    }    
+
     
   
     

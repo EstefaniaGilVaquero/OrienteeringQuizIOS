@@ -7,11 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0906A68F1D9BDADD0039F55D /* AprendeSimbolosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0906A68D1D9BDADD0039F55D /* AprendeSimbolosTableViewCell.swift */; };
-		0906A6901D9BDADD0039F55D /* AprendeSimbolosTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0906A68E1D9BDADD0039F55D /* AprendeSimbolosTableViewCell.xib */; };
-		0906A6921D9BE09A0039F55D /* AprendeSimbolosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0906A6911D9BE09A0039F55D /* AprendeSimbolosViewController.swift */; };
-		09FAC0AB1DA3A05A00477344 /* SYBLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FAC0AA1DA3A05A00477344 /* SYBLoginViewController.swift */; };
-		09FAC0AD1DA3A0A600477344 /* SYBRegistroNuevoUsuarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FAC0AC1DA3A0A600477344 /* SYBRegistroNuevoUsuarioViewController.swift */; };
 		09FAC0B01DA3BC3700477344 /* profileDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 09FAC0AF1DA3BC3700477344 /* profileDefault.png */; };
 		09FAC0B21DA3BE8100477344 /* iconoMapa.png in Resources */ = {isa = PBXBuildFile; fileRef = 09FAC0B11DA3BE8100477344 /* iconoMapa.png */; };
 		09FAC0B91DA3CA9800477344 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09FAC0B51DA3CA9800477344 /* Bolts.framework */; };
@@ -31,9 +26,14 @@
 		D545A5501E342F2900371078 /* menuLateralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D545A54F1E342F2900371078 /* menuLateralViewController.swift */; };
 		D55677481D69CA1E00A35C0E /* SYBCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55677471D69CA1E00A35C0E /* SYBCollectionViewCell.swift */; };
 		D556774C1D69D9D800A35C0E /* SYBQuizsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D556774B1D69D9D800A35C0E /* SYBQuizsViewController.swift */; };
+		D5B210F71E3513E40072442F /* AprendeSimbolosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B210F41E3513E40072442F /* AprendeSimbolosTableViewCell.swift */; };
+		D5B210F81E3513E40072442F /* AprendeSimbolosTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5B210F51E3513E40072442F /* AprendeSimbolosTableViewCell.xib */; };
+		D5B210F91E3513E40072442F /* AprendeSimbolosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B210F61E3513E40072442F /* AprendeSimbolosViewController.swift */; };
+		D5B210FD1E3514910072442F /* SYBMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B210FC1E3514910072442F /* SYBMenuViewController.swift */; };
+		D5B211001E3514B20072442F /* SYBLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B210FE1E3514B20072442F /* SYBLoginViewController.swift */; };
+		D5B211011E3514B20072442F /* SYBRegistroNuevoUsuarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B210FF1E3514B20072442F /* SYBRegistroNuevoUsuarioViewController.swift */; };
 		D5B2F62E1D92EC60008DF8A3 /* checkOK.png in Resources */ = {isa = PBXBuildFile; fileRef = D5B2F62D1D92EC60008DF8A3 /* checkOK.png */; };
 		D5B2F6301D930BCD008DF8A3 /* checkKO.png in Resources */ = {isa = PBXBuildFile; fileRef = D5B2F62F1D930BCD008DF8A3 /* checkKO.png */; };
-		D5B2F6341D93182D008DF8A3 /* SYBMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B2F6331D93182D008DF8A3 /* SYBMenuViewController.swift */; };
 		D5B37C1C1D68E431002009DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B37C1B1D68E431002009DB /* AppDelegate.swift */; };
 		D5B37C211D68E431002009DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5B37C1F1D68E431002009DB /* Main.storyboard */; };
 		D5B37C231D68E432002009DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5B37C221D68E432002009DB /* Assets.xcassets */; };
@@ -45,11 +45,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0906A68D1D9BDADD0039F55D /* AprendeSimbolosTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AprendeSimbolosTableViewCell.swift; path = ../AprendeSimbolosTableViewCell.swift; sourceTree = "<group>"; };
-		0906A68E1D9BDADD0039F55D /* AprendeSimbolosTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AprendeSimbolosTableViewCell.xib; path = ../AprendeSimbolosTableViewCell.xib; sourceTree = "<group>"; };
-		0906A6911D9BE09A0039F55D /* AprendeSimbolosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AprendeSimbolosViewController.swift; path = ../AprendeSimbolosViewController.swift; sourceTree = "<group>"; };
-		09FAC0AA1DA3A05A00477344 /* SYBLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SYBLoginViewController.swift; path = ../SYBLoginViewController.swift; sourceTree = "<group>"; };
-		09FAC0AC1DA3A0A600477344 /* SYBRegistroNuevoUsuarioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SYBRegistroNuevoUsuarioViewController.swift; path = ../SYBRegistroNuevoUsuarioViewController.swift; sourceTree = "<group>"; };
 		09FAC0AF1DA3BC3700477344 /* profileDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profileDefault.png; sourceTree = "<group>"; };
 		09FAC0B11DA3BE8100477344 /* iconoMapa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconoMapa.png; sourceTree = "<group>"; };
 		09FAC0B51DA3CA9800477344 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -71,9 +66,14 @@
 		D545A54F1E342F2900371078 /* menuLateralViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menuLateralViewController.swift; sourceTree = "<group>"; };
 		D55677471D69CA1E00A35C0E /* SYBCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYBCollectionViewCell.swift; sourceTree = "<group>"; };
 		D556774B1D69D9D800A35C0E /* SYBQuizsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYBQuizsViewController.swift; sourceTree = "<group>"; };
+		D5B210F41E3513E40072442F /* AprendeSimbolosTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AprendeSimbolosTableViewCell.swift; sourceTree = "<group>"; };
+		D5B210F51E3513E40072442F /* AprendeSimbolosTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AprendeSimbolosTableViewCell.xib; sourceTree = "<group>"; };
+		D5B210F61E3513E40072442F /* AprendeSimbolosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AprendeSimbolosViewController.swift; sourceTree = "<group>"; };
+		D5B210FC1E3514910072442F /* SYBMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYBMenuViewController.swift; sourceTree = "<group>"; };
+		D5B210FE1E3514B20072442F /* SYBLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYBLoginViewController.swift; sourceTree = "<group>"; };
+		D5B210FF1E3514B20072442F /* SYBRegistroNuevoUsuarioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYBRegistroNuevoUsuarioViewController.swift; sourceTree = "<group>"; };
 		D5B2F62D1D92EC60008DF8A3 /* checkOK.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkOK.png; sourceTree = "<group>"; };
 		D5B2F62F1D930BCD008DF8A3 /* checkKO.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkKO.png; sourceTree = "<group>"; };
-		D5B2F6331D93182D008DF8A3 /* SYBMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SYBMenuViewController.swift; path = ../SYBMenuViewController.swift; sourceTree = "<group>"; };
 		D5B37C181D68E431002009DB /* OrienteeringQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrienteeringQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5B37C1B1D68E431002009DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D5B37C201D68E431002009DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -124,9 +124,9 @@
 		09FAC0A91DA3A02200477344 /* APRENDE_VC */ = {
 			isa = PBXGroup;
 			children = (
-				0906A68D1D9BDADD0039F55D /* AprendeSimbolosTableViewCell.swift */,
-				0906A68E1D9BDADD0039F55D /* AprendeSimbolosTableViewCell.xib */,
-				0906A6911D9BE09A0039F55D /* AprendeSimbolosViewController.swift */,
+				D5B210F41E3513E40072442F /* AprendeSimbolosTableViewCell.swift */,
+				D5B210F51E3513E40072442F /* AprendeSimbolosTableViewCell.xib */,
+				D5B210F61E3513E40072442F /* AprendeSimbolosViewController.swift */,
 			);
 			name = APRENDE_VC;
 			sourceTree = "<group>";
@@ -134,8 +134,8 @@
 		09FAC0AE1DA3A0B300477344 /* LOGIN_REGISTRO_VC */ = {
 			isa = PBXGroup;
 			children = (
-				09FAC0AC1DA3A0A600477344 /* SYBRegistroNuevoUsuarioViewController.swift */,
-				09FAC0AA1DA3A05A00477344 /* SYBLoginViewController.swift */,
+				D5B210FE1E3514B20072442F /* SYBLoginViewController.swift */,
+				D5B210FF1E3514B20072442F /* SYBRegistroNuevoUsuarioViewController.swift */,
 			);
 			name = LOGIN_REGISTRO_VC;
 			sourceTree = "<group>";
@@ -250,7 +250,7 @@
 				09FAC0AE1DA3A0B300477344 /* LOGIN_REGISTRO_VC */,
 				09FAC0A81DA3A00400477344 /* QUIZ_VC */,
 				09FAC0A91DA3A02200477344 /* APRENDE_VC */,
-				D5B2F6331D93182D008DF8A3 /* SYBMenuViewController.swift */,
+				D5B210FC1E3514910072442F /* SYBMenuViewController.swift */,
 			);
 			name = VIEW_CONTROLLERS;
 			sourceTree = "<group>";
@@ -319,12 +319,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5BC20791E34097900F4203C /* Podfile in Resources */,
-				0906A6901D9BDADD0039F55D /* AprendeSimbolosTableViewCell.xib in Resources */,
 				D5B37C261D68E432002009DB /* LaunchScreen.storyboard in Resources */,
 				D5B37C231D68E432002009DB /* Assets.xcassets in Resources */,
 				09FAC0B01DA3BC3700477344 /* profileDefault.png in Resources */,
 				D5B2F62E1D92EC60008DF8A3 /* checkOK.png in Resources */,
 				D5B37C211D68E431002009DB /* Main.storyboard in Resources */,
+				D5B210F81E3513E40072442F /* AprendeSimbolosTableViewCell.xib in Resources */,
 				09FAC0B21DA3BE8100477344 /* iconoMapa.png in Resources */,
 				D5B2F6301D930BCD008DF8A3 /* checkKO.png in Resources */,
 				D5BC206A1E33D6CA00F4203C /* Localizable.strings in Resources */,
@@ -388,16 +388,16 @@
 			files = (
 				D5BC20771E3403B800F4203C /* SWRevealViewController.m in Sources */,
 				D545A5501E342F2900371078 /* menuLateralViewController.swift in Sources */,
-				09FAC0AB1DA3A05A00477344 /* SYBLoginViewController.swift in Sources */,
-				D5B2F6341D93182D008DF8A3 /* SYBMenuViewController.swift in Sources */,
+				D5B210F71E3513E40072442F /* AprendeSimbolosTableViewCell.swift in Sources */,
 				D5BC20731E34035E00F4203C /* MenuCell.swift in Sources */,
 				D55677481D69CA1E00A35C0E /* SYBCollectionViewCell.swift in Sources */,
-				0906A6921D9BE09A0039F55D /* AprendeSimbolosViewController.swift in Sources */,
 				D50137001E2A471300A3F8D6 /* simbolosModelo.swift in Sources */,
+				D5B211001E3514B20072442F /* SYBLoginViewController.swift in Sources */,
+				D5B210F91E3513E40072442F /* AprendeSimbolosViewController.swift in Sources */,
+				D5B210FD1E3514910072442F /* SYBMenuViewController.swift in Sources */,
 				D556774C1D69D9D800A35C0E /* SYBQuizsViewController.swift in Sources */,
 				D5B37C1C1D68E431002009DB /* AppDelegate.swift in Sources */,
-				0906A68F1D9BDADD0039F55D /* AprendeSimbolosTableViewCell.swift in Sources */,
-				09FAC0AD1DA3A0A600477344 /* SYBRegistroNuevoUsuarioViewController.swift in Sources */,
+				D5B211011E3514B20072442F /* SYBRegistroNuevoUsuarioViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
