@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 
 class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
@@ -17,25 +18,12 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var myDescriptionLBL: UILabel!
     @IBOutlet weak var myView: UIView!
+    @IBOutlet weak var myPuntuacionLBL: UILabel!
     
     //MARK: VARIABLES LOCALES GLOBALES
    // var simbolosObjeto = PFObject(className:"Simbolos")
     var simbolosArrayGuay = [simbolosModelo]()
     
-//    var foundation = [baseMakeUp]()
-//    
-//    Creates an empty array of baseMakeUp called foundation. You can't use subscripting to add elements to an array, you can only use it to change existing elements. Since your array is empty you add elements with append.
-//    
-//    foundation.append(baseMakeUp(Brand: "Brand", Color: "Color"))
-    
-    
-    
-    
-    //--------
-
-    //var simbolosArray : NSArray = []
-    
-    //var simbolosDiccionario : NSDictionary = [:]
     var respuesta = 0
     var randomArray : [Int] = []
     var numeroImagenes = 0
@@ -43,10 +31,10 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
     var nombrePlist = ""
     
     //variables para quizMix
-    var contadorRondas = 0
+    var contadorRondas = 1
     var contadorAciertos = 0
     var aciertosPorRonda = 2
-    var contadorPuntos = 1
+    var contadorPuntos = 0
     var numeroImagenesInicial = 0
     var isQuizMix = false;
 
@@ -64,6 +52,7 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
         myView.layer.cornerRadius = 10
         myDescriptionLBL.layer.masksToBounds = true
         myDescriptionLBL.layer.cornerRadius = 10
+        myPuntuacionLBL.text = "Aciertos: \(contadorAciertos) - Rondas: \(contadorRondas) - Puntos: \(contadorPuntos)"
         
         //Ponemos titulo al VC
         self.title = tituloNavigationController
@@ -123,18 +112,8 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
        
         //Cuando seleccionen una imagen mostramos check OK/KO
         var imageView : UIImageView
-
         
         imageView  = UIImageView(frame:CGRect(x: self.view.frame.size.width / 2.0, y: self.view.frame.size.height / 2.0, width: 100, height: 100));
-        
-        
-//        //delay
-//        let seconds = 1.0
-//        let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
-//        //let dispatchTime = dispatch_time(dispatch_time(DispatchTime.now()), Int64(delay))
-//        let dispatchTime = DispatchTime.now(dispatch_time_t(DispatchTime.now()), Int64(delay))
-
-
         
         if (respuesta == randomArray[indexPath.row]){
             
@@ -150,28 +129,22 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
                     contadorRondas = contadorRondas + 1
                     numeroImagenes = numeroImagenes + 1
                 }
-                
-                
             }
+            
+            myPuntuacionLBL.text = "Aciertos: \(contadorAciertos) - Rondas: \(contadorRondas) - Puntos: \(contadorPuntos)"
             
             print("Aciertos: \(contadorAciertos)")
             print("Rondas: \(contadorRondas)")
             print("Puntos: \(contadorPuntos)")
-
             
             delayWithSeconds(1) {
-            
                 self.recargarColeccion()
             }
-        
         }else{
             //Falla la respuesta
             //Si es quizMix alert volver a jugar
             if (isQuizMix){
-                
-
-                
-                let refreshAlert = UIAlertController(title: "¡Fallaste!", message: "Tu puntuacion es x, maxima puntuacion x", preferredStyle: UIAlertControllerStyle.alert)
+               let refreshAlert = UIAlertController(title: "¡Fallaste!", message: "Tu puntuacion es \(contadorPuntos)", preferredStyle: UIAlertControllerStyle.alert)
                 
                 refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
                     self.recargarColeccion()
@@ -179,11 +152,17 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
                 
                 present(refreshAlert, animated: true, completion: nil)
                 
-                //Reseteo contadores de aciertos rondas
+                //Guardo clasificacion en parse
+                guardarPuntuacion(contadorPuntos: contadorPuntos)
+                
+                //Reseteo contadores
+                contadorPuntos = 0
                 contadorRondas = 0
                 contadorAciertos = 0
                 numeroImagenes = numeroImagenesInicial
                 
+                //Limpio label puntuacion
+                myPuntuacionLBL.text = "Aciertos: \(contadorAciertos) - Rondas: \(contadorRondas) - Puntos: \(contadorPuntos)"
                 
                 
             }else{
@@ -232,9 +211,6 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
     func generarDescripcion(){
         respuesta = randomArray[RandomInt(min: 0, max: randomArray.count-1)]
         //Asigno la descripccion al label
-        
-//        simbolosDiccionario = simbolosArray.object(at: respuesta) as! NSDictionary
-//        let descripcion = simbolosDiccionario["Descripcion"] as! String
         myDescriptionLBL.text = simbolosArrayGuay[respuesta].descripcionCorta
     }
     
@@ -256,6 +232,47 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
         
     }
     
-    
+
+    func guardarPuntuacion(contadorPuntos : Int){
+        
+        //Usuario actual
+        let currentUser = PFUser.current()
+        
+        var query = PFQuery(className: "Clasificacion")
+        query.whereKey("nombreUsuario", equalTo: currentUser?.username)
+        query.getFirstObjectInBackground {
+            (object: PFObject?, error: Error?) -> Void in
+            if error != nil || object == nil {
+                print("El usuario no esta en la clasificacion aun")
+                //Guardo la puntuacion
+                let clasificacion = PFObject(className:"Clasificacion")
+                clasificacion["puntuacion"] = contadorPuntos
+                clasificacion["nombreUsuario"] = currentUser?.username
+                clasificacion["club"] = currentUser?["club"]
+                clasificacion.saveEventually()
+            } else {
+                let puntuacionOld = object?["puntuacion"] as! Int
+                if (puntuacionOld < contadorPuntos){
+                    //Actualizo la puntuacion del usuario
+                    print("Actualizo puntuacion del usuario")
+                    
+                    let objectId = (object?.objectId)! as String
+                    
+                    let query = PFQuery(className:"Clasificacion")
+                    query.getObjectInBackground(withId: objectId){
+                        (clasificacion: PFObject?, error: Error?) -> Void in
+                        if error != nil {
+                            print(error)
+                        } else if let clasificacion = clasificacion {
+                            clasificacion["puntuacion"] = contadorPuntos
+                            clasificacion.saveEventually()
+                        }
+                    }
+                }else{
+                    print("La puntuacion de parse es mayor")
+                }
+            }
+        }
+    }
 }
 

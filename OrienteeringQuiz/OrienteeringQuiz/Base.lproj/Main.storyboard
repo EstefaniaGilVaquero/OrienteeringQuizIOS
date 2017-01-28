@@ -189,6 +189,9 @@
                                     <color key="titleColor" red="0.9653268532" green="1" blue="0.97240034200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="wYJ-MI-OqU" kind="push" identifier="simbolosMix" id="tUs-Fl-MJu"/>
+                                </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lhj-DA-8h6">
                                 <rect key="frame" x="-4" y="466" width="383" height="201"/>
@@ -259,6 +262,7 @@
         <!--Aprende Simbolos View Controller-->
         <scene sceneID="rIt-f8-IkA">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nAf-8V-Gbh" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="mrQ-KD-Uqd" customClass="AprendeSimbolosViewController" customModule="OrienteeringQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YdH-VR-snz"/>
@@ -290,7 +294,6 @@
                         <outlet property="tableView" destination="dzb-PB-xpQ" id="WID-NG-Ysq"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nAf-8V-Gbh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1166" y="414"/>
         </scene>
@@ -306,8 +309,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="beH-0l-51V">
-                                <rect key="frame" x="16" y="0.0" width="343" height="625"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="beH-0l-51V">
+                                <rect key="frame" x="16" y="0.0" width="343" height="505"/>
                                 <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eLl-hf-M6J">
                                     <size key="itemSize" width="70" height="70"/>
@@ -359,6 +362,13 @@
                                     <constraint firstItem="FMp-df-gYj" firstAttribute="leading" secondItem="Wp5-0h-pRE" secondAttribute="leading" constant="15" id="np0-EL-RkR"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2LY-ja-Rnh">
+                                <rect key="frame" x="16" y="532" width="343" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -375,12 +385,13 @@
                     <connections>
                         <outlet property="collectionView" destination="beH-0l-51V" id="sTQ-9H-s8f"/>
                         <outlet property="myDescriptionLBL" destination="FMp-df-gYj" id="i82-KP-IzX"/>
+                        <outlet property="myPuntuacionLBL" destination="2LY-ja-Rnh" id="c9y-J9-AtO"/>
                         <outlet property="myView" destination="Wp5-0h-pRE" id="NhC-le-tKr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b38-GB-jHl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1166" y="-363"/>
+            <point key="canvasLocation" x="1165.5" y="-363.5"/>
         </scene>
         <!--Quizs Mix View Controller-->
         <scene sceneID="rLM-nL-Ias">
@@ -803,6 +814,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="Ibu-08-jyy"/>
-        <segue reference="qZf-PU-pfP"/>
+        <segue reference="qog-Ti-Eql"/>
     </inferredMetricsTieBreakers>
 </document>

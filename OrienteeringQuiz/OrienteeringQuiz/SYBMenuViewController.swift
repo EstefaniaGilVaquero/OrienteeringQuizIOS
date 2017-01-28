@@ -137,7 +137,7 @@ class SYBMenuViewController: UIViewController {
         if (idioma != "es"){
             idioma = "en"
         }
-        //create a new dispatch group
+
         let querySimbolos = PFQuery(className:"Simbolos")
         querySimbolos.whereKey("idioma", equalTo:idioma)
         querySimbolos.findObjectsInBackground {
