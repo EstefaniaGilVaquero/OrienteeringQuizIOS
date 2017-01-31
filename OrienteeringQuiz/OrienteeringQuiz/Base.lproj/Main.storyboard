@@ -113,7 +113,7 @@
             </objects>
             <point key="canvasLocation" x="-440.5" y="-482.5"/>
         </scene>
-        <!--Title-->
+        <!--Orienteering Quiz-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="SYBMenuViewController" customModule="OrienteeringQuiz" customModuleProvider="target" sceneMemberID="viewController">
@@ -207,6 +207,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <segue destination="Hz6-dr-qK0" kind="push" identifier="clasificacion" id="wWg-iy-neb"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iconoMapa.png" translatesAutoresizingMaskIntoConstraints="NO" id="SKb-L9-HTp">
                                 <rect key="frame" x="43" y="281" width="70" height="70"/>
@@ -242,7 +245,7 @@
                             <constraint firstItem="lhj-DA-8h6" firstAttribute="top" secondItem="adm-EI-GbH" secondAttribute="bottom" id="vlg-9t-2bU"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="KZp-tu-KWS">
+                    <navigationItem key="navigationItem" title="Orienteering Quiz" id="KZp-tu-KWS">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="lEB-Wq-7my"/>
                     </navigationItem>
                     <connections>
@@ -252,17 +255,80 @@
                         <outlet property="buttonRanking" destination="lhj-DA-8h6" id="m7A-4i-agM"/>
                         <outlet property="buttonSymbolosDescripcion" destination="3xA-fV-BVn" id="puo-Pl-NJn"/>
                         <outlet property="buttonSymbolosMapa" destination="qQX-UR-mvy" id="xUH-G0-qdd"/>
-                        <segue destination="8N1-S5-naK" kind="push" identifier="mixToGame" id="eT4-hF-Uz4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="339.5" y="363.5"/>
         </scene>
+        <!--Ranking Table View Controller-->
+        <scene sceneID="CVy-Vr-DuP">
+            <objects>
+                <tableViewController id="Hz6-dr-qK0" customClass="RankingTableViewController" customModule="OrienteeringQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="34" sectionHeaderHeight="28" sectionFooterHeight="28" id="hVF-gI-CrZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ClasificacionCell" rowHeight="34" id="8wS-8n-YOy" customClass="RankingTableViewCell" customModule="OrienteeringQuiz" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="34"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8wS-8n-YOy" id="CxW-Nz-Soi">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="33"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ee-0v-nPu">
+                                            <rect key="frame" x="52" y="2" width="82" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8s4-TG-SRl">
+                                            <rect key="frame" x="153" y="2" width="96" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H6N-8S-e7i">
+                                            <rect key="frame" x="8" y="0.0" width="28" height="25"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C50-2u-gz4">
+                                            <rect key="frame" x="265" y="2" width="102" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="clubUsuarioLBL" destination="8s4-TG-SRl" id="o2t-uR-Tlm"/>
+                                    <outlet property="imagenUsuario" destination="H6N-8S-e7i" id="L9P-DM-jVy"/>
+                                    <outlet property="nombreUsuarioLBL" destination="4ee-0v-nPu" id="Nft-pY-Erc"/>
+                                    <outlet property="puntuacionUsuarioLBL" destination="C50-2u-gz4" id="QV1-3L-YWC"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Hz6-dr-qK0" id="TDe-BF-Spf"/>
+                            <outlet property="delegate" destination="Hz6-dr-qK0" id="viA-O5-mlq"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="bNP-z9-Kls"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ShZ-TD-gRO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1150.5" y="1211.5"/>
+        </scene>
         <!--Aprende Simbolos View Controller-->
         <scene sceneID="rIt-f8-IkA">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nAf-8V-Gbh" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="mrQ-KD-Uqd" customClass="AprendeSimbolosViewController" customModule="OrienteeringQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YdH-VR-snz"/>
@@ -294,6 +360,7 @@
                         <outlet property="tableView" destination="dzb-PB-xpQ" id="WID-NG-Ysq"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nAf-8V-Gbh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1166" y="414"/>
         </scene>
@@ -392,86 +459,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b38-GB-jHl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1165.5" y="-363.5"/>
-        </scene>
-        <!--Quizs Mix View Controller-->
-        <scene sceneID="rLM-nL-Ias">
-            <objects>
-                <viewController id="8N1-S5-naK" customClass="SYQuizsMixViewController" customModule="OrienteeringQuiz" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Rh6-07-2e4"/>
-                        <viewControllerLayoutGuide type="bottom" id="U6t-jj-ZEr"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="6Yg-28-ndB">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pDv-IT-6US">
-                                <rect key="frame" x="16" y="0.0" width="343" height="625"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pf1-x1-m1c">
-                                    <size key="itemSize" width="70" height="70"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellReusable" id="0VL-61-nzR" customClass="SYBCollectionViewCell" customModule="OrienteeringQuiz" customModuleProvider="target">
-                                        <rect key="frame" x="10" y="10" width="70" height="70"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PLq-Si-fsS" userLabel="imagenSimbolo">
-                                                    <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                            </subviews>
-                                        </view>
-                                        <connections>
-                                            <outlet property="myImagenSimbolo" destination="PLq-Si-fsS" id="lA5-Uj-vxj"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="wYJ-MI-OqU" id="p25-kx-UAY"/>
-                                    <outlet property="delegate" destination="wYJ-MI-OqU" id="dP7-WY-aYG"/>
-                                </connections>
-                            </collectionView>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1hk-QI-VNy">
-                                <rect key="frame" x="0.0" y="624" width="383" height="42"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" semanticContentAttribute="forceLeftToRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ns-9I-92W">
-                                        <rect key="frame" x="15" y="21" width="353" height="0.0"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <color key="shadowColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="7Ns-9I-92W" secondAttribute="bottom" constant="21" id="GEx-R6-BN1"/>
-                                    <constraint firstItem="7Ns-9I-92W" firstAttribute="leading" secondItem="1hk-QI-VNy" secondAttribute="leading" constant="15" id="VmJ-iE-yyV"/>
-                                    <constraint firstAttribute="trailing" secondItem="7Ns-9I-92W" secondAttribute="trailing" constant="15" id="x9C-xU-C0B"/>
-                                    <constraint firstItem="7Ns-9I-92W" firstAttribute="top" secondItem="1hk-QI-VNy" secondAttribute="top" constant="21" id="zwT-IF-bbs"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="CmU-Dl-HMT"/>
-                    <connections>
-                        <outlet property="collectionView" destination="pDv-IT-6US" id="PJv-1S-hTv"/>
-                        <outlet property="myDescriptionLBL" destination="7Ns-9I-92W" id="Se4-Et-5Xb"/>
-                        <outlet property="myView" destination="1hk-QI-VNy" id="fZA-ls-uAN"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="B1S-Iz-f7M" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="340" y="1348"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="gQK-dc-Zjq">

@@ -11,14 +11,11 @@ import Parse
 
 class SYBMenuViewController: UIViewController {
     
-
-
-    
-  
-    
     var simbolosArrayMapa = [simbolosModelo]()
     var simbolosArrayDescripcion = [simbolosModelo]()
     var simbolosArrayMix = [simbolosModelo]()
+    var clasificacionArraySingle = [clasificacionModelo]()
+    var clasificacionArrayClub = [clasificacionModelo]()
     
     
 //    *** Primary color:
@@ -78,6 +75,9 @@ class SYBMenuViewController: UIViewController {
         //Recupero todos los simbolos de Parse
         obtenerSimbolos()
         
+        //Recupero la clasificacion
+        obtenerClasificacion()
+        
         buttonAprendeSimbolos.backgroundColor = menuColo1
         buttonSymbolosMapa.backgroundColor = menuColo2
         buttonSymbolosDescripcion.backgroundColor = menuColo3
@@ -111,11 +111,11 @@ class SYBMenuViewController: UIViewController {
         if let destinationVC = segue.destination as? SYBQuizsViewController {
             if segue.identifier == "simbolosMapa" {
                 destinationVC.tituloNavigationController = "Quiz Simbolos Mapa"
-                destinationVC.numeroImagenes = simbolosArrayMapa.count
+                destinationVC.numeroImagenes = 12
                 destinationVC.simbolosArrayGuay = simbolosArrayMapa
             }else if segue.identifier == "simbolosDescripcion" {
                 destinationVC.tituloNavigationController = "Quiz Simbolos Descripcion"
-                destinationVC.numeroImagenes = simbolosArrayDescripcion.count
+                destinationVC.numeroImagenes = 12
                 destinationVC.simbolosArrayGuay = simbolosArrayDescripcion
             }else if segue.identifier == "simbolosMix" {
                 destinationVC.tituloNavigationController = "Quiz Mix"
@@ -125,11 +125,17 @@ class SYBMenuViewController: UIViewController {
         }else if let destinationVC = segue.destination as? AprendeSimbolosViewController {
             if segue.identifier == "simbolosAprende" {
                 destinationVC.tituloNavigationController = "Aprende los Simbolos"
+                destinationVC.simbolosArrayGuay = simbolosArrayMix
             }
-            destinationVC.simbolosArrayGuay = simbolosArrayMix
+        }else if let destinationVC = segue.destination as? RankingTableViewController {
+            if segue.identifier == "clasificacion" {
+                destinationVC.tituloNavigationController = "Clasificacion"
+                destinationVC.clasificacionArraySingle = clasificacionArraySingle
+                destinationVC.clasificacionArrayClub = clasificacionArrayClub
+            }
         }
     }
-    
+
     func obtenerSimbolos(){
         
         //Miro el idioma del sistema, si es diferente de español, lo pongo en ingles
@@ -168,6 +174,88 @@ class SYBMenuViewController: UIViewController {
             }
         }
     }
+    func obtenerClasificacion(){
+        
+        //Usuario actual
+        //let currentUser = PFUser.current()
+        
+        
+        let querySimbolos = PFQuery(className:"Clasificacion")
+        querySimbolos.findObjectsInBackground {
+            (objects: [PFObject]?, error: Error?) -> Void in
+            
+            if error == nil {
+                // The find succeeded.
+                print("Se han leido \(objects!.count) clasificaciones")
+                // Do something with the found objects
+                if let objects = objects {
+                    for object in objects {
+                        print(object.objectId!)
+                        
+                        
+                        let nombreUsuario = (object["nombreUsuario"] as! String?)!
+                        let puntuacion = (object["puntuacion"] as! Int?)!
+                        let club = (object["club"] as! String?)!
+                        
+                        
+                        let query = PFQuery(className: "ImagenPerfil")
+                        query.whereKey("nombreUsuario", equalTo: object["nombreUsuario"])
+                        query.getFirstObjectInBackground {
+                            (objectImagen: PFObject?, error: Error?) -> Void in
+                            
+                            if error != nil || objectImagen == nil {
+                                print("Error al obtener imagen de usuario")
+                                
+                            } else {
+                                print("Guardo imagen de usuario en clasificacionArray")
+                                let userImageFile = objectImagen?["ficheroImagen"] as! PFFile
+                                
+                                userImageFile.getDataInBackground(block: { (imageData, errorImageData) in
+                                    if errorImageData == nil{
+                                        if let imageDataDesempaquetado = imageData{
+                                            
+                                            //Metemos clasificacion en el array
+                                            let clasificacionSingle = clasificacionModelo(pPuntuacion: puntuacion, pNombreUsuario: nombreUsuario, pClub: club, pImagenProfile: UIImage(data: imageDataDesempaquetado)!)
+                                            
+                                            self.clasificacionArraySingle.append(clasificacionSingle)
+                                            
+                                            self.calcularPuntuacionClubes(clasificacionSingle: clasificacionSingle)
+                                        }
+                                    }
+                                })
+                            }
+                        }
+                    }
+                }
+            } else {
+                // Log details of the failure
+                print("Error: \(error!) \(error!._userInfo)")
+            }
+        }
+    }
     
-    
+    func calcularPuntuacionClubes(clasificacionSingle : clasificacionModelo){
+        
+        var clubEncontrado = false
+        
+        let clasificacionClubes = clasificacionModelo(pPuntuacion: clasificacionSingle.puntuacion!, pNombreUsuario: "", pClub: clasificacionSingle.club!, pImagenProfile: #imageLiteral(resourceName: "club"))
+        
+        if (clasificacionArrayClub.isEmpty){            
+            clasificacionArrayClub.append(clasificacionClubes)
+        }else{
+            for i in 0..<clasificacionArrayClub.count {
+                let elemento = clasificacionArrayClub[i]
+                if (elemento.club?.uppercased().contains(clasificacionClubes.club!.uppercased()))!{
+                    clasificacionArrayClub[i].puntuacion = elemento.puntuacion! + clasificacionClubes.puntuacion!
+                    
+                    clubEncontrado = true
+                    break
+                }
+            }
+            
+            if (!clubEncontrado){
+                clasificacionArrayClub.append(clasificacionClubes)
+            }
+        }
+    }
 }
