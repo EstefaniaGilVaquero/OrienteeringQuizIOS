@@ -29,7 +29,6 @@
 		D55677481D69CA1E00A35C0E /* SYBCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55677471D69CA1E00A35C0E /* SYBCollectionViewCell.swift */; };
 		D556774C1D69D9D800A35C0E /* SYBQuizsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D556774B1D69D9D800A35C0E /* SYBQuizsViewController.swift */; };
 		D5B210F71E3513E40072442F /* AprendeSimbolosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B210F41E3513E40072442F /* AprendeSimbolosTableViewCell.swift */; };
-		D5B210F81E3513E40072442F /* AprendeSimbolosTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5B210F51E3513E40072442F /* AprendeSimbolosTableViewCell.xib */; };
 		D5B210F91E3513E40072442F /* AprendeSimbolosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B210F61E3513E40072442F /* AprendeSimbolosViewController.swift */; };
 		D5B210FD1E3514910072442F /* SYBMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B210FC1E3514910072442F /* SYBMenuViewController.swift */; };
 		D5B211001E3514B20072442F /* SYBLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B210FE1E3514B20072442F /* SYBLoginViewController.swift */; };
@@ -72,7 +71,6 @@
 		D55677471D69CA1E00A35C0E /* SYBCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYBCollectionViewCell.swift; sourceTree = "<group>"; };
 		D556774B1D69D9D800A35C0E /* SYBQuizsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYBQuizsViewController.swift; sourceTree = "<group>"; };
 		D5B210F41E3513E40072442F /* AprendeSimbolosTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AprendeSimbolosTableViewCell.swift; sourceTree = "<group>"; };
-		D5B210F51E3513E40072442F /* AprendeSimbolosTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AprendeSimbolosTableViewCell.xib; sourceTree = "<group>"; };
 		D5B210F61E3513E40072442F /* AprendeSimbolosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AprendeSimbolosViewController.swift; sourceTree = "<group>"; };
 		D5B210FC1E3514910072442F /* SYBMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYBMenuViewController.swift; sourceTree = "<group>"; };
 		D5B210FE1E3514B20072442F /* SYBLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SYBLoginViewController.swift; sourceTree = "<group>"; };
@@ -131,7 +129,6 @@
 			isa = PBXGroup;
 			children = (
 				D5B210F41E3513E40072442F /* AprendeSimbolosTableViewCell.swift */,
-				D5B210F51E3513E40072442F /* AprendeSimbolosTableViewCell.xib */,
 				D5B210F61E3513E40072442F /* AprendeSimbolosViewController.swift */,
 			);
 			name = APRENDE_VC;
@@ -341,7 +338,6 @@
 				09FAC0B01DA3BC3700477344 /* profileDefault.png in Resources */,
 				D5B2F62E1D92EC60008DF8A3 /* checkOK.png in Resources */,
 				D5B37C211D68E431002009DB /* Main.storyboard in Resources */,
-				D5B210F81E3513E40072442F /* AprendeSimbolosTableViewCell.xib in Resources */,
 				09FAC0B21DA3BE8100477344 /* iconoMapa.png in Resources */,
 				D5B2F6301D930BCD008DF8A3 /* checkKO.png in Resources */,
 				D5BC206A1E33D6CA00F4203C /* Localizable.strings in Resources */,
