@@ -14,6 +14,7 @@ class RankingTableViewController: UITableViewController {
     var tituloNavigationController = ""
     var clasificacionArraySingle = [clasificacionModelo]()
     var clasificacionArrayClub = [clasificacionModelo]()
+    let menuColo1 = UIColor(red: 0.965, green: 0.467, blue: 0.161, alpha: 1)
 
 
         
@@ -57,6 +58,11 @@ class RankingTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ClasificacionCell", for: indexPath) as! RankingTableViewCell
+        
+        
+        cell.layer.cornerRadius=10 //set corner radius here
+        cell.layer.borderColor = menuColo1.cgColor  // set cell border color here
+        cell.layer.borderWidth = 0.5 // set border width here
         
         switch indexPath.section {
         case 0:

@@ -17,6 +17,8 @@ class AprendeSimbolosViewController: UIViewController{
     var simbolosArrayGuay = [simbolosModelo]()
     var tituloNavigationController = ""
     let menuColo1 = UIColor(red: 0.965, green: 0.467, blue: 0.161, alpha: 1)
+    var antiguoIndice = 0
+    var selectedIndexPath : IndexPath? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,6 +81,17 @@ extension AprendeSimbolosViewController: UITableViewDelegate {
         
         let card = simbolosArrayGuay[indexPath.row]
         
+        if (selectedIndexPath != nil){
+            //Cierro card anterior
+            let antiguoCard = simbolosArrayGuay[antiguoIndice]
+            antiguoCard.isExpanded = !antiguoCard.isExpanded
+            tableView.reloadRows(at: [selectedIndexPath!], with: .fade)
+        }
+        
+        
+        selectedIndexPath = indexPath
+        antiguoIndice = indexPath.row
+        
         // 2
         card.isExpanded = !card.isExpanded
         simbolosArrayGuay[indexPath.row] = card
@@ -93,6 +106,7 @@ extension AprendeSimbolosViewController: UITableViewDelegate {
         // 5
         //tableView.scrollToRow(at: indexPath, at: .top, animated: true)
     }
+    
 }
 
 

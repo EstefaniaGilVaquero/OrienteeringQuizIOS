@@ -15,18 +15,6 @@ class RankingTableViewCell: UITableViewCell {
     @IBOutlet weak var clubUsuarioLBL: UILabel!
     @IBOutlet weak var puntuacionUsuarioLBL: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-        
-        imagenUsuario.layer.cornerRadius = imagenUsuario.bounds.width / 2.0
-        imagenUsuario.layer.masksToBounds = true
-    }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
 
 }

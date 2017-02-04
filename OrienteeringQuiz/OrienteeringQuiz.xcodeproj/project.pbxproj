@@ -549,7 +549,7 @@
 					"$(PROJECT_DIR)/OrienteeringQuiz",
 				);
 				INFOPLIST_FILE = OrienteeringQuiz/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "es-symbel.OrienteeringQuiz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -572,7 +572,7 @@
 					"$(PROJECT_DIR)/OrienteeringQuiz",
 				);
 				INFOPLIST_FILE = OrienteeringQuiz/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "es-symbel.OrienteeringQuiz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
