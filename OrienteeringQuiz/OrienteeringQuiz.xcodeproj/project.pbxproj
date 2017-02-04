@@ -43,7 +43,7 @@
 		D5BC20731E34035E00F4203C /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BC20721E34035E00F4203C /* MenuCell.swift */; };
 		D5BC20771E3403B800F4203C /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BC20761E3403B800F4203C /* SWRevealViewController.m */; };
 		D5BC20791E34097900F4203C /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = D5BC20781E34097900F4203C /* Podfile */; };
-		D5DFC34F1E3D004C0090BD19 /* RankingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5DFC34D1E3D004C0090BD19 /* RankingTableViewController.swift */; };
+		D5DFC34F1E3D004C0090BD19 /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5DFC34D1E3D004C0090BD19 /* RankingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,8 +88,8 @@
 		D5BC20741E3403B700F4203C /* OrienteeringQuiz-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OrienteeringQuiz-Bridging-Header.h"; sourceTree = "<group>"; };
 		D5BC20751E3403B800F4203C /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		D5BC20761E3403B800F4203C /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
-		D5BC20781E34097900F4203C /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
-		D5DFC34D1E3D004C0090BD19 /* RankingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingTableViewController.swift; sourceTree = "<group>"; };
+		D5BC20781E34097900F4203C /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		D5DFC34D1E3D004C0090BD19 /* RankingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,7 +263,7 @@
 		D5DFC3481E3CFDC60090BD19 /* RANKING_VC */ = {
 			isa = PBXGroup;
 			children = (
-				D5DFC34D1E3D004C0090BD19 /* RankingTableViewController.swift */,
+				D5DFC34D1E3D004C0090BD19 /* RankingViewController.swift */,
 				D51A7EEA1E3DF7460016DBD0 /* RankingTableViewCell.swift */,
 			);
 			name = RANKING_VC;
@@ -304,7 +304,7 @@
 				TargetAttributes = {
 					D5B37C171D68E431002009DB = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = JJRB8HR957;
+						DevelopmentTeam = NZ9BB45RRX;
 						LastSwiftMigration = 0810;
 					};
 				};
@@ -401,7 +401,7 @@
 			files = (
 				D5BC20771E3403B800F4203C /* SWRevealViewController.m in Sources */,
 				D545A5501E342F2900371078 /* menuLateralViewController.swift in Sources */,
-				D5DFC34F1E3D004C0090BD19 /* RankingTableViewController.swift in Sources */,
+				D5DFC34F1E3D004C0090BD19 /* RankingViewController.swift in Sources */,
 				D5B210F71E3513E40072442F /* AprendeSimbolosTableViewCell.swift in Sources */,
 				D51A7EEB1E3DF7460016DBD0 /* RankingTableViewCell.swift in Sources */,
 				D5BC20731E34035E00F4203C /* MenuCell.swift in Sources */,
@@ -487,7 +487,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -528,7 +528,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -543,19 +543,20 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = JJRB8HR957;
+				DEVELOPMENT_TEAM = NZ9BB45RRX;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/OrienteeringQuiz",
 				);
 				INFOPLIST_FILE = OrienteeringQuiz/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "es-symbel.OrienteeringQuiz";
+				PRODUCT_BUNDLE_IDENTIFIER = symbel.OrienteeringQuiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "OrienteeringQuiz/OrienteeringQuiz-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -566,18 +567,19 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = JJRB8HR957;
+				DEVELOPMENT_TEAM = NZ9BB45RRX;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/OrienteeringQuiz",
 				);
 				INFOPLIST_FILE = OrienteeringQuiz/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "es-symbel.OrienteeringQuiz";
+				PRODUCT_BUNDLE_IDENTIFIER = symbel.OrienteeringQuiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "OrienteeringQuiz/OrienteeringQuiz-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -591,7 +593,7 @@
 				D5B37C291D68E432002009DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		D5B37C2A1D68E432002009DB /* Build configuration list for PBXNativeTarget "OrienteeringQuiz" */ = {
 			isa = XCConfigurationList;
@@ -600,7 +602,7 @@
 				D5B37C2C1D68E432002009DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

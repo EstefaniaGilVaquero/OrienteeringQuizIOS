@@ -17,7 +17,7 @@ class AprendeSimbolosViewController: UIViewController{
     var simbolosArrayGuay = [simbolosModelo]()
     var tituloNavigationController = ""
     let menuColo1 = UIColor(red: 0.965, green: 0.467, blue: 0.161, alpha: 1)
-    var antiguoIndice = 0
+    var antiguoIndice = 1
     var selectedIndexPath : IndexPath? = nil
     
     override func viewDidLoad() {
@@ -49,7 +49,7 @@ extension AprendeSimbolosViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! AprendeSimbolosTableViewCell
         
-        cell.layer.cornerRadius=10 //set corner radius here
+        cell.layer.cornerRadius = 10 //set corner radius here
         cell.layer.borderColor = menuColo1.cgColor  // set cell border color here
         cell.layer.borderWidth = 0.5 // set border width here
         
@@ -81,16 +81,22 @@ extension AprendeSimbolosViewController: UITableViewDelegate {
         
         let card = simbolosArrayGuay[indexPath.row]
         
+//        if(selectedIndexPath?.row == indexPath.row){
+//            //selectedIndexPath?.removeFirst()
+//            //antiguoIndice = antiguoIndice + 1
+//
+//        }
+        
         if (selectedIndexPath != nil){
             //Cierro card anterior
             let antiguoCard = simbolosArrayGuay[antiguoIndice]
             antiguoCard.isExpanded = !antiguoCard.isExpanded
             tableView.reloadRows(at: [selectedIndexPath!], with: .fade)
+            
         }
         
-        
-        selectedIndexPath = indexPath
         antiguoIndice = indexPath.row
+        selectedIndexPath = indexPath
         
         // 2
         card.isExpanded = !card.isExpanded

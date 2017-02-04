@@ -18,6 +18,7 @@ class SYBLoginViewController: UIViewController {
     @IBOutlet weak var myPasswordTF: UITextField!
     @IBOutlet weak var myActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var myAccederBTN: UIButton!
+    @IBOutlet weak var myRegistroBTN: UIButton!
     
     //MARK: - IBACTION
     @IBAction func realizaLoginInParse(_ sender: Any) {
@@ -77,12 +78,14 @@ class SYBLoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        myRegistroBTN.layer.cornerRadius = 20
+        myAccederBTN.layer.cornerRadius = 20
         
         myActivityIndicator.isHidden = true
         let menuColo1 = UIColor(red: 0.965, green: 0.467, blue: 0.161, alpha: 1)
         myAccederBTN.backgroundColor = menuColo1
         myActivityIndicator.color = menuColo1
+        myRegistroBTN.backgroundColor = menuColo1
 
     }
     
