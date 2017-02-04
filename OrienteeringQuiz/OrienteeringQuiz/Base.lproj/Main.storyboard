@@ -352,22 +352,22 @@
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="112"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ns9-Rw-b4M">
-                                                    <rect key="frame" x="66" y="17" width="269" height="50"/>
-                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ns9-Rw-b4M">
+                                                    <rect key="frame" x="74" y="8" width="251" height="50"/>
+                                                    <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gAJ-zd-xMU">
+                                                    <rect key="frame" x="16" y="66" width="309" height="38.5"/>
+                                                    <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gAJ-zd-xMU">
-                                                    <rect key="frame" x="8" y="75" width="327" height="24"/>
-                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gLe-cc-fsM">
-                                                    <rect key="frame" x="8" y="17" width="50" height="50"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gLe-cc-fsM">
+                                                    <rect key="frame" x="16" y="8" width="50" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="EkE-E0-Gd7"/>
                                                         <constraint firstAttribute="height" constant="50" id="Rve-xE-SBA"/>
@@ -382,11 +382,10 @@
                                                 <constraint firstItem="Ns9-Rw-b4M" firstAttribute="leading" secondItem="gLe-cc-fsM" secondAttribute="trailing" constant="8" id="LCM-Hr-DlW"/>
                                                 <constraint firstItem="gAJ-zd-xMU" firstAttribute="top" secondItem="Ns9-Rw-b4M" secondAttribute="bottom" constant="8" id="NyD-zl-bUd"/>
                                                 <constraint firstItem="gLe-cc-fsM" firstAttribute="width" secondItem="You-zP-5Cg" secondAttribute="width" multiplier="0.15" id="Xq0-hV-dYp"/>
-                                                <constraint firstItem="Ns9-Rw-b4M" firstAttribute="leading" secondItem="gLe-cc-fsM" secondAttribute="trailing" constant="8" id="ae1-Ds-wl1"/>
-                                                <constraint firstItem="gAJ-zd-xMU" firstAttribute="trailing" secondItem="You-zP-5Cg" secondAttribute="trailingMargin" constant="8" id="fwM-Jf-m1f"/>
+                                                <constraint firstItem="gAJ-zd-xMU" firstAttribute="trailing" secondItem="You-zP-5Cg" secondAttribute="trailingMargin" id="fwM-Jf-m1f"/>
                                                 <constraint firstItem="gAJ-zd-xMU" firstAttribute="top" secondItem="gLe-cc-fsM" secondAttribute="bottom" constant="8" id="gzy-Gn-yvy"/>
                                                 <constraint firstItem="Ns9-Rw-b4M" firstAttribute="top" secondItem="You-zP-5Cg" secondAttribute="topMargin" id="kPT-L3-Xm4"/>
-                                                <constraint firstItem="Ns9-Rw-b4M" firstAttribute="trailing" secondItem="You-zP-5Cg" secondAttribute="trailingMargin" constant="8" id="vm3-Dz-IJ7"/>
+                                                <constraint firstItem="Ns9-Rw-b4M" firstAttribute="trailing" secondItem="You-zP-5Cg" secondAttribute="trailingMargin" id="vm3-Dz-IJ7"/>
                                                 <constraint firstItem="gLe-cc-fsM" firstAttribute="leading" secondItem="You-zP-5Cg" secondAttribute="leadingMargin" constant="8" id="wsh-jQ-vsU"/>
                                             </constraints>
                                         </tableViewCellContentView>
