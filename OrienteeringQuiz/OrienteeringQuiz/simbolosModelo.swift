@@ -12,16 +12,14 @@ import Parse
 class simbolosModelo: NSObject {
     
     var tipo :String?
-    var idImagen : Int?
     var imagen : PFFile?
     var descripcionCorta : String
     var descripcionLarga : String?
     var isExpanded: Bool
     
-    init(pTipo : String, pIdImagen : Int, pImagen : PFFile, pDescripcionCorta : String, pDescripcionLarga : String, pIsExpanded : Bool) {
+    init(pTipo : String, pImagen : PFFile, pDescripcionCorta : String, pDescripcionLarga : String, pIsExpanded : Bool) {
         
         self.tipo = pTipo
-        self.idImagen = pIdImagen
         self.imagen = pImagen
         self.descripcionCorta = pDescripcionCorta
         self.descripcionLarga = pDescripcionLarga

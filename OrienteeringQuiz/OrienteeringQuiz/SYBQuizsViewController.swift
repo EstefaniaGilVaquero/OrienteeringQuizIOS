@@ -17,8 +17,17 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var myDescriptionLBL: UILabel!
-    @IBOutlet weak var myView: UIView!
-    @IBOutlet weak var myPuntuacionLBL: UILabel!
+    @IBOutlet weak var descripcionView: UIView!
+    @IBOutlet weak var puntuacionView: UIView!
+
+    
+    //Labels de puntuacion
+    @IBOutlet weak var myAciertosTitulo: UILabel!
+    @IBOutlet weak var myRondaTitulo: UILabel!
+    @IBOutlet weak var myPuntuacionTitulo: UILabel!
+    @IBOutlet weak var myAciertos: UILabel!
+    @IBOutlet weak var myRonda: UILabel!
+    @IBOutlet weak var myPuntuacion: UILabel!
     
     //MARK: VARIABLES LOCALES GLOBALES
    // var simbolosObjeto = PFObject(className:"Simbolos")
@@ -44,15 +53,22 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
         //Maquetacion
         //Estilo background
         let menuColo1 = UIColor(red: 0.965, green: 0.467, blue: 0.161, alpha: 1)
+        //let menuColo1 = UIColor(red: 1, green: 0.588, blue: 0.0, alpha: 1)
 
         view.backgroundColor = menuColo1
         collectionView.backgroundColor = menuColo1
-        myView.backgroundColor = menuColo1
-        myView.layer.masksToBounds = true
-        myView.layer.cornerRadius = 10
-        myDescriptionLBL.layer.masksToBounds = true
-        myDescriptionLBL.layer.cornerRadius = 10
-        myPuntuacionLBL.text = "Aciertos: \(contadorAciertos) - Rondas: \(contadorRondas) - Puntos: \(contadorPuntos)"
+        descripcionView.backgroundColor = UIColor.white
+        descripcionView.layer.masksToBounds = true
+        descripcionView.layer.cornerRadius = 10
+        
+        puntuacionView.backgroundColor = UIColor.white
+        puntuacionView.layer.masksToBounds = true
+        puntuacionView.layer.cornerRadius = 10
+        
+        //myDescriptionLBL.layer.masksToBounds = true
+        //myDescriptionLBL.layer.cornerRadius = 10
+        
+        actualizarPuntuacion(contadorAciertos: contadorAciertos, contadorRondas: contadorRondas, contadorPuntos: contadorPuntos)
         
         //Ponemos titulo al VC
         self.title = tituloNavigationController
@@ -70,30 +86,18 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
         
         //Genero una descripcion para mostrar
         generarDescripcion()
-        
-        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //return self.symbolsArray.count
         return numeroImagenes
     }
     
-
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellReusable", for: indexPath as IndexPath) as! SYBCollectionViewCell
         
-        
         //Pinto la imagen correspondiente
-        
-        
         if let imagenSimbolo = simbolosArrayGuay[randomArray[indexPath.row]].imagen {
             imagenSimbolo.getDataInBackground(block: {
                 (data: Data?, error: Error?) in
@@ -102,10 +106,8 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
                     cell.myImagenSimbolo.image = image
                 }
             })
-        }
-        
+        }        
         return cell
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -114,6 +116,8 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
         var imageView : UIImageView
         
         imageView  = UIImageView(frame:CGRect(x: self.view.frame.size.width / 2.0, y: self.view.frame.size.height / 2.0, width: 100, height: 100));
+        
+        
         
         if (respuesta == randomArray[indexPath.row]){
             
@@ -131,11 +135,7 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
                 }
             }
             
-            myPuntuacionLBL.text = "Aciertos: \(contadorAciertos) - Rondas: \(contadorRondas) - Puntos: \(contadorPuntos)"
-            
-            print("Aciertos: \(contadorAciertos)")
-            print("Rondas: \(contadorRondas)")
-            print("Puntos: \(contadorPuntos)")
+            actualizarPuntuacion(contadorAciertos: contadorAciertos, contadorRondas: contadorRondas, contadorPuntos: contadorPuntos)
             
             delayWithSeconds(1) {
                 self.recargarColeccion()
@@ -162,8 +162,8 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
                 numeroImagenes = numeroImagenesInicial
                 
                 //Limpio label puntuacion
-                myPuntuacionLBL.text = "Aciertos: \(contadorAciertos) - Rondas: \(contadorRondas) - Puntos: \(contadorPuntos)"
-                
+                actualizarPuntuacion(contadorAciertos: contadorAciertos, contadorRondas: contadorRondas, contadorPuntos: contadorPuntos)
+            
                 
             }else{
                 imageView.image = UIImage(named:"checkKO.png")
@@ -179,8 +179,6 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
         
     }
     
-
-
     func RandomInt(min: Int, max: Int) -> Int {
         if max < min { return min }
 
@@ -197,15 +195,12 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
             numeroImagenes = simbolosArrayGuay.count
         }
         
-        
         for indice in 0..<numeroImagenes{
             repeat {
                 random = RandomInt(min: 0, max: simbolosArrayGuay.count-1)
             }while randomArray.contains(random)
             randomArray.insert(random, at: indice)
-            
         }
-
     }
     
     func generarDescripcion(){
@@ -219,7 +214,12 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
             completion()
         }
     }
-
+    
+    func actualizarPuntuacion(contadorAciertos: Int, contadorRondas: Int, contadorPuntos: Int){
+        myAciertos.text = "\(contadorAciertos)"
+        myRonda.text = "\(contadorRondas)"
+        myPuntuacion.text = "\(contadorPuntos)"
+    }
     
     func recargarColeccion() {
         //Creamos un array de numeros aleatorios
@@ -229,16 +229,14 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
         self.generarDescripcion()
         
         self.collectionView?.reloadData()
-        
     }
-    
 
     func guardarPuntuacion(contadorPuntos : Int){
         
         //Usuario actual
         let currentUser = PFUser.current()
         
-        var query = PFQuery(className: "Clasificacion")
+        let query = PFQuery(className: "Clasificacion")
         query.whereKey("nombreUsuario", equalTo: currentUser?.username)
         query.getFirstObjectInBackground {
             (object: PFObject?, error: Error?) -> Void in

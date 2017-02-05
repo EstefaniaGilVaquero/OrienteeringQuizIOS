@@ -43,7 +43,7 @@ class SYBMenuViewController: UIViewController {
         
         if revealViewController() != nil {
             btnMenuButtom.target = revealViewController()
-            btnMenuButtom.action = "revealToggle:"
+            btnMenuButtom.action = #selector(SWRevealViewController.revealToggle(_:))
         }
         
         HUD.show(.progress)
@@ -127,7 +127,7 @@ class SYBMenuViewController: UIViewController {
                         print(object.objectId!)
                         
                         //Obtenemos el simbolo .png               
-                        let simbolo = simbolosModelo(pTipo: (object["tipo"] as! String?)!, pIdImagen: (object["idImagen"] as! Int?)!, pImagen: (object["imagen"] as! PFFile?)!, pDescripcionCorta: object["descripcionCorta"] as! String, pDescripcionLarga: object["descripcionLarga"] as! String, pIsExpanded: false)
+                        let simbolo = simbolosModelo(pTipo: (object["tipo"] as! String?)!, pImagen: (object["imagen"] as! PFFile?)!, pDescripcionCorta: object["descripcionCorta"] as! String, pDescripcionLarga: object["descripcionLarga"] as! String, pIsExpanded: false)
                         
                         if(simbolo.tipo == "mapa"){
                             self.simbolosArrayMapa.append(simbolo)

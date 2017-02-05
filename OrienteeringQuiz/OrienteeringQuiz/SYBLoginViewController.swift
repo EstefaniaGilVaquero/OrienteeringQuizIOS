@@ -62,7 +62,10 @@ class SYBLoginViewController: UIViewController {
         myAccederBTN.layer.cornerRadius = 20
         
         myActivityIndicator.isHidden = true
-        let menuColo1 = UIColor(red: 0.965, green: 0.467, blue: 0.161, alpha: 1)
+        //let menuColo1 = UIColor(red: 0.965, green: 0.467, blue: 0.161, alpha: 1)
+        //Naranja oscuro
+        let menuColo1 = UIColor(red: 0.925, green: 0.517, blue: 0.0, alpha: 1)
+        
         myAccederBTN.backgroundColor = menuColo1
         myActivityIndicator.color = menuColo1
         myRegistroBTN.backgroundColor = menuColo1
