@@ -47,7 +47,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MZD-lx-4fb">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MZD-lx-4fb">
                                 <rect key="frame" x="0.0" y="147" width="375" height="520"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -55,7 +55,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZNV-xD-fHN" id="WMi-cs-ogQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ST9-sR-l1R">
@@ -94,22 +94,36 @@
                                     <outlet property="delegate" destination="ypT-Uu-FBa" id="bzr-yj-0PG"/>
                                 </connections>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="profileDefault.png" translatesAutoresizingMaskIntoConstraints="NO" id="PGG-tJ-Oj7">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault.png" translatesAutoresizingMaskIntoConstraints="NO" id="PGG-tJ-Oj7">
                                 <rect key="frame" x="137" y="20" width="100" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="wGV-el-8IW"/>
-                                    <constraint firstAttribute="width" constant="100" id="x0F-XN-aIB"/>
+                                    <constraint firstAttribute="height" constant="100" id="DX5-dO-yDk"/>
+                                    <constraint firstAttribute="width" constant="100" id="mAT-li-Npm"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lge-oF-pnK">
+                                <rect key="frame" x="47" y="55" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="editarImagen:" destination="ypT-Uu-FBa" eventType="touchUpInside" id="hcT-fB-Om8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="MZD-lx-4fb" firstAttribute="top" secondItem="PGG-tJ-Oj7" secondAttribute="bottom" constant="8" id="W68-my-AEy"/>
+                            <constraint firstItem="MZD-lx-4fb" firstAttribute="leading" secondItem="ixW-1d-VK4" secondAttribute="leading" id="5fv-5D-yi3"/>
+                            <constraint firstItem="PGG-tJ-Oj7" firstAttribute="top" secondItem="6mI-gS-2JP" secondAttribute="bottom" id="6lb-BV-dTG"/>
+                            <constraint firstAttribute="trailing" secondItem="MZD-lx-4fb" secondAttribute="trailing" id="W5Y-fg-SXE"/>
+                            <constraint firstItem="PGG-tJ-Oj7" firstAttribute="centerX" secondItem="MZD-lx-4fb" secondAttribute="centerX" id="WYo-rL-FKk"/>
+                            <constraint firstItem="MZD-lx-4fb" firstAttribute="top" secondItem="PGG-tJ-Oj7" secondAttribute="bottom" constant="27" id="iLL-7H-Agl"/>
+                            <constraint firstItem="MZD-lx-4fb" firstAttribute="bottom" secondItem="ysX-h1-Xhi" secondAttribute="top" id="uzB-Ce-JWg"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="imgProfile" destination="PGG-tJ-Oj7" id="y0e-ab-kOf"/>
                         <outlet property="tblTableView" destination="MZD-lx-4fb" id="pNV-vJ-O6X"/>
+                        <segue destination="846-2q-43e" kind="modal" identifier="Logout" id="kWQ-L8-5Nn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hyv-cL-5fs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -267,7 +281,7 @@
         <!--Ranking View Controller-->
         <scene sceneID="Jdg-J3-b7Y">
             <objects>
-                <viewController id="90M-GN-Dnv" customClass="RankingViewController" customModule="OrienteeringQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="clasificacionViewController" id="90M-GN-Dnv" customClass="RankingViewController" customModule="OrienteeringQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3Wg-RK-Z93"/>
                         <viewControllerLayoutGuide type="bottom" id="8fu-cV-Stm"/>
@@ -366,7 +380,7 @@
         <!--Aprende Simbolos View Controller-->
         <scene sceneID="rIt-f8-IkA">
             <objects>
-                <viewController id="mrQ-KD-Uqd" customClass="AprendeSimbolosViewController" customModule="OrienteeringQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="aprendeViewController" id="mrQ-KD-Uqd" customClass="AprendeSimbolosViewController" customModule="OrienteeringQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YdH-VR-snz"/>
                         <viewControllerLayoutGuide type="bottom" id="ipG-Ec-vf1"/>
@@ -547,7 +561,7 @@
         <!--Login View Controller-->
         <scene sceneID="gQK-dc-Zjq">
             <objects>
-                <viewController id="846-2q-43e" customClass="SYBLoginViewController" customModule="OrienteeringQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginViewController" id="846-2q-43e" customClass="SYBLoginViewController" customModule="OrienteeringQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Idw-8n-ahb"/>
                         <viewControllerLayoutGuide type="bottom" id="HGZ-uv-Gjf"/>
@@ -852,7 +866,7 @@
         <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Ibu-08-jyy"/>
+        <segue reference="LJh-VP-9lx"/>
         <segue reference="qog-Ti-Eql"/>
     </inferredMetricsTieBreakers>
 </document>

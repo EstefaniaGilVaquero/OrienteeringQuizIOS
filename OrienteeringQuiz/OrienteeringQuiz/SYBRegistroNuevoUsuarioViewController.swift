@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import PromiseKit
 
 class SYBRegistroNuevoUsuarioViewController: UIViewController {
     
@@ -22,13 +23,6 @@ class SYBRegistroNuevoUsuarioViewController: UIViewController {
     @IBOutlet weak var myPasswordTF: UITextField!
     @IBOutlet weak var myEmailTF: UITextField!
     @IBOutlet weak var myClubTF: UITextField!
-    
- 
-    
-    
-    
-    
-    
     @IBOutlet weak var myActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var myRegistrarseBTN: UIButton!
     
@@ -40,7 +34,7 @@ class SYBRegistroNuevoUsuarioViewController: UIViewController {
     }
     
     @IBAction func editarFoto(_ sender: Any) {
-        pickerPhoto()
+        //pickerPhoto()
     }
     
     @IBAction func registrarse(_ sender: AnyObject) {
@@ -149,9 +143,6 @@ class SYBRegistroNuevoUsuarioViewController: UIViewController {
         
     }
 
-    
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -162,73 +153,54 @@ class SYBRegistroNuevoUsuarioViewController: UIViewController {
         myActivityIndicator.isHidden = true
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-
-
 }
 
-//MARK: - DELEGATE UIIMAGEPICKER / PHOTO
-extension SYBRegistroNuevoUsuarioViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate{
-    
-    func pickerPhoto(){
-        if UIImagePickerController.isSourceTypeAvailable(.camera){
-            showPhotoMenu()
-        }else{
-            choosePhotoFromLibrary()
-        }
-    }
-    
-    func showPhotoMenu(){
-        
-        let alertVC = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
-        let takePhotoAction = UIAlertAction(title: "Camara", style: .default) { Void  in
-            self.takePhotowithCamera()
-        }
-        let chooseFromLibraryAction = UIAlertAction(title: "Galería", style: .default) { Void  in
-            self.choosePhotoFromLibrary()
-        }
-        alertVC.addAction(cancelAction)
-        alertVC.addAction(takePhotoAction)
-        alertVC.addAction(chooseFromLibraryAction)
-        
-        present(alertVC, animated: true, completion: nil)
-        
-    }
-    
-    func takePhotowithCamera(){
-        
-        let imagePicker = UIImagePickerController()
-        imagePicker.sourceType = .camera
-        imagePicker.delegate = self
-        imagePicker.allowsEditing = true
-        present(imagePicker, animated: true, completion: nil)
-        
-    }
-    
-    func choosePhotoFromLibrary(){
-        
-        let imagePicker = UIImagePickerController()
-        imagePicker.sourceType = .photoLibrary
-        imagePicker.delegate = self
-        imagePicker.allowsEditing = true
-        present(imagePicker, animated: true, completion: nil)
-        
-    }
-    
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-        
-        fotoSeleccionada = true
-        myImagenRegistro.image = image
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-}
-
+////MARK: - PICKER PHOTO
+//extension SYBRegistroNuevoUsuarioViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+//    
+//    func pickerPhoto(){
+//        if UIImagePickerController.isSourceTypeAvailable(.camera){
+//            showPhotoMenu()
+//        }else{
+//            choosePhotoFromLIbrary()
+//        }
+//    }
+//    
+//    func showPhotoMenu(){
+//        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+//        let cancelAccion = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+//        let takePhotoAction = UIAlertAction(title: "Toma una Foto", style: .default, handler: {
+//            Void in self.takePhotoWithCamera()
+//        })
+//        let chooseFromLibraryAction = UIAlertAction(title: "Escoge desde la Librería", style: .default, handler: {
+//            Void in self.choosePhotoFromLIbrary()
+//        })
+//        alertController.addAction(cancelAccion)
+//        alertController.addAction(takePhotoAction)
+//        alertController.addAction(chooseFromLibraryAction)
+//        present(alertController, animated: true, completion: nil)
+//    }
+//    
+//    func takePhotoWithCamera(){
+//        let imagePicker = UIImagePickerController()
+//        imagePicker.sourceType = .camera
+//        imagePicker.delegate = self
+//        imagePicker.allowsEditing = true
+//        present(imagePicker, animated: true, completion: nil)
+//    }
+//    
+//    func choosePhotoFromLIbrary(){
+//        let imagePicker = UIImagePickerController()
+//        imagePicker.sourceType = .photoLibrary
+//        imagePicker.delegate = self
+//        imagePicker.allowsEditing = true
+//        present(imagePicker, animated: true, completion: nil)
+//    }
+//    
+//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+//        myImageView.image = image
+//        tengoFoto = true
+//        //llamadaPostImagen()
+//        picker.dismiss(animated: true, completion: nil)
+//    }
+//}

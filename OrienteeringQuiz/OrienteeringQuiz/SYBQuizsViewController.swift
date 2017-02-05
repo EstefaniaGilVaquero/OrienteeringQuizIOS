@@ -157,7 +157,7 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
                 
                 //Reseteo contadores
                 contadorPuntos = 0
-                contadorRondas = 0
+                contadorRondas = 1
                 contadorAciertos = 0
                 numeroImagenes = numeroImagenesInicial
                 

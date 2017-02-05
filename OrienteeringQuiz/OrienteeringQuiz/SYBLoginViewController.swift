@@ -53,27 +53,7 @@ class SYBLoginViewController: UIViewController {
             
         }
 
-    }
-    
-//    //TODO: - LOGIN CON FACEBOOK
-//    @IBAction func loginConFacebook(sender: AnyObject) {
-//        let permissions = ["public_profile"]
-//        PFFacebookUtils.logInInBackgroundWithReadPermissions(permissions) {
-//            (user: PFUser?, error: NSError?) -> Void in
-//            if let user = user {
-//                if user.isNew {
-//                    print("User signed up and logged in through Facebook!")
-//                    self.performSegueWithIdentifier("saltarTabBarControllerFromLogin", sender: self)
-//                } else {
-//                    print("User logged in through Facebook!")
-//                }
-//            } else {
-//                print("Uh oh. The user cancelled the Facebook login.")
-//            }
-//        }
-//    }
-    
-    
+    }  
     
     override func viewDidLoad() {
         super.viewDidLoad()
