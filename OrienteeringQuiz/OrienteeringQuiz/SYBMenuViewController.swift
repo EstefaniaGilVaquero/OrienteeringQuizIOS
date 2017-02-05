@@ -19,6 +19,14 @@ class SYBMenuViewController: UIViewController {
     var clasificacionArrayClub = [clasificacionModelo]()
     var myUserClasifPosition = 0
     
+    //Imagenes menu
+    @IBOutlet weak var menuAprendeIMG: UIImageView!
+    @IBOutlet weak var menuMapaIMG: UIImageView!
+    @IBOutlet weak var menuDescripcionIMG: UIImageView!
+    @IBOutlet weak var menuQuizIMG: UIImageView!
+    @IBOutlet weak var menuRankingIMG: UIImageView!
+    
+    
     let menuColo1 = UIColor(red: 0.965, green: 0.467, blue: 0.161, alpha: 1)
     let menuColo2 = UIColor(red: 1, green: 0.647, blue: 0.431, alpha: 1)
     let menuColo3 = UIColor(red: 1, green: 0.569, blue: 0.298, alpha: 1)
@@ -45,11 +53,6 @@ class SYBMenuViewController: UIViewController {
             btnMenuButtom.target = revealViewController()
             btnMenuButtom.action = #selector(SWRevealViewController.revealToggle(_:))
         }
-        
-        HUD.show(.progress)
-        //Recupero la clasificacion
-        self.obtenerSimbolos()
-        HUD.flash(.systemActivity, delay: 1.0)
 
         buttonAprendeSimbolos.backgroundColor = menuColo1
         buttonSymbolosMapa.backgroundColor = menuColo2
@@ -57,15 +60,27 @@ class SYBMenuViewController: UIViewController {
         buttonQuizMixto.backgroundColor = menuColo4
         buttonRanking.backgroundColor = menuColo5
         
+        menuAprendeIMG.layer.masksToBounds = true
+        menuAprendeIMG.layer.cornerRadius = 10
+        menuMapaIMG.layer.masksToBounds = true
+        menuMapaIMG.layer.cornerRadius = 10
+        menuDescripcionIMG.layer.masksToBounds = true
+        menuDescripcionIMG.layer.cornerRadius = 10
+        menuQuizIMG.layer.masksToBounds = true
+        menuQuizIMG.layer.cornerRadius = 10
+        menuRankingIMG.layer.masksToBounds = true
+        menuRankingIMG.layer.cornerRadius = 10
+    
+        
         //Estilo background
         view.backgroundColor = menuColo1
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        HUD.show(.progress)
-        //Recupero la clasificacion
-        self.obtenerClasificacion()
-        HUD.flash(.systemActivity, delay: 2.0)
+//        HUD.show(.progress)
+//        //Recupero la clasificacion
+//        self.obtenerClasificacion()
+//        HUD.flash(.systemActivity, delay: 2.0)
     }
 
     override func didReceiveMemoryWarning() {
@@ -78,160 +93,161 @@ class SYBMenuViewController: UIViewController {
         //Identificar el segue por el que estamos pasando
         if let destinationVC = segue.destination as? SYBQuizsViewController {
             if segue.identifier == "simbolosMapa" {
-                destinationVC.tituloNavigationController = "Quiz Simbolos Mapa"
+                destinationVC.tituloNavigationController = "Simbolos Mapa"
                 destinationVC.numeroImagenes = 12
-                destinationVC.simbolosArrayGuay = simbolosArrayMapa
+                //destinationVC.simbolosArrayGuay = simbolosArrayMapa
             }else if segue.identifier == "simbolosDescripcion" {
-                destinationVC.tituloNavigationController = "Quiz Simbolos Descripcion"
+                destinationVC.tituloNavigationController = "Simbolos Descripcion"
                 destinationVC.numeroImagenes = 12
-                destinationVC.simbolosArrayGuay = simbolosArrayDescripcion
+                //destinationVC.simbolosArrayGuay = simbolosArrayDescripcion
             }else if segue.identifier == "simbolosMix" {
                 destinationVC.tituloNavigationController = "Quiz Mix"
                 destinationVC.numeroImagenes = 2
-                destinationVC.simbolosArrayGuay = simbolosArrayMix
+                //destinationVC.simbolosArrayGuay = simbolosArrayMix
             }
         }else if let destinationVC = segue.destination as? AprendeSimbolosViewController {
             if segue.identifier == "simbolosAprende" {
                 destinationVC.tituloNavigationController = "Aprende los Simbolos"
-                destinationVC.simbolosArrayGuay = simbolosArrayMix
+                //destinationVC.simbolosArrayGuay = simbolosArrayMix
             }
         }else if let destinationVC = segue.destination as? RankingViewController {
             if segue.identifier == "clasificacion" {
                 destinationVC.tituloNavigationController = "Clasificacion"
-                destinationVC.clasificacionArraySingle = clasificacionArraySingle
-                destinationVC.clasificacionArrayClub = clasificacionArrayClub
-                destinationVC.myUserClasifPosition = myUserClasifPosition
+//                destinationVC.clasificacionArraySingle = clasificacionArraySingle
+//                destinationVC.clasificacionArrayClub = clasificacionArrayClub
+//                destinationVC.myUserClasifPosition = myUserClasifPosition
             }
         }
     }
 
-    func obtenerSimbolos(){
-        
-        //Miro el idioma del sistema, si es diferente de español, lo pongo en ingles
-        var idioma = Locale.current.languageCode
-        if (idioma != "es"){
-            idioma = "en"
-        }
-
-        let querySimbolos = PFQuery(className:"Simbolos")
-        querySimbolos.whereKey("idioma", equalTo:idioma)
-        querySimbolos.findObjectsInBackground {
-            (objects: [PFObject]?, error: Error?) -> Void in
-            
-            if error == nil {
-                // The find succeeded.
-                print("Se han leido \(objects!.count) simbolos en idioma \(idioma)")
-                // Do something with the found objects
-                if let objects = objects {
-                    for object in objects {
-                        print(object.objectId!)
-                        
-                        //Obtenemos el simbolo .png               
-                        let simbolo = simbolosModelo(pTipo: (object["tipo"] as! String?)!, pImagen: (object["imagen"] as! PFFile?)!, pDescripcionCorta: object["descripcionCorta"] as! String, pDescripcionLarga: object["descripcionLarga"] as! String, pIsExpanded: false)
-                        
-                        if(simbolo.tipo == "mapa"){
-                            self.simbolosArrayMapa.append(simbolo)
-                        }else if(simbolo.tipo == "descripcion"){
-                            self.simbolosArrayDescripcion.append(simbolo)
-                        }
-                        self.simbolosArrayMix.append(simbolo)
-                   }
-                }
-            } else {
-                // Log details of the failure
-                print("Error: \(error!) \(error!._userInfo)")
-            }
-        }
-    }
+//    func obtenerSimbolos(){
+//        
+//        //Miro el idioma del sistema, si es diferente de español, lo pongo en ingles
+//        var idioma = Locale.current.languageCode
+//        if (idioma != "es"){
+//            idioma = "en"
+//        }
+//
+//        let querySimbolos = PFQuery(className:"Simbolos")
+//        querySimbolos.whereKey("idioma", equalTo:idioma)
+//        querySimbolos.findObjectsInBackground {
+//            (objects: [PFObject]?, error: Error?) -> Void in
+//            
+//            if error == nil {
+//                // The find succeeded.
+//                print("Se han leido \(objects!.count) simbolos en idioma \(idioma)")
+//                // Do something with the found objects
+//                if let objects = objects {
+//                    for object in objects {
+//                        print(object.objectId!)
+//                        
+//                        //Obtenemos el simbolo .png               
+//                        let simbolo = simbolosModelo(pTipo: (object["tipo"] as! String?)!, pImagen: (object["imagen"] as! PFFile?)!, pDescripcionCorta: object["descripcionCorta"] as! String, pDescripcionLarga: object["descripcionLarga"] as! String, pIsExpanded: false)
+//                        
+//                        if(simbolo.tipo == "mapa"){
+//                            self.simbolosArrayMapa.append(simbolo)
+//                        }else if(simbolo.tipo == "descripcion"){
+//                            self.simbolosArrayDescripcion.append(simbolo)
+//                        }
+//                        self.simbolosArrayMix.append(simbolo)
+//                   }
+//                }
+//            } else {
+//                // Log details of the failure
+//                print("Error: \(error!) \(error!._userInfo)")
+//            }
+//        }
+//        
+//    }
     
-    func obtenerClasificacion(){
-        
-        //Usuario actual
-        let currentUser = PFUser.current()
-        
-        //Limpio clasificacion para cargarla de nuevo
-        clasificacionArraySingle.removeAll()
-        clasificacionArrayClub.removeAll()
-        
-        let querySimbolos = PFQuery(className:"Clasificacion")
-        querySimbolos.addDescendingOrder("puntuacion")
-        querySimbolos.findObjectsInBackground {
-            (objects: [PFObject]?, error: Error?) -> Void in
-            
-            if error == nil {
-                // The find succeeded.
-                print("Se han leido \(objects!.count) clasificaciones")
-                // Do something with the found objects
-                if let objects = objects {
-                    for object in objects {
-                        print(object.objectId!)                        
-                        let nombreUsuario = (object["nombreUsuario"] as! String?)!
-                        let puntuacion = (object["puntuacion"] as! Int?)!
-                        let club = (object["club"] as! String?)!
-                        
-                        let query = PFQuery(className: "ImagenPerfil")
-                        query.whereKey("nombreUsuario", equalTo: object["nombreUsuario"])
-                        query.getFirstObjectInBackground {
-                            (objectImagen: PFObject?, error: Error?) -> Void in
-                            
-                            if error != nil || objectImagen == nil {
-                                print("Error al obtener imagen de usuario")
-                                
-                            } else {
-                                print("Guardo imagen de usuario en clasificacionArray")
-                                let userImageFile = objectImagen?["ficheroImagen"] as! PFFile
-                                
-                                userImageFile.getDataInBackground(block: { (imageData, errorImageData) in
-                                    if errorImageData == nil{
-                                        if let imageDataDesempaquetado = imageData{
-                                            
-                                            //Metemos clasificacion en el array
-                                            let clasificacionSingle = clasificacionModelo(pPuntuacion: puntuacion, pNombreUsuario: nombreUsuario, pClub: club, pImagenProfile: UIImage(data: imageDataDesempaquetado)!)
-                                            
-                                            self.clasificacionArraySingle.append(clasificacionSingle)
-                                            
-                                            if(nombreUsuario == currentUser?.username){
-                                                //guardo la posicion en la que se encuentra mi usuario
-                                                self.myUserClasifPosition = self.clasificacionArraySingle.count - 1
-                                            }
-                                            
-                                            self.calcularPuntuacionClubes(clasificacionSingle: clasificacionSingle)
-                                        }
-                                    }
-                                })
-                            }
-                        }
-                    }
-                }
-            } else {
-                // Log details of the failure
-                print("Error: \(error!) \(error!._userInfo)")
-            }
-        }
-    }
-    
-    func calcularPuntuacionClubes(clasificacionSingle : clasificacionModelo){
-        
-        var clubEncontrado = false
-        
-        let clasificacionClubes = clasificacionModelo(pPuntuacion: clasificacionSingle.puntuacion!, pNombreUsuario: "", pClub: clasificacionSingle.club!, pImagenProfile: #imageLiteral(resourceName: "club"))
-        
-        if (clasificacionArrayClub.isEmpty){            
-            clasificacionArrayClub.append(clasificacionClubes)
-        }else{
-            for i in 0..<clasificacionArrayClub.count {
-                let elemento = clasificacionArrayClub[i]
-                if (elemento.club?.uppercased().contains(clasificacionClubes.club!.uppercased()))!{
-                    clasificacionArrayClub[i].puntuacion = elemento.puntuacion! + clasificacionClubes.puntuacion!
-                    
-                    clubEncontrado = true
-                    break
-                }
-            }
-            
-            if (!clubEncontrado){
-                clasificacionArrayClub.append(clasificacionClubes)
-            }
-        }
-    }
+//    func obtenerClasificacion(){
+//        
+//        //Usuario actual
+//        let currentUser = PFUser.current()
+//        
+//        //Limpio clasificacion para cargarla de nuevo
+//        clasificacionArraySingle.removeAll()
+//        clasificacionArrayClub.removeAll()
+//        
+//        let querySimbolos = PFQuery(className:"Clasificacion")
+//        querySimbolos.addDescendingOrder("puntuacion")
+//        querySimbolos.findObjectsInBackground {
+//            (objects: [PFObject]?, error: Error?) -> Void in
+//            
+//            if error == nil {
+//                // The find succeeded.
+//                print("Se han leido \(objects!.count) clasificaciones")
+//                // Do something with the found objects
+//                if let objects = objects {
+//                    for object in objects {
+//                        print(object.objectId!)                        
+//                        let nombreUsuario = (object["nombreUsuario"] as! String?)!
+//                        let puntuacion = (object["puntuacion"] as! Int?)!
+//                        let club = (object["club"] as! String?)!
+//                        
+//                        let query = PFQuery(className: "ImagenPerfil")
+//                        query.whereKey("nombreUsuario", equalTo: object["nombreUsuario"])
+//                        query.getFirstObjectInBackground {
+//                            (objectImagen: PFObject?, error: Error?) -> Void in
+//                            
+//                            if error != nil || objectImagen == nil {
+//                                print("Error al obtener imagen de usuario")
+//                                
+//                            } else {
+//                                print("Guardo imagen de usuario en clasificacionArray")
+//                                let userImageFile = objectImagen?["ficheroImagen"] as! PFFile
+//                                
+//                                userImageFile.getDataInBackground(block: { (imageData, errorImageData) in
+//                                    if errorImageData == nil{
+//                                        if let imageDataDesempaquetado = imageData{
+//                                            
+//                                            //Metemos clasificacion en el array
+//                                            let clasificacionSingle = clasificacionModelo(pPuntuacion: puntuacion, pNombreUsuario: nombreUsuario, pClub: club, pImagenProfile: UIImage(data: imageDataDesempaquetado)!)
+//                                            
+//                                            self.clasificacionArraySingle.append(clasificacionSingle)
+//                                            
+//                                            if(nombreUsuario == currentUser?.username){
+//                                                //guardo la posicion en la que se encuentra mi usuario
+//                                                self.myUserClasifPosition = self.clasificacionArraySingle.count - 1
+//                                            }
+//                                            
+//                                            self.calcularPuntuacionClubes(clasificacionSingle: clasificacionSingle)
+//                                        }
+//                                    }
+//                                })
+//                            }
+//                        }
+//                    }
+//                }
+//            } else {
+//                // Log details of the failure
+//                print("Error: \(error!) \(error!._userInfo)")
+//            }
+//        }
+//    }
+//    
+//    func calcularPuntuacionClubes(clasificacionSingle : clasificacionModelo){
+//        
+//        var clubEncontrado = false
+//        
+//        let clasificacionClubes = clasificacionModelo(pPuntuacion: clasificacionSingle.puntuacion!, pNombreUsuario: "", pClub: clasificacionSingle.club!, pImagenProfile: #imageLiteral(resourceName: "club"))
+//        
+//        if (clasificacionArrayClub.isEmpty){            
+//            clasificacionArrayClub.append(clasificacionClubes)
+//        }else{
+//            for i in 0..<clasificacionArrayClub.count {
+//                let elemento = clasificacionArrayClub[i]
+//                if (elemento.club?.uppercased().contains(clasificacionClubes.club!.uppercased()))!{
+//                    clasificacionArrayClub[i].puntuacion = elemento.puntuacion! + clasificacionClubes.puntuacion!
+//                    
+//                    clubEncontrado = true
+//                    break
+//                }
+//            }
+//            
+//            if (!clubEncontrado){
+//                clasificacionArrayClub.append(clasificacionClubes)
+//            }
+//        }
+//    }
 }

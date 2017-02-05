@@ -30,12 +30,121 @@ class RankingViewController: UIViewController {
         tableView.backgroundColor = menuColo1
         tableView.separatorColor = menuColo1
         view.backgroundColor = menuColo1
+        
+        //obtengo clasificacion de parse
+        obtenerClasificacion()
+        
+        tableView.reloadData()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        let indexPath = IndexPath(row: myUserClasifPosition, section: 0)
-        tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+//    override func viewDidAppear(_ animated: Bool) {
+//        let indexPath = IndexPath(row: myUserClasifPosition, section: 0)
+//        tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+//    }
+    
+    
+    
+    func obtenerClasificacion(){
+        
+        //Usuario actual
+        let currentUser = PFUser.current()
+        
+        //Limpio clasificacion para cargarla de nuevo
+        clasificacionArraySingle.removeAll()
+        clasificacionArrayClub.removeAll()
+        
+        let querySimbolos = PFQuery(className:"Clasificacion")
+        querySimbolos.addDescendingOrder("puntuacion")
+        querySimbolos.findObjectsInBackground {
+            (objects: [PFObject]?, error: Error?) -> Void in
+            
+            if error == nil {
+                // The find succeeded.
+                print("Se han leido \(objects!.count) clasificaciones")
+                // Do something with the found objects
+                if let objects = objects {
+                    for object in objects {
+                        print(object.objectId!)
+                        let nombreUsuario = (object["nombreUsuario"] as! String?)!
+                        let puntuacion = (object["puntuacion"] as! Int?)!
+                        let club = (object["club"] as! String?)!
+                        
+                        let query = PFQuery(className: "ImagenPerfil")
+                        query.whereKey("nombreUsuario", equalTo: object["nombreUsuario"])
+                        query.getFirstObjectInBackground {
+                            (objectImagen: PFObject?, error: Error?) -> Void in
+                            
+                            if error != nil || objectImagen == nil {
+                                print("Error al obtener imagen de usuario")
+                                
+                            } else {
+                                print("Guardo imagen de usuario en clasificacionArray")
+                                let userImageFile = objectImagen?["ficheroImagen"] as! PFFile
+                                
+                                userImageFile.getDataInBackground(block: { (imageData, errorImageData) in
+                                    if errorImageData == nil{
+                                        if let imageDataDesempaquetado = imageData{
+                                            
+                                            //Metemos clasificacion en el array
+                                            let clasificacionSingle = clasificacionModelo(pPuntuacion: puntuacion, pNombreUsuario: nombreUsuario, pClub: club, pImagenProfile: UIImage(data: imageDataDesempaquetado)!)
+                                            
+                                            self.clasificacionArraySingle.append(clasificacionSingle)
+                                            
+                                            if(nombreUsuario == currentUser?.username){
+                                                //guardo la posicion en la que se encuentra mi usuario
+                                                self.myUserClasifPosition = self.clasificacionArraySingle.count - 1
+                                            }
+                                            
+                                            self.calcularPuntuacionClubes(clasificacionSingle: clasificacionSingle)
+                                        }
+                                    }
+                                    self.tableView.reloadData()
+                                })
+                            }
+                            
+                        }
+                        //self.tableView.reloadData()
+                        
+                    }
+                    
+                }
+                
+            } else {
+                // Log details of the failure
+                print("Error: \(error!) \(error!._userInfo)")
+            }
+            //self.tableView.reloadData()
+        }
+        //self.tableView.reloadData()
     }
+    
+    func calcularPuntuacionClubes(clasificacionSingle : clasificacionModelo){
+        
+        var clubEncontrado = false
+        
+        let clasificacionClubes = clasificacionModelo(pPuntuacion: clasificacionSingle.puntuacion!, pNombreUsuario: "", pClub: clasificacionSingle.club!, pImagenProfile: #imageLiteral(resourceName: "club"))
+        
+        if (clasificacionArrayClub.isEmpty){
+            clasificacionArrayClub.append(clasificacionClubes)
+        }else{
+            for i in 0..<clasificacionArrayClub.count {
+                let elemento = clasificacionArrayClub[i]
+                if (elemento.club?.uppercased().contains(clasificacionClubes.club!.uppercased()))!{
+                    clasificacionArrayClub[i].puntuacion = elemento.puntuacion! + clasificacionClubes.puntuacion!
+                    
+                    clubEncontrado = true
+                    break
+                }
+            }
+            
+            if (!clubEncontrado){
+                clasificacionArrayClub.append(clasificacionClubes)
+            }
+        }
+    }
+
+    
+    
 }
 
 extension RankingViewController: UITableViewDataSource {

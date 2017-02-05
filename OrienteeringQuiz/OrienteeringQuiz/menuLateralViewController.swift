@@ -27,7 +27,7 @@ class menuLateralViewController: UIViewController,UITableViewDelegate,UITableVie
         findDataFromParse()
         
         ManuNameArray = ["Desconectar","Aprende Simbolos","Quiz Mapa","Quiz Descripcion","Clasificacion"]
-        iconArray = [UIImage(named:"home")!,UIImage(named:"home")!,UIImage(named:"message")!,UIImage(named:"map")!,UIImage(named:"setting")!]
+        iconArray = [UIImage(named:"home")!,UIImage(named:"home")!,UIImage(named:"home")!,UIImage(named:"home")!,UIImage(named:"home")!]
         
         imgProfile.layer.borderWidth = 2
         imgProfile.layer.borderColor = UIColor.green.cgColor
@@ -54,7 +54,6 @@ class menuLateralViewController: UIViewController,UITableViewDelegate,UITableVie
         }
     }
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ManuNameArray.count
         
@@ -74,16 +73,21 @@ class menuLateralViewController: UIViewController,UITableViewDelegate,UITableVie
         
         let cell:MenuCell = tableView.cellForRow(at: indexPath) as! MenuCell
         print(cell.lblMenuname.text!)
+        //let menuViewController = self.storyboard?.instantiateViewController(withIdentifier: "menuViewController") as! SYBMenuViewController
+        
+        
         if cell.lblMenuname.text! == "Desconectar"
         {
-            
            performSegue(withIdentifier: "Logout", sender: self)
         }
         if cell.lblMenuname.text! == "Aprende Simbolos"
         {
+            //menuViewController.performSegue(withIdentifier: "simbolosAprende", sender: self)
             let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let newViewcontroller = mainstoryboard.instantiateViewController(withIdentifier: "aprendeViewController") as! AprendeSimbolosViewController
+            let newViewcontroller = mainstoryboard.instantiateViewController(withIdentifier: "simbolosAprende") as! AprendeSimbolosViewController
             let newFrontController = UINavigationController.init(rootViewController: newViewcontroller)
+            
+            newViewcontroller.tituloNavigationController = "Aprende Simbolos"
             
             revealviewcontroller.pushFrontViewController(newFrontController, animated: true)
             
@@ -94,23 +98,30 @@ class menuLateralViewController: UIViewController,UITableViewDelegate,UITableVie
             let newViewcontroller = mainstoryboard.instantiateViewController(withIdentifier: "QuizsViewController") as! SYBQuizsViewController
             let newFrontController = UINavigationController.init(rootViewController: newViewcontroller)
             
-            revealviewcontroller.pushFrontViewController(newFrontController, animated: true)
-        }
+            newViewcontroller.tituloNavigationController = "Quiz Mapa"
+            newViewcontroller.numeroImagenes = 12
+            
+            revealviewcontroller.pushFrontViewController(newFrontController, animated: true)        }
         if cell.lblMenuname.text! == "Quiz Descripcion"
         {
             let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let newViewcontroller = mainstoryboard.instantiateViewController(withIdentifier: "QuizsViewController") as! SYBQuizsViewController
             let newFrontController = UINavigationController.init(rootViewController: newViewcontroller)
             
-            revealviewcontroller.pushFrontViewController(newFrontController, animated: true)        }
-        if cell.lblMenuname.text! == "Clasificacion"
-        {
-            let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let newViewcontroller = mainstoryboard.instantiateViewController(withIdentifier: "clasificacionViewController") as! RankingViewController
-            let newFrontController = UINavigationController.init(rootViewController: newViewcontroller)
+            newViewcontroller.tituloNavigationController = "Quiz Descripcion"
+            newViewcontroller.numeroImagenes = 12
             
             revealviewcontroller.pushFrontViewController(newFrontController, animated: true)
         }
+        if cell.lblMenuname.text! == "Clasificacion"
+        {
+            let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let newViewcontroller = mainstoryboard.instantiateViewController(withIdentifier: "clasificacion") as! RankingViewController
+            let newFrontController = UINavigationController.init(rootViewController: newViewcontroller)
+            
+            newViewcontroller.tituloNavigationController = "Clasificacion"
+            
+            revealviewcontroller.pushFrontViewController(newFrontController, animated: true)        }
     }
     func findDataFromParse(){
         //1. primera consulta

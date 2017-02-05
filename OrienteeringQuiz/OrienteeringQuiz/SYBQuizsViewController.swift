@@ -8,10 +8,15 @@
 
 import UIKit
 import Parse
+import PromiseKit
+import PKHUD
 
 
 class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-  //  @available(iOS 6.0, *)
+
+    var simbolosArrayMapa = [simbolosModelo]()
+    var simbolosArrayDescripcion = [simbolosModelo]()
+    var simbolosArrayMix = [simbolosModelo]()
 
 
 
@@ -64,6 +69,7 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
         puntuacionView.backgroundColor = UIColor.white
         puntuacionView.layer.masksToBounds = true
         puntuacionView.layer.cornerRadius = 10
+        puntuacionView.isHidden = true
         
         //myDescriptionLBL.layer.masksToBounds = true
         //myDescriptionLBL.layer.cornerRadius = 10
@@ -76,16 +82,21 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
         //Si es quizMix seteamos variable a true
         if (tituloNavigationController == "Quiz Mix"){
             isQuizMix = true
+            puntuacionView.isHidden = false
             
             //Guardo numeroImagenesInicial
             numeroImagenesInicial = numeroImagenes
         }
         
-        //Creamos un array de numeros aleatorios
-        generarAleatorios()
         
-        //Genero una descripcion para mostrar
-        generarDescripcion()
+        //Descargar simbolos
+        obtenerSimbolos()
+
+    
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.recargarColeccion()
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -98,15 +109,18 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellReusable", for: indexPath as IndexPath) as! SYBCollectionViewCell
         
         //Pinto la imagen correspondiente
-        if let imagenSimbolo = simbolosArrayGuay[randomArray[indexPath.row]].imagen {
-            imagenSimbolo.getDataInBackground(block: {
-                (data: Data?, error: Error?) in
-                if error == nil {
-                    let image = UIImage(data:data!)
-                    cell.myImagenSimbolo.image = image
-                }
-            })
-        }        
+        if(simbolosArrayGuay.count != 0){
+            if let imagenSimbolo = simbolosArrayGuay[randomArray[indexPath.row]].imagen {
+                imagenSimbolo.getDataInBackground(block: {
+                    (data: Data?, error: Error?) in
+                    if error == nil {
+                        let image = UIImage(data:data!)
+                        cell.myImagenSimbolo.image = image
+                    }
+                })
+            }
+        }
+        
         return cell
     }
     
@@ -204,9 +218,11 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
     }
     
     func generarDescripcion(){
-        respuesta = randomArray[RandomInt(min: 0, max: randomArray.count-1)]
-        //Asigno la descripccion al label
-        myDescriptionLBL.text = simbolosArrayGuay[respuesta].descripcionCorta
+        if (randomArray.count != 0){
+            respuesta = randomArray[RandomInt(min: 0, max: randomArray.count-1)]
+            //Asigno la descripccion al label
+            myDescriptionLBL.text = simbolosArrayGuay[respuesta].descripcionCorta
+        }
     }
     
     func delayWithSeconds(_ seconds: Double, completion: @escaping () -> ()) {
@@ -272,5 +288,73 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
             }
         }
     }
+    
+    func obtenerSimbolos(){
+        
+        var result = true
+        
+        //Miro el idioma del sistema, si es diferente de español, lo pongo en ingles
+        var idioma = Locale.current.languageCode
+        if (idioma != "es"){
+            idioma = "en"
+        }
+        
+        let querySimbolos = PFQuery(className:"Simbolos")      
+        
+        querySimbolos.whereKey("idioma", equalTo:idioma)
+        
+        
+        
+        querySimbolos.findObjectsInBackground {
+            (objects: [PFObject]?, error: Error?) -> Void in
+            
+            if error == nil {
+                // The find succeeded.
+                print("Se han leido \(objects!.count) simbolos en idioma \(idioma)")
+                // Do something with the found objects
+                if let objects = objects {
+                    for object in objects {
+                        print(object.objectId!)
+                        
+                        //Obtenemos el simbolo .png
+                        let simbolo = simbolosModelo(pTipo: (object["tipo"] as! String?)!, pImagen: (object["imagen"] as! PFFile?)!, pDescripcionCorta: object["descripcionCorta"] as! String, pDescripcionLarga: object["descripcionLarga"] as! String, pIsExpanded: false)
+                        
+                        if(simbolo.tipo == "mapa"){
+                            self.simbolosArrayMapa.append(simbolo)
+                        }else if(simbolo.tipo == "descripcion"){
+                            self.simbolosArrayDescripcion.append(simbolo)
+                        }
+                        self.simbolosArrayMix.append(simbolo)
+                    }
+                    
+                }
+
+            } else {
+                // Log details of the failure
+                print("Error: \(error!) \(error!._userInfo)")
+            }
+            
+            if(self.tituloNavigationController == "Simbolos Mapa"){
+                self.simbolosArrayGuay = self.simbolosArrayMapa
+            }else if(self.tituloNavigationController == "Simbolos Descripcion"){
+                self.simbolosArrayGuay = self.simbolosArrayDescripcion
+            }else if(self.tituloNavigationController == "Quiz Mix"){
+                self.simbolosArrayGuay = self.simbolosArrayMix
+            }
+            
+            //Recargar coleccion
+            self.recargarColeccion()
+
+        }
+        
+    }
+    //MARK: - ALERTVC
+    func showAlertVCFinal(_ tituloData : String, _ mensajeData : String ){
+        let alertVC = UIAlertController(title: tituloData, message: mensajeData, preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        present(alertVC, animated: true, completion: nil)
+    }
+
+
 }
 

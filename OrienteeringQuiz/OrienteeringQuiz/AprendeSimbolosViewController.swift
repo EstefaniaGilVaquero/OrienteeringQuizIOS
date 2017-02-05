@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class AprendeSimbolosViewController: UIViewController{
 
@@ -37,6 +38,9 @@ class AprendeSimbolosViewController: UIViewController{
         
         //Ponemos titulo al VC
         self.title = tituloNavigationController
+        
+        //Obtener simbolos
+        obtenerSimbolos()
     }
 
 }
@@ -112,6 +116,51 @@ extension AprendeSimbolosViewController: UITableViewDelegate {
         // 5
         //tableView.scrollToRow(at: indexPath, at: .top, animated: true)
     }
+    
+    func obtenerSimbolos(){
+        
+        var result = true
+        
+        //Miro el idioma del sistema, si es diferente de español, lo pongo en ingles
+        var idioma = Locale.current.languageCode
+        if (idioma != "es"){
+            idioma = "en"
+        }
+        
+        let querySimbolos = PFQuery(className:"Simbolos")
+        querySimbolos.whereKey("idioma", equalTo:idioma)
+        querySimbolos.findObjectsInBackground {
+            (objects: [PFObject]?, error: Error?) -> Void in
+            
+            if error == nil {
+                // The find succeeded.
+                print("Se han leido \(objects!.count) simbolos en idioma \(idioma)")
+                // Do something with the found objects
+                if let objects = objects {
+                    for object in objects {
+                        print(object.objectId!)
+                        
+                        //Obtenemos el simbolo .png
+                        let simbolo = simbolosModelo(pTipo: (object["tipo"] as! String?)!, pImagen: (object["imagen"] as! PFFile?)!, pDescripcionCorta: object["descripcionCorta"] as! String, pDescripcionLarga: object["descripcionLarga"] as! String, pIsExpanded: false)
+                        
+                        
+                        self.simbolosArrayGuay.append(simbolo)
+                    }
+                    
+                }
+                
+            } else {
+                // Log details of the failure
+                print("Error: \(error!) \(error!._userInfo)")
+            }
+            
+            //Recargar coleccion
+            self.tableView.reloadData()
+            
+        }
+        
+    }
+
     
 }
 
