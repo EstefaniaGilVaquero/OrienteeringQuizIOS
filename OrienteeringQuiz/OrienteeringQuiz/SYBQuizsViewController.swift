@@ -94,10 +94,6 @@ class SYBQuizsViewController: UIViewController, UICollectionViewDataSource, UICo
 
     
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        self.recargarColeccion()
-    }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //return self.symbolsArray.count
